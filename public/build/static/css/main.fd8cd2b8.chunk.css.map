@@ -1,0 +1,1 @@
+{"version":3,"sources":["global-style.scss"],"names":[],"mappings":"AAIA,UAEI,gBAAgB,CAChB,QAAQ,CACR,iBAAkB","file":"main.fd8cd2b8.chunk.css","sourcesContent":["@import './variables.scss';\r\n@import './mixins.scss';\r\n\r\n// Reset\r\nhtml,\r\nbody {\r\n    padding:0 0 40px;\r\n    margin:0;\r\n    overflow-x: hidden;\r\n}\r\n"]}
