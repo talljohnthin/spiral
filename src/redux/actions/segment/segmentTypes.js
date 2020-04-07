@@ -1,3 +1,0 @@
-export const ADD_SEGMENT = 'ADD_SEGMENT'
-export const GET_ALL_SEGMENT = 'GET_ALL_SEGMENT'
-export const DELETE_SEGMENT = 'DELETE_SEGMENT'
