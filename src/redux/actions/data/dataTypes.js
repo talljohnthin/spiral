@@ -1,0 +1,3 @@
+export const SET_ZIPCODE = "SET_ZIPCODE";
+export const SET_POWERBILL = "SET_POWERBILL";
+export const SET_ZIPCODE_INFO = "SET_ZIPCODE_INFO";
