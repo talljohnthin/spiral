@@ -2,10 +2,12 @@ import {
   SET_ZIPCODE,
   SET_POWERBILL,
   SET_ZIPCODE_INFO,
+  SET_STREET_ADDRESS,
 } from "../actions/data/dataTypes";
 
 const initialState = {
   zip_code: "",
+  street_address: "",
   power_bill: 0,
   address: {},
 };
@@ -26,6 +28,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         address: action.payload,
+      };
+    case SET_STREET_ADDRESS:
+      return {
+        ...state,
+        street_address: action.payload,
       };
     default:
       return state;

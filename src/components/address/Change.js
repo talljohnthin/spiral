@@ -302,10 +302,12 @@ const Change = () => {
 
   const handleVerifyZipCode = async (e) => {
     e.preventDefault();
-    if (IsValidZipCode(zip) && zipcode !== zip) {
+
+    if (IsValidZipCode(zip)) {
       getZipCode(zip);
+      setErrorMessage("");
     } else {
-      console.log("continue");
+      setErrorMessage("Please input a valid zip code.");
     }
   };
 
@@ -334,7 +336,7 @@ const Change = () => {
       if (data.results.length) {
         const formatted_address = data.results[0]?.formatted_address.split(",");
         const short = formatted_address[1].trim().split(" ")[0];
-        let long = stateList.filter((e) => e.abbreviation === short)[0].name;
+        let long = stateList.filter((e) => e.abbreviation === short)[0]?.name;
 
         const addressObj = {
           city: formatted_address[0],
@@ -351,15 +353,21 @@ const Change = () => {
           type: SET_ZIPCODE,
           payload: zip,
         });
-        setIsLoading(false);
-        setErrorMessage("");
+        if (isMounted.current) {
+          setIsLoading(false);
+          setErrorMessage("");
+          setRedirectToNext(true);
+        }
       } else {
-        setErrorMessage("No results Found");
+        if (isMounted.current) {
+          setErrorMessage("No results Found");
+        }
       }
     } catch (error) {
-      console.log(error);
-      setErrorMessage(error.message);
-      setIsLoading(false);
+      if (isMounted.current) {
+        setErrorMessage(error.message);
+        setIsLoading(false);
+      }
     }
   };
 
@@ -368,7 +376,7 @@ const Change = () => {
   }
 
   if (redirectToNext) {
-    return <Redirect to="/powerbill" />;
+    return <Redirect to="/address" />;
   }
 
   return (
