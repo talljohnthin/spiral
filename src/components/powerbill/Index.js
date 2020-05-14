@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
@@ -70,6 +70,7 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [redirectToNext, setRedirectToNext] = useState(false);
+  const zipcode = useSelector((state) => state.data.zip_code);
   const isMounted = useIsMounted();
 
   const dispatch = useDispatch();
@@ -111,6 +112,12 @@ const Index = () => {
       return "Over $800";
     }
   }
+
+  useEffect(() => {
+    if (!zipcode) {
+      setRedirect(true);
+    }
+  }, []);
 
   if (redirect) {
     return <Redirect to="/" />;

@@ -60,6 +60,7 @@ const Address = () => {
         type: SET_STREET_ADDRESS,
         payload: streetAddress,
       });
+      setRedirectToNext(true);
     } else {
       setErrorMessage("Please add your street address.");
     }
@@ -76,7 +77,7 @@ const Address = () => {
   }
 
   if (redirectToNext) {
-    return <Redirect to="/powerbill" />;
+    return <Redirect to="/results" />;
   }
 
   return (
@@ -93,7 +94,6 @@ const Address = () => {
               variant="outlined"
               margin="normal"
               fullWidth
-              type="number"
               id="street_address"
               label="Enter Street Address"
               name="street_address"
