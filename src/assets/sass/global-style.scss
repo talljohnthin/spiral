@@ -109,6 +109,8 @@ body {
     margin: 0;
     font-family: $primary-font;
     color: #a6a6a6;
+    font-size: 16px !important;
+    font-weight: 300;
 
     &::placeholder {
       color: #a6a6a6 !important;
@@ -204,5 +206,25 @@ body {
       color: #6a6a6a;
       font-weight: 300;
     }
+  }
+}
+
+//autocomplete
+.suggestions-container {
+  // border: 1px solid #e6e6e6;
+  border: 2px solid $primary-color;
+  border-radius: 8px;
+  padding: 10px;
+}
+.suggestion {
+  cursor: pointer;
+  color: #a6a6a6;
+  font-size: 16px;
+  font-weight: 300;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  &:hover {
+    color: $primary-color;
   }
 }

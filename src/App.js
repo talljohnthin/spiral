@@ -4,6 +4,7 @@ import Flow from "./components/flow/Index";
 import PowerBill from "./components/powerbill/Index";
 import Address from "./components/address/Address";
 import Change from "./components/address/Change";
+import Search from "./components/autocomplete/Index";
 import Header from "./components/header/Index";
 import Results from "./components/results/Results";
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/powerbill" exact component={PowerBill} />
         <Route path="/address" exact component={Address} />
         <Route path="/address/change" exact component={Change} />
+        <Route path="/address/search" exact component={Search} />
         <Route path="/results" exact component={Results} />
       </Router>
     </Fragment>

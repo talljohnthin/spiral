@@ -132,6 +132,7 @@ const Address = () => {
             <div className="address">
               {address.city}, {address.state?.short}, {zipcode}
               <Link to="/address/change">Change</Link>
+              <Link to="/address/search">AutoComplete</Link>
             </div>
             <Button
               fullWidth
