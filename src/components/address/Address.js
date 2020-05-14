@@ -10,6 +10,7 @@ import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 
 import {
   makeStyles,
+  withStyles,
   Container,
   Grid,
   TextField,
@@ -38,6 +39,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const CustomTextField = withStyles({
+  // root: {
+  //   "& input:valid + fieldset": {
+  //     borderColor: "#48bf91",
+  //     borderWidth: 2,
+  //   },
+  //   "& input:invalid + fieldset": {
+  //     borderColor: "red",
+  //     borderWidth: 2,
+  //   },
+  // },
+})(TextField);
 
 const Address = () => {
   const classes = useStyles();
@@ -90,9 +104,12 @@ const Address = () => {
             For verification only. We do not mail.
           </div>
           <form className={classes.form} noValidate>
-            <TextField
+            <CustomTextField
               variant="outlined"
               margin="normal"
+              InputLabelProps={{
+                shrink: true,
+              }}
               fullWidth
               id="street_address"
               label="Enter Street Address"

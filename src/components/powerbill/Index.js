@@ -16,6 +16,7 @@ import {
   Button,
   Avatar,
 } from "@material-ui/core";
+import ValueLabel from "@material-ui/core/Slider/ValueLabel";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const StyledValueLabel = withStyles({
+  label: {
+    color: "#fff",
+  },
+})(ValueLabel);
 
 const PrettoSlider = withStyles({
   root: {
@@ -135,13 +142,14 @@ const Index = () => {
           <div className="primary-heading power-heading">
             How much is your average electricity bill?
           </div>
-          {cost}
+          <div className="cost">{cost}</div>
           <PrettoSlider
-            //valueLabelDisplay="auto"
             aria-label="pretto slider"
             defaultValue={180}
             step={1}
             max={800}
+            valueLabelDisplay="on"
+            ValueLabelComponent={StyledValueLabel}
             onChange={(event, value) => handleSliderChange(value)}
           />
 

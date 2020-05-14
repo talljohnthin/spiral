@@ -67,11 +67,21 @@ const Results = () => {
         <div className={classes.paper}>
           <div className="primary-heading">Generated Info</div>
           <div>
-            <div className="street">Street Address: {street_address}</div>
-            <div className="city">City: {address.city}</div>
-            <div className="state">State: {address.state?.short}</div>
-            <div className="zip">Zip Code: {zipcode}</div>
-            <div className="cost">Monthly Cost: {power_bill}</div>
+            <div className="street">
+              Street Address: <span>{street_address}</span>
+            </div>
+            <div className="city">
+              City: <span>{address.city}</span>
+            </div>
+            <div className="state">
+              State: <span>{address.state?.short}</span>
+            </div>
+            <div className="zip">
+              Zip Code: <span>{zipcode}</span>
+            </div>
+            <div className="cost">
+              Monthly Cost: <span>{power_bill}</span>
+            </div>
           </div>
         </div>
       </Container>

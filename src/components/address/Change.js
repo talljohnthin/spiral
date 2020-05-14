@@ -13,6 +13,7 @@ import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 
 import {
   makeStyles,
+  withStyles,
   Container,
   FormControl,
   TextField,
@@ -43,6 +44,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const CustomTextField = withStyles({
+  // root: {
+  //   "& input:valid + fieldset": {
+  //     borderColor: "#48bf91",
+  //     borderWidth: 2,
+  //   },
+  //   "& input:invalid + fieldset": {
+  //     borderColor: "red",
+  //     borderWidth: 2,
+  //   },
+  // },
+})(TextField);
 
 const Change = () => {
   const classes = useStyles();
@@ -389,7 +403,7 @@ const Change = () => {
             For verification only. We do not mail.
           </div>
           <form className={classes.form} noValidate>
-            <TextField
+            <CustomTextField
               variant="outlined"
               margin="normal"
               fullWidth
@@ -401,6 +415,9 @@ const Change = () => {
               onChange={(e) => setCity(e.target.value)}
               autoFocus
               className="text-input"
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
             <FormControl variant="outlined" style={{ width: "100%" }}>
               <InputLabel id="demo-simple-select-outlined-label">
@@ -411,8 +428,10 @@ const Change = () => {
                 id="demo-simple-select-outlined"
                 value={state}
                 fullWidth
+                //style={{ border: "2px solid #48bf91", color: "#6a6a6a" }}
                 onChange={(e) => {
                   setState(e.target.value);
+
                   console.log(e.target.value);
                 }}
                 label="State"
@@ -426,7 +445,7 @@ const Change = () => {
                 })}
               </Select>
             </FormControl>
-            <TextField
+            <CustomTextField
               variant="outlined"
               margin="normal"
               fullWidth
@@ -439,6 +458,9 @@ const Change = () => {
               onChange={(e) => setZip(e.target.value)}
               autoFocus
               className="text-input"
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
             {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
             <Button

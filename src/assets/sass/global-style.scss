@@ -10,7 +10,27 @@ body {
   margin: 0;
   overflow-x: hidden;
   font-family: $primary-font;
-  background: #fff !important;
+  height: 100vh;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+62,48bf91+100&0+1,0.39+100 */
+  background: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 1%,
+    rgba(255, 255, 255, 0.24) 62%,
+    rgba(72, 191, 145, 0.39) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0) 1%,
+    rgba(255, 255, 255, 0.24) 62%,
+    rgba(72, 191, 145, 0.39) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 1%,
+    rgba(255, 255, 255, 0.24) 62%,
+    rgba(72, 191, 145, 0.39) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#6348bf91',GradientType=0 ); /* IE6-9 */
 }
 
 // header
@@ -23,15 +43,18 @@ body {
   transition: all ease-out 0.25s;
   display: flex;
   justify-content: space-between;
-  height: 82px;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.02), 0 20px 30px rgba(0, 0, 0, 0.02) !important;
+  height: 88px;
+  border: 1px solid #eee;
+  //box-shadow: 0 5px 30px rgba(0, 0, 0, 0.02), 0 20px 30px rgba(0, 0, 0, 0.02) !important;
 
   .MuiToolbar-root {
-    min-height: 82px !important;
+    min-height: 88px !important;
   }
 
   .logo {
-    color: #333;
+    color: $primary-color;
+    font-weight: 900;
+    font-size: 26px;
   }
 
   &__btn {
@@ -40,6 +63,12 @@ body {
     color: #fff;
     text-decoration: none;
     border-radius: 50px;
+    font-weight: 300;
+    transition: 0.3s;
+    &:hover {
+      box-shadow: none;
+      background: $secondary-color;
+    }
   }
 }
 
@@ -51,23 +80,39 @@ body {
     font-size: calc(30px + 10 * ((100vw - 500px) / 1100));
     margin-bottom: 10px;
     text-align: center;
+    max-width: 600px;
+    line-height: 40px;
   }
   .primary-sub-heading {
     line-height: 1.4em;
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 300;
     text-align: center;
     -webkit-font-smoothing: antialiased;
+    color: #a6a6a6;
   }
 
   form {
-    max-width: 300px;
+    max-width: 350px;
   }
 
-  input {
+  .MuiOutlinedInput-root,
+  .MuiSelect-outlined.MuiSelect-outlined {
+    border-radius: 50px;
+    color: #a6a6a6;
+  }
+
+  input,
+  select {
     -webkit-appearance: none;
     margin: 0;
+    font-family: $primary-font;
+    color: #a6a6a6;
+
+    &::placeholder {
+      color: #a6a6a6 !important;
+    }
   }
 
   .primary-btn {
@@ -76,15 +121,29 @@ body {
     box-shadow: none;
     padding: 12px 0;
     max-width: 200px;
-    margin: 5px auto 0;
+    margin: 20px auto 0;
     display: block;
     float: none;
     font-family: $primary-font;
-    font-weight: 300;
+    color: #fff;
+    text-transform: capitalize;
     font-size: 17px;
+    font-weight: 300;
+
     &:hover {
       box-shadow: none;
       background: $secondary-color;
+    }
+  }
+
+  .address {
+    color: #6a6a6a;
+    font-size: 15px;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $primary-color;
+      margin-left: 8px;
     }
   }
 }
@@ -95,8 +154,9 @@ body {
     color: $primary-color;
     font-weight: 900;
     font-size: calc(30px + 10 * ((100vw - 500px) / 1100));
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: center;
+    line-height: 45px;
   }
 
   .primary-btn {
@@ -111,9 +171,38 @@ body {
     font-family: $primary-font;
     font-weight: 300;
     font-size: 17px;
+    text-transform: capitalize;
+    color: #fff;
     &:hover {
       box-shadow: none;
       background: $secondary-color;
+    }
+  }
+
+  .cost {
+    font-size: 26px;
+    margin-bottom: 45px;
+    color: #6a6a6a;
+  }
+}
+
+.section-result {
+  .primary-heading {
+    color: $primary-color;
+    font-weight: 900;
+    font-size: calc(30px + 10 * ((100vw - 500px) / 1100));
+    margin-bottom: 10px;
+    text-align: center;
+    max-width: 600px;
+    line-height: 40px;
+  }
+  div {
+    font-size: 18px;
+    color: $primary-color;
+
+    span {
+      color: #6a6a6a;
+      font-weight: 300;
     }
   }
 }

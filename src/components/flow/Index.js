@@ -15,6 +15,7 @@ import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 
 import {
   makeStyles,
+  withStyles,
   Container,
   Grid,
   TextField,
@@ -43,6 +44,19 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const CustomTextField = withStyles({
+  // root: {
+  //   "& input:valid + fieldset": {
+  //     borderColor: "#48bf91",
+  //     borderWidth: 2,
+  //   },
+  //   "& input:invalid + fieldset": {
+  //     borderColor: "red",
+  //     borderWidth: 2,
+  //   },
+  // },
+})(TextField);
 
 const Index = () => {
   const classes = useStyles();
@@ -368,7 +382,11 @@ const Index = () => {
             Enter basic information to see if your home is eligible!
           </div>
           <form className={classes.form} noValidate>
-            <TextField
+            <CustomTextField
+              id="outlined-number"
+              InputLabelProps={{
+                shrink: true,
+              }}
               variant="outlined"
               margin="normal"
               fullWidth
