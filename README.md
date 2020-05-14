@@ -1,9 +1,6 @@
-## Simple Login System
-1. Can Login
-2. Can Register
-3. Can Logout
+## Funnel
 
-React Js, Material Ui and Firebase
+React Js, Material Ui 
 
 
 
