@@ -536,7 +536,7 @@ const Address = () => {
             )}
 
             <div className="address">
-              {reducerStreetAddress ? `${reducerStreetAddress},` : null}{" "}
+              {/* {reducerStreetAddress ? `${reducerStreetAddress},` : null}{" "} */}
               {reducerCity}, {reducerState?.short}, {reducerZipCode}
               {!editMode && (
                 <div
@@ -546,12 +546,6 @@ const Address = () => {
                 >
                   Change
                 </div>
-              )}
-              {console.log(
-                `zip: ${zip}, 
-                city: ${city},
-                state: ${state}
-              `
               )}
             </div>
             <div style={editMode ? { display: "block" } : { display: "none" }}>
