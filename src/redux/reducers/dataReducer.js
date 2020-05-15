@@ -8,8 +8,9 @@ import {
 const initialState = {
   zip_code: "",
   street_address: "",
+  city: "",
+  state: {},
   power_bill: 0,
-  address: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,7 +28,8 @@ const reducer = (state = initialState, action) => {
     case SET_ZIPCODE_INFO:
       return {
         ...state,
-        address: action.payload,
+        city: action.payload.city,
+        state: action.payload.state,
       };
     case SET_STREET_ADDRESS:
       return {

@@ -1,18 +1,18 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import useIsMounted from "ismounted";
 import {
   SET_STREET_ADDRESS,
   SET_ZIPCODE_INFO,
+  SET_ZIPCODE,
 } from "./../../redux/actions/data/dataTypes";
 import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { geocodeByAddress, getLatLng } from "react-google-places-autocomplete";
 import { RoomRounded } from "@material-ui/icons";
+import Change from "./Change";
 
 import {
   makeStyles,
@@ -62,16 +62,24 @@ const CustomTextField = withStyles({
 const Address = () => {
   const classes = useStyles();
   const [selectedAddress, setSelectedAddress] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  const [longLat, setLongLat] = useState({});
   const [redirectToNext, setRedirectToNext] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   const isMounted = useIsMounted();
-  const zipcode = useSelector((state) => state.data.zip_code);
-  const address = useSelector((state) => state.data.address);
+  const reducerZipCode = useSelector((state) => state.data.zip_code);
+  const reducerStreetAddress = useSelector(
+    (state) => state.data.street_address
+  );
+  const reducerCity = useSelector((state) => state.data.city);
+  const reducerState = useSelector((state) => state.data.state);
   const dispatch = useDispatch();
 
   const stateList = [
@@ -313,61 +321,184 @@ const Address = () => {
     },
   ];
 
-  // const handleAddStreetAddress = async (e) => {
-  //   e.preventDefault();
-  //   if (streetAddress) {
-  //     dispatch({
-  //       type: SET_STREET_ADDRESS,
-  //       //payload: streetAddress,
-  //     });
-  //     setRedirectToNext(true);
-  //   } else {
-  //     setErrorMessage("Please add your street address.");
-  //   }
-  // };
-
   useEffect(() => {
-    if (!zipcode) {
+    if (!reducerZipCode) {
       setRedirect(true);
     }
   }, []);
 
-  const getCoordinates = async (address) => {
+  const getGeoCode = async (address) => {
     try {
       const results = await geocodeByAddress(address);
-      const latLongObj = await getLatLng(results[0]);
+      const address_components = results[0]?.address_components;
+      const check = checkIsValidStreetNumber(
+        address_components,
+        reducerZipCode
+      );
+      console.log(address_components);
+      const formatted_address = results[0]?.formatted_address.split(",");
+      const short = formatted_address[2].trim().split(" ")[0];
+      let long = stateList.filter((e) => e.abbreviation === short)[0]?.name;
+
       if (isMounted.current) {
-        console.log(latLongObj);
-        setLongLat(latLongObj);
+        if (check.valid && check.samePostalCode) {
+          setCity(formatted_address[0]);
+          setStreet(check.streetAddress);
+          setState(reducerState.long);
+          const addressObj = {
+            city: formatted_address[1],
+            state: {
+              long: reducerState.long,
+              short: reducerState.short,
+            },
+          };
+          dispatch({
+            type: SET_ZIPCODE_INFO,
+            payload: addressObj,
+          });
+          dispatch({
+            type: SET_STREET_ADDRESS,
+            payload: check.streetAddress,
+          });
+        } else if (check.valid && !check.samePostalCode) {
+          setCity(formatted_address[1]);
+          setStreet(check.streetAddress);
+          setZip(check.postalCode);
+          setState(long);
+          const addressObj = {
+            city: formatted_address[1],
+            state: {
+              long,
+              short,
+            },
+          };
+          dispatch({
+            type: SET_ZIPCODE_INFO,
+            payload: addressObj,
+          });
+          dispatch({
+            type: SET_STREET_ADDRESS,
+            payload: check.streetAddress,
+          });
+          dispatch({
+            type: SET_ZIPCODE,
+            payload: check.postalCode,
+          });
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const getGeoCode = async (address) => {
-    try {
-      const results = await geocodeByAddress(address);
-      if (isMounted.current) {
-        const formatted_address = results[0]?.formatted_address.split(",");
-        const short = formatted_address[1].trim().split(" ")[0];
-        let long = stateList.filter((e) => e.abbreviation === short)[0]?.name;
+  const checkIsValidStreetNumber = (arr, zipcode) => {
+    let route = arr.filter((e) => e.types[0] === "route");
+    let street_number = arr.filter((e) => e.types[0] === "street_number");
+    let postal_code = arr.filter((e) => e.types[0] === "postal_code");
 
-        const addressObj = {
-          city: formatted_address[0],
-          state: {
-            long,
-            short,
-          },
-        };
-        dispatch({
-          type: SET_ZIPCODE_INFO,
-          payload: addressObj,
-        });
-      }
-    } catch (error) {
-      console.log(error);
+    let samePostalCode = false;
+
+    if (postal_code[0]?.short_name === zipcode) {
+      samePostalCode = true;
+    } else {
+      samePostalCode = false;
     }
+
+    if (route.length || (street_number.length && postal_code.length)) {
+      return {
+        valid: true,
+        samePostalCode,
+        streetAddress: `${
+          street_number[0]?.long_name ? street_number[0]?.long_name : null
+        } ${route[0]?.long_name}`,
+        postalCode: postal_code[0]?.short_name,
+      };
+    } else {
+      return {
+        valid: false,
+      };
+    }
+  };
+
+  const updateZip = (zip) => {
+    setZip(zip);
+  };
+
+  const updateCity = (city) => {
+    setCity(city);
+  };
+
+  const updateState = (state) => {
+    setState(state);
+  };
+
+  const streetAutofill = () => {
+    return (
+      <GooglePlacesAutocomplete
+        renderInput={(props) => (
+          <div className="custom-wrapper">
+            <CustomTextField
+              id="outlined-number"
+              style={{ marginTop: 25 }}
+              InputLabelProps={{
+                shrink: true,
+              }}
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              type="number"
+              id="address"
+              label="Street Address"
+              name="address"
+              autoComplete="address"
+              autoFocus
+              className="text-input"
+              {...props}
+            />
+          </div>
+        )}
+        renderSuggestions={(active, suggestions, onSelectSuggestion) => (
+          <div className="suggestions-container">
+            {suggestions.map((suggestion, index) => (
+              <div
+                key={index}
+                className="suggestion"
+                style={suggestion.active ? { color: "red" } : null}
+                onClick={(event) => onSelectSuggestion(suggestion, event)}
+              >
+                <RoomRounded />
+                {suggestion.description}
+              </div>
+            ))}
+          </div>
+        )}
+        onSelect={({ description }) => {
+          setSelectedAddress(description);
+          getGeoCode(description);
+        }}
+      />
+    );
+  };
+
+  const streetNotAutofill = () => {
+    return (
+      <CustomTextField
+        variant="outlined"
+        margin="normal"
+        fullWidth
+        id="street"
+        label="Street Number"
+        name="streetNumber"
+        autoComplete="Street Number"
+        value={street}
+        onChange={(e) => setStreet(e.target.value)}
+        autoFocus
+        className="text-input"
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
+    );
   };
 
   if (redirect) {
@@ -388,50 +519,7 @@ const Address = () => {
             For verification only. We do not mail.
           </div>
           <form className={classes.form} noValidate>
-            <GooglePlacesAutocomplete
-              renderInput={(props) => (
-                <div className="custom-wrapper">
-                  <CustomTextField
-                    id="outlined-number"
-                    style={{ marginTop: 25 }}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    variant="outlined"
-                    margin="normal"
-                    fullWidth
-                    type="number"
-                    id="address"
-                    label="Find Address"
-                    name="address"
-                    autoComplete="address"
-                    autoFocus
-                    className="text-input"
-                    {...props}
-                  />
-                </div>
-              )}
-              renderSuggestions={(active, suggestions, onSelectSuggestion) => (
-                <div className="suggestions-container">
-                  {suggestions.map((suggestion, index) => (
-                    <div
-                      key={index}
-                      className="suggestion"
-                      style={suggestion.active ? { color: "red" } : null}
-                      onClick={(event) => onSelectSuggestion(suggestion, event)}
-                    >
-                      <RoomRounded />
-                      {suggestion.description}
-                    </div>
-                  ))}
-                </div>
-              )}
-              onSelect={({ description }) => {
-                setSelectedAddress(description);
-                //getCoordinates(description);
-                getGeoCode(description);
-              }}
-            />
+            {editMode ? streetNotAutofill() : streetAutofill()}
 
             {successMessage && (
               <Alert severity="success">{successMessage}</Alert>
@@ -441,8 +529,35 @@ const Address = () => {
             ) : (
               errorMessage && <Alert severity="error">{errorMessage}</Alert>
             )}
+
             <div className="address">
-              {address.city}, {address.state?.short}
+              {reducerStreetAddress ? `${reducerStreetAddress},` : null}{" "}
+              {reducerCity}, {reducerState?.short}, {reducerZipCode}
+              {!editMode && (
+                <div
+                  style={{ color: "#48bf91", cursor: "pointer" }}
+                  className="edit"
+                  onClick={() => setEditMode(true)}
+                >
+                  Change
+                </div>
+              )}
+              {console.log(
+                `zip: ${zip}, 
+                city: ${city},
+                state: ${state}
+              `
+              )}
+            </div>
+            <div style={editMode ? { display: "block" } : { display: "none" }}>
+              <Change
+                city={city}
+                zip={zip}
+                state={state}
+                handleSetZip={updateZip}
+                handleSetCity={updateCity}
+                handleSetState={updateState}
+              />
             </div>
             <Button
               fullWidth
