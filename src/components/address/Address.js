@@ -322,6 +322,11 @@ const Address = () => {
   ];
 
   useEffect(() => {
+    if (isMounted.current) {
+      setCity(reducerCity);
+      setZip(reducerZipCode);
+      setState(reducerState.long);
+    }
     if (!reducerZipCode) {
       setRedirect(true);
     }
