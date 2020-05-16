@@ -340,7 +340,6 @@ const Address = () => {
         address_components,
         reducerZipCode
       );
-      console.log(address_components);
       const formatted_address = results[0]?.formatted_address.split(",");
       const short = formatted_address[2].trim().split(" ")[0];
       let long = stateList.filter((e) => e.abbreviation === short)[0]?.name;
@@ -350,6 +349,7 @@ const Address = () => {
           setCity(formatted_address[0]);
           setStreet(check.streetAddress);
           setState(reducerState.long);
+          setSelectedAddress(check.streetAddress);
           const addressObj = {
             city: formatted_address[1],
             state: {
@@ -370,6 +370,7 @@ const Address = () => {
           setStreet(check.streetAddress);
           setZip(check.postalCode);
           setState(long);
+          setSelectedAddress(check.streetAddress);
           const addressObj = {
             city: formatted_address[1],
             state: {
@@ -414,7 +415,7 @@ const Address = () => {
         valid: true,
         samePostalCode,
         streetAddress: `${
-          street_number[0]?.long_name ? street_number[0]?.long_name : null
+          street_number[0]?.long_name ? street_number[0]?.long_name : ""
         } ${route[0]?.long_name}`,
         postalCode: postal_code[0]?.short_name,
       };
@@ -438,6 +439,11 @@ const Address = () => {
   };
 
   const streetAutofill = () => {
+    const inputProps = {
+      value: selectedAddress,
+      placeholder: "Street Address",
+      onChange: (e) => setSelectedAddress(e.target.value),
+    };
     return (
       <GooglePlacesAutocomplete
         renderInput={(props) => (
@@ -458,6 +464,7 @@ const Address = () => {
               autoComplete="address"
               autoFocus
               className="text-input"
+              inputProps={inputProps}
               {...props}
             />
           </div>
@@ -478,7 +485,6 @@ const Address = () => {
           </div>
         )}
         onSelect={({ description }) => {
-          setSelectedAddress(description);
           getGeoCode(description);
         }}
       />
