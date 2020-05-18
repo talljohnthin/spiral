@@ -17,7 +17,6 @@ import {
   InputLabel,
   MenuItem,
 } from "@material-ui/core";
-import ValueLabel from "@material-ui/core/Slider/ValueLabel";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -31,6 +30,18 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+  },
+  select: {
+    color: "#a6a6a6",
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "green",
+    },
+    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "red",
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: "purple",
+    },
   },
 }));
 
@@ -132,7 +143,10 @@ const Index = () => {
             variant="outlined"
             style={{ width: "100%", maxWidth: 400, margin: "20px auto" }}
           >
-            <InputLabel id="demo-simple-select-outlined-label">
+            <InputLabel
+              id="demo-simple-select-outlined-label"
+              style={{ color: "#a6a6a6" }}
+            >
               More Options
             </InputLabel>
             <Select
@@ -142,11 +156,12 @@ const Index = () => {
               fullWidth
               onChange={(e) => {}}
               label="More Options"
+              className={classes.select}
             >
               {listOfProvidersWithRadius.length
                 ? listOfProvidersWithRadius.map((e, i) => {
                     return (
-                      <MenuItem key={i} value={e}>
+                      <MenuItem key={i} value={e} style={{ color: "#a6a6a6" }}>
                         {e}
                       </MenuItem>
                     );

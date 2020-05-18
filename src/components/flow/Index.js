@@ -392,7 +392,7 @@ const Index = () => {
             <CustomTextField
               id="outlined-number"
               InputLabelProps={{
-                shrink: true,
+                color: "#a6a6a6",
               }}
               variant="outlined"
               margin="normal"
@@ -406,15 +406,9 @@ const Index = () => {
               onChange={(e) => setZip(e.target.value)}
               autoFocus
               className="text-input"
+              error={errorMessage ? true : false}
+              helperText={errorMessage}
             />
-            {successMessage && (
-              <Alert severity="success">{successMessage}</Alert>
-            )}
-            {isLoading ? (
-              <Alert severity="warning">Please wait...</Alert>
-            ) : (
-              errorMessage && <Alert severity="error">{errorMessage}</Alert>
-            )}
             <Button
               fullWidth
               variant="contained"

@@ -36,13 +36,13 @@ const StyledValueLabel = withStyles({
 
 const PrettoSlider = withStyles({
   root: {
-    color: "#52af77",
+    color: "#2196f3",
     height: 8,
   },
   thumb: {
     height: 24,
     width: 24,
-    backgroundColor: "#52af77",
+    backgroundColor: "#2196f3",
     border: "2px solid currentColor",
     marginTop: -8,
     marginLeft: -12,
