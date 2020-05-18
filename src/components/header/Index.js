@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { AppBar, Toolbar, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import Progress from "./Progress";
+import SecureFormText from "./SecureFormText";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -31,6 +32,24 @@ const styles = (theme) => ({
 function Index(props) {
   const { classes, onDrawerToggle, logout } = props;
 
+  const [dimensions, setDimensions] = React.useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   const handleLogout = (e) => {
     e.preventDefault();
     logout();
@@ -39,7 +58,7 @@ function Index(props) {
   return (
     <React.Fragment>
       <AppBar className="AppBar" position="sticky" elevation={0}>
-        <Toolbar>
+        <Toolbar className="toolbar">
           <Grid container spacing={1} alignItems="center">
             <Grid item className="logo">
               Logo
@@ -47,10 +66,15 @@ function Index(props) {
             <Grid item xs />
 
             <Grid item>
-              <Progress />
+              {dimensions.width > 767 ? <Progress /> : <SecureFormText />}
             </Grid>
           </Grid>
         </Toolbar>
+        {dimensions.width < 767 ? (
+          <div style={{ padding: "0 20px", marginTop: 30 }}>
+            <Progress />{" "}
+          </div>
+        ) : null}
       </AppBar>
     </React.Fragment>
   );

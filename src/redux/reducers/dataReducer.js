@@ -3,6 +3,7 @@ import {
   SET_POWERBILL,
   SET_ZIPCODE_INFO,
   SET_STREET_ADDRESS,
+  SET_IS_HOME_OWNER,
 } from "../actions/data/dataTypes";
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   city: "",
   state: {},
   power_bill: 0,
+  do_you_own_your_home: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,6 +37,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         street_address: action.payload,
+      };
+    case SET_IS_HOME_OWNER:
+      return {
+        ...state,
+        do_you_own_your_home: action.payload,
       };
     default:
       return state;

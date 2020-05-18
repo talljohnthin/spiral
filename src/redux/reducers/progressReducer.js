@@ -2,6 +2,7 @@ import { SET_PROGRESS } from "../actions/progress/progressTypes";
 
 const initialState = {
   progressPercent: 0,
+  totalPage: 5,
 };
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +10,7 @@ const reducer = (state = initialState, action) => {
     case SET_PROGRESS:
       return {
         ...state,
-        progressPercent: action.payload,
+        progressPercent: (action.payload / state.totalPage) * 100,
       };
     default:
       return state;

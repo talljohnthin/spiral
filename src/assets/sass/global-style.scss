@@ -37,7 +37,7 @@ body {
 .AppBar {
   position: fixed;
   overflow: visible;
-  background: #fff !important;
+  background: transparent !important;
   z-index: 9999;
   width: 100%;
   transition: all ease-out 0.25s;
@@ -46,6 +46,14 @@ body {
   height: 88px;
   border: 1px solid #eee;
   //box-shadow: 0 5px 30px rgba(0, 0, 0, 0.02), 0 20px 30px rgba(0, 0, 0, 0.02) !important;
+  @media (max-width: 767px) {
+    height: auto;
+    border: 0;
+
+    .toolbar {
+      border: 1px solid #eee;
+    }
+  }
 
   .MuiToolbar-root {
     min-height: 88px !important;
@@ -55,6 +63,19 @@ body {
     color: $primary-color;
     font-weight: 900;
     font-size: 26px;
+  }
+
+  .header-progress {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  .secureText {
+    display: none;
+    @media (max-width: 767px) {
+      display: block;
+    }
   }
 }
 
@@ -85,7 +106,6 @@ body {
 
   .MuiOutlinedInput-root,
   .MuiSelect-outlined.MuiSelect-outlined {
-    border-radius: 50px;
     color: #a6a6a6;
   }
 
@@ -105,17 +125,16 @@ body {
 
   .primary-btn {
     background: $primary-color;
-    border-radius: 50px;
     box-shadow: none;
     padding: 12px 0;
     max-width: 200px;
-    margin: 20px auto 0;
+    margin: 10px auto 0;
     display: block;
     float: none;
     font-family: $primary-font;
     color: #fff;
     text-transform: capitalize;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 300;
 
     &:hover {
@@ -144,12 +163,26 @@ body {
     font-size: calc(30px + 10 * ((100vw - 500px) / 1100));
     margin-bottom: 30px;
     text-align: center;
-    line-height: 45px;
+    line-height: 20px;
+  }
+
+  .cost {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: #6a6a6a;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .text {
+    color: #a6a6a6;
+    font-weight: 300;
+    font-size: 17px;
+    margin: 10px 0 10px;
   }
 
   .primary-btn {
     background: $primary-color;
-    border-radius: 50px;
     box-shadow: none;
     padding: 12px 0;
     max-width: 200px;
@@ -158,19 +191,13 @@ body {
     float: none;
     font-family: $primary-font;
     font-weight: 300;
-    font-size: 17px;
+    font-size: 15px;
     text-transform: capitalize;
     color: #fff;
     &:hover {
       box-shadow: none;
       background: $secondary-color;
     }
-  }
-
-  .cost {
-    font-size: 26px;
-    margin-bottom: 45px;
-    color: #6a6a6a;
   }
 }
 
@@ -202,6 +229,7 @@ body {
   border-radius: 8px;
   padding: 10px;
 }
+
 .suggestion {
   cursor: pointer;
   color: #a6a6a6;
@@ -212,5 +240,107 @@ body {
   margin-bottom: 4px;
   &:hover {
     color: $primary-color;
+  }
+}
+
+//home owners
+.section-home-owners {
+  .primary-heading {
+    margin-bottom: 40px;
+  }
+
+  .home-owners-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .box--wrapper {
+    display: flex;
+    @media (max-width: 767px) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+  .box {
+    width: 190px;
+    height: 190px;
+    margin: 0 5px;
+    border: 2px solid #c4c4c4;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      margin: 5px 0;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border: 1px solid #c4c4c4;
+      & > span {
+        display: flex;
+      }
+    }
+
+    @media (min-width: 768px) {
+      &:hover {
+        transform: translate(0px, -5%);
+        box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 0px;
+        border-color: #000;
+      }
+    }
+
+    .text {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: 1px;
+      color: #3b3b3b;
+      font-weight: 300;
+      @media (max-width: 767px) {
+        margin-left: 5px;
+      }
+    }
+    .icon {
+      font-size: 90px;
+    }
+  }
+}
+
+//providers
+.section-providers {
+  .list {
+    width: 400px;
+    margin: 0 auto;
+  }
+  li.list-button {
+    list-style-type: none;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+
+    span {
+      color: #a6a6a6;
+      font-size: 17px;
+      font-weight: 300;
+      padding-left: 6px;
+    }
+
+    &:hover {
+      border-color: $primary-color;
+    }
   }
 }

@@ -326,7 +326,7 @@ const Index = () => {
   useEffect(() => {
     dispatch({
       type: SET_PROGRESS,
-      payload: 20,
+      payload: 1,
     });
   }, []);
 
@@ -388,7 +388,7 @@ const Index = () => {
           <div className="primary-sub-heading">
             Enter basic information to see if your home is eligible!
           </div>
-          <form className={classes.form} noValidate>
+          <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
             <CustomTextField
               id="outlined-number"
               InputLabelProps={{

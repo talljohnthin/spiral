@@ -8,14 +8,9 @@ import useIsMounted from "ismounted";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import { SET_POWERBILL } from "./../../redux/actions/data/dataTypes";
+import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 
-import {
-  makeStyles,
-  Container,
-  CssBaseline,
-  Button,
-  Avatar,
-} from "@material-ui/core";
+import { makeStyles, Container, CssBaseline, Button } from "@material-ui/core";
 import ValueLabel from "@material-ui/core/Slider/ValueLabel";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,7 +42,7 @@ const PrettoSlider = withStyles({
   thumb: {
     height: 24,
     width: 24,
-    backgroundColor: "#fff",
+    backgroundColor: "#52af77",
     border: "2px solid currentColor",
     marginTop: -8,
     marginLeft: -12,
@@ -71,7 +66,7 @@ const PrettoSlider = withStyles({
 
 const Index = () => {
   const classes = useStyles();
-  const [cost, setCost] = useState("$151 - $200");
+  const [cost, setCost] = useState("$301 - $400");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -97,7 +92,7 @@ const Index = () => {
   function getMonthlyCost(bill) {
     if (bill < 100) {
       return "Under $100";
-    } else if (bill > 100 && bill < 150) {
+    } else if (bill >= 100 && bill < 150) {
       return "$101 - $150";
     } else if (bill >= 150 && bill < 200) {
       return "$151 - $200";
@@ -124,6 +119,10 @@ const Index = () => {
     if (!zipcode) {
       setRedirect(true);
     }
+    dispatch({
+      type: SET_PROGRESS,
+      payload: 2,
+    });
   }, []);
 
   if (redirect) {
@@ -131,7 +130,7 @@ const Index = () => {
   }
 
   if (redirectToNext) {
-    return <Redirect to="/address" />;
+    return <Redirect to="/homeowner" />;
   }
 
   return (
@@ -140,19 +139,22 @@ const Index = () => {
         <CssBaseline />
         <div className={classes.paper}>
           <div className="primary-heading power-heading">
-            How much is your average electricity bill?
+            Current Monthly Power Bill
           </div>
           <div className="cost">{cost}</div>
           <PrettoSlider
             aria-label="pretto slider"
-            defaultValue={180}
-            step={1}
+            defaultValue={300}
+            step={100}
             max={800}
-            valueLabelDisplay="on"
+            valueLabelDisplay="off"
             ValueLabelComponent={StyledValueLabel}
+            thumb="red"
             onChange={(event, value) => handleSliderChange(value)}
           />
-
+          <div className="text">
+            Drag the slider above to indicate your average power bill
+          </div>
           <Button
             fullWidth
             variant="contained"

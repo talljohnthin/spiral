@@ -7,11 +7,9 @@ const Progress = () => {
   return (
     <LinearProgress
       variant="determinate"
-      colorPrimary="blue"
-      colorSecondary="red"
       style={{
         height: 13,
-        backgroundColor: "transparent",
+        backgroundColor: "#efefef",
         border: "1px solid #eee",
         minWidth: 120,
       }}
