@@ -1,9 +1,8 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch } from "react-redux";
-import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
+import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import useIsMounted from "ismounted";
 
 import {
@@ -17,7 +16,6 @@ import {
   makeStyles,
   withStyles,
   Container,
-  Grid,
   TextField,
   CssBaseline,
   Button,
@@ -325,6 +323,13 @@ const Index = () => {
     return isValid;
   }
 
+  useEffect(() => {
+    dispatch({
+      type: SET_PROGRESS,
+      payload: 20,
+    });
+  }, []);
+
   const getZipCode = async (zip) => {
     try {
       const response = await fetch(
@@ -376,7 +381,9 @@ const Index = () => {
         <CssBaseline />
         <div className={classes.paper}>
           <div className="primary-heading">
-            You may be eligible for a new US solar program.
+            Save On Your Monthly Electric Bill
+            <br />
+            With Affordable Solar Energy
           </div>
           <div className="primary-sub-heading">
             Enter basic information to see if your home is eligible!

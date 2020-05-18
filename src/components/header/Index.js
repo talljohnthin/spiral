@@ -1,15 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import Avatar from "@material-ui/core/Avatar";
-import Grid from "@material-ui/core/Grid";
-import IconButton from "@material-ui/core/IconButton";
-import Link from "@material-ui/core/Link";
-import MenuIcon from "@material-ui/icons/Menu";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import Toolbar from "@material-ui/core/Toolbar";
-import Tooltip from "@material-ui/core/Tooltip";
+import { AppBar, Toolbar, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import Progress from "./Progress";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -54,9 +47,7 @@ function Index(props) {
             <Grid item xs />
 
             <Grid item>
-              <a href="!#" className="AppBar__btn">
-                Get Quote
-              </a>
+              <Progress />
             </Grid>
           </Grid>
         </Toolbar>
