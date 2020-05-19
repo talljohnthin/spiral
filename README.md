@@ -1,6 +1,6 @@
 ## Funnel
 
-React Js, Material Ui 
+React Js, Redux, Material Ui 
 
 
 
