@@ -67,7 +67,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      // setRedirect(true);
+      setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -90,7 +90,7 @@ const Index = () => {
       payload: email,
     });
 
-    //history.push()
+    history.push("/tel");
   };
 
   function validEmail(email) {

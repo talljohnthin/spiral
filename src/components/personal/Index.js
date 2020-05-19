@@ -7,8 +7,6 @@ import { useHistory } from "react-router-dom";
 
 import { SET_NAME } from "./../../redux/actions/data/dataTypes";
 
-import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
-
 import {
   makeStyles,
   withStyles,
@@ -128,7 +126,6 @@ const Index = () => {
 
           <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
             <CustomTextField
-              id="outlined-number"
               variant="outlined"
               margin="normal"
               fullWidth
@@ -146,7 +143,6 @@ const Index = () => {
             />
 
             <CustomTextField
-              id="outlined-number"
               variant="outlined"
               margin="normal"
               fullWidth
@@ -156,7 +152,6 @@ const Index = () => {
               autoComplete="Last Name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              autoFocus
               className="text-input"
               error={errorLastName ? true : false}
               helperText={errorLastName}
