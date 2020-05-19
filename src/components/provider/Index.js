@@ -32,16 +32,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   select: {
-    color: "#a6a6a6",
-    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "green",
-    },
-    "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-      borderColor: "red",
-    },
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: "purple",
-    },
+    //color: "#a6a6a6",
   },
 }));
 
@@ -132,7 +123,7 @@ const Index = () => {
             {listOfProviders.length
               ? listOfProviders.map((e, i) => (
                   <li key={i} className="list-button">
-                    <RadioButtonUncheckedIcon color="disabled" />
+                    <RadioButtonUncheckedIcon />
                     <span>{e}</span>
                   </li>
                 ))
@@ -145,7 +136,7 @@ const Index = () => {
           >
             <InputLabel
               id="demo-simple-select-outlined-label"
-              style={{ color: "#a6a6a6" }}
+              style={{ color: "rgba(0, 0, 0, 0.87)" }}
             >
               More Options
             </InputLabel>
@@ -161,7 +152,7 @@ const Index = () => {
               {listOfProvidersWithRadius.length
                 ? listOfProvidersWithRadius.map((e, i) => {
                     return (
-                      <MenuItem key={i} value={e} style={{ color: "#a6a6a6" }}>
+                      <MenuItem key={i} value={e}>
                         {e}
                       </MenuItem>
                     );

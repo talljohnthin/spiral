@@ -90,6 +90,9 @@ body {
     line-height: 1.167;
     letter-spacing: 0em;
     font-weight: 300;
+    @media (max-width: 767px) {
+      font-size: 1.8rem;
+    }
   }
   .primary-sub-heading {
     font-weight: 400;
@@ -107,7 +110,7 @@ body {
 
   .MuiOutlinedInput-root,
   .MuiSelect-outlined.MuiSelect-outlined {
-    color: #a6a6a6;
+    //color: #a6a6a6;
   }
 
   input,
@@ -164,6 +167,9 @@ body {
     font-weight: 300;
     line-height: 1.167;
     letter-spacing: 0em;
+    @media (max-width: 767px) {
+      font-size: 1.8rem;
+    }
   }
 
   .cost {
@@ -207,6 +213,9 @@ body {
     text-align: center;
     max-width: 600px;
     line-height: 40px;
+    @media (max-width: 767px) {
+      font-size: 1.8rem;
+    }
   }
   div {
     font-size: 18px;
@@ -319,6 +328,11 @@ body {
     width: 100%;
     display: block;
   }
+
+  .MuiSvgIcon-root {
+    font-size: 1.3rem;
+  }
+
   li.list-button {
     list-style-type: none;
     border: 1px solid #c4c4c4;
@@ -326,14 +340,14 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    padding: 15px 20px;
+    padding: 15px 10px;
     cursor: pointer;
     transition: 0.3s;
 
     span {
-      color: #a6a6a6;
-      font-size: 17px;
-      padding-left: 6px;
+      //color: #a6a6a6;
+      font-size: 1rem;
+      padding-left: 3px;
     }
 
     @media (min-width: 768px) {
