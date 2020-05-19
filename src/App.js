@@ -10,6 +10,9 @@ import HomeOwner from "./components/homeowner/Index";
 import Provider from "./components/provider/Index";
 import Results from "./components/results/Results";
 import ProofShade from "./components/roofshade/Index";
+import Personal from "./components/personal/Index";
+import Email from "./components/email/Index";
+import Phone from "./components/phone/Index";
 
 const App = () => {
   return (
@@ -24,6 +27,9 @@ const App = () => {
         <Route path="/homeowner" exact component={HomeOwner} />
         <Route path="/provider" exact component={Provider} />
         <Route path="/roofshade" exact component={ProofShade} />
+        <Route path="/name" exact component={Personal} />
+        <Route path="/email" exact component={Email} />
+        <Route path="/tel" exact component={Phone} />
         <Route path="/results" exact component={Results} />
       </Router>
     </Fragment>

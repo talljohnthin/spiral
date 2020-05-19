@@ -5,3 +5,6 @@ export const SET_STREET_ADDRESS = "SET_STREET_ADDRESS";
 export const SET_IS_HOME_OWNER = "SET_IS_HOME_OWNER";
 export const SET_PROVIDER = "SET_PROVIDER";
 export const SET_ROOF_SHADE = "SET_ROOF_SHADE";
+export const SET_NAME = "SET_NAME";
+export const SET_EMAIL = "SET_EMAIL";
+export const SET_PHONE = "SET_PHONE";

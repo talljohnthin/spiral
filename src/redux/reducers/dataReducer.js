@@ -6,6 +6,9 @@ import {
   SET_IS_HOME_OWNER,
   SET_PROVIDER,
   SET_ROOF_SHADE,
+  SET_NAME,
+  SET_EMAIL,
+  SET_PHONE,
 } from "../actions/data/dataTypes";
 
 const initialState = {
@@ -17,6 +20,9 @@ const initialState = {
   do_you_own_your_home: "",
   provider: "",
   roof_shade: "",
+  name: {},
+  email: "",
+  phone: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -56,6 +62,21 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         roof_shade: action.payload,
+      };
+    case SET_NAME:
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case SET_EMAIL:
+      return {
+        ...state,
+        email: action.payload,
+      };
+    case SET_PHONE:
+      return {
+        ...state,
+        phone: action.payload,
       };
 
     default:

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import { Redirect } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
@@ -70,11 +71,11 @@ const Index = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  const [redirectToNext, setRedirectToNext] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
   const isMounted = useIsMounted();
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSliderChange = (value) => {
     setCost(getMonthlyCost(value));
@@ -85,7 +86,8 @@ const Index = () => {
       type: SET_POWERBILL,
       payload: cost,
     });
-    setRedirectToNext(true);
+
+    history.push("/homeowner");
   };
 
   function getMonthlyCost(bill) {
@@ -126,10 +128,6 @@ const Index = () => {
 
   if (redirect) {
     return <Redirect to="/" />;
-  }
-
-  if (redirectToNext) {
-    return <Redirect to="/homeowner" />;
   }
 
   return (

@@ -7,6 +7,7 @@ import Loader from "react-loader-spinner";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_PROVIDER } from "./../../redux/actions/data/dataTypes";
 import { PROVIDERS_API } from "./../../config/keys";
+import { useHistory } from "react-router-dom";
 
 import {
   makeStyles,
@@ -49,15 +50,11 @@ const Index = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  const [redirectToNext, setRedirectToNext] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
   const isMounted = useIsMounted();
 
   const dispatch = useDispatch();
-
-  const handleSetPowerBill = () => {
-    setRedirectToNext(true);
-  };
+  const history = useHistory();
 
   const handleGetProviders = async () => {
     try {
@@ -94,7 +91,7 @@ const Index = () => {
       type: SET_PROVIDER,
       payload: provider,
     });
-    setRedirectToNext(true);
+    history.push("/roofshade");
   };
 
   useEffect(() => {
@@ -113,10 +110,6 @@ const Index = () => {
 
   if (redirect) {
     return <Redirect to="/" />;
-  }
-
-  if (redirectToNext) {
-    return <Redirect to="/roofshade" />;
   }
 
   return (

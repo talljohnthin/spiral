@@ -8,6 +8,7 @@ import useIsMounted from "ismounted";
 import MdCheckmark from "react-ionicons/lib/MdCheckmark";
 import MdClose from "react-ionicons/lib/MdClose";
 import IosArrowForward from "react-ionicons/lib/IosArrowForward";
+import { useHistory } from "react-router-dom";
 
 import { makeStyles, Container, CssBaseline } from "@material-ui/core";
 
@@ -41,6 +42,7 @@ const Index = () => {
   });
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     function handleResize() {
@@ -70,15 +72,11 @@ const Index = () => {
       type: SET_IS_HOME_OWNER,
       payload: isHomeOwner,
     });
-    setRedirectToNext(true);
+    history.push("/provider");
   };
 
   if (redirect) {
     return <Redirect to="/" />;
-  }
-
-  if (redirectToNext) {
-    return <Redirect to="/provider" />;
   }
 
   return (

@@ -9,6 +9,7 @@ import littleShade from "./../../assets/images/littleshade.png";
 import lotsOfShade from "./../../assets/images/lotofshade.png";
 import uncertain from "./../../assets/images/uncertain.png";
 import IosArrowForward from "react-ionicons/lib/IosArrowForward";
+import { useHistory } from "react-router-dom";
 
 import { makeStyles, Container, CssBaseline } from "@material-ui/core";
 
@@ -39,6 +40,7 @@ const Index = () => {
   });
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   useEffect(() => {
     function handleResize() {
@@ -69,14 +71,11 @@ const Index = () => {
       payload: value,
     });
     setRedirectToNext(true);
+    history.push("/address");
   };
 
   if (redirect) {
     return <Redirect to="/" />;
-  }
-
-  if (redirectToNext) {
-    return <Redirect to="/address" />;
   }
 
   return (

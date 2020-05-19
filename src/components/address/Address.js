@@ -14,6 +14,7 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { geocodeByAddress, getLatLng } from "react-google-places-autocomplete";
 import { RoomRounded } from "@material-ui/icons";
 import Change from "./Change";
+import { useHistory } from "react-router-dom";
 
 import {
   makeStyles,
@@ -82,6 +83,7 @@ const Address = () => {
   const reducerCity = useSelector((state) => state.data.city);
   const reducerState = useSelector((state) => state.data.state);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const stateList = [
     {
@@ -333,7 +335,7 @@ const Address = () => {
     }
     dispatch({
       type: SET_PROGRESS,
-      payload: 6,
+      payload: 7,
     });
   }, []);
 
@@ -517,12 +519,13 @@ const Address = () => {
     );
   };
 
+  const handleContinue = () => {
+    // need to update state here
+    history.push("/name");
+  };
+
   if (redirect) {
     return <Redirect to="/" />;
-  }
-
-  if (redirectToNext) {
-    return <Redirect to="/results" />;
   }
 
   return (
@@ -574,7 +577,7 @@ const Address = () => {
               variant="contained"
               color="primary"
               className="primary-btn"
-              //onClick={handleAddStreetAddress}
+              onClick={handleContinue}
             >
               Continue
             </Button>

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import useIsMounted from "ismounted";
+import { useHistory } from "react-router-dom";
 
 import {
   SET_ZIPCODE,
@@ -61,7 +62,6 @@ const Index = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
-  const [redirectToNext, setRedirectToNext] = useState(false);
   const isMounted = useIsMounted();
 
   const stateList = [
@@ -304,6 +304,7 @@ const Index = () => {
   ];
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleVerifyZipCode = async (e) => {
     e.preventDefault();
@@ -357,7 +358,7 @@ const Index = () => {
         });
         setIsLoading(false);
         setErrorMessage("");
-        setRedirectToNext(true);
+        history.push("/powerbill");
       } else {
         setIsLoading(false);
         setErrorMessage("No results Found");
@@ -370,9 +371,6 @@ const Index = () => {
 
   if (redirect) {
     return <Redirect to="/" />;
-  }
-  if (redirectToNext) {
-    return <Redirect to="/powerbill" />;
   }
 
   return (
