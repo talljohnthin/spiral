@@ -330,6 +330,7 @@ const Index = () => {
 
   const getZipCode = async (zip) => {
     try {
+      setIsLoading(true);
       const response = await fetch(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&sensor=true&key=${GOOGLE_MAP_API_KEY}`
       );
@@ -358,6 +359,7 @@ const Index = () => {
         setErrorMessage("");
         setRedirectToNext(true);
       } else {
+        setIsLoading(false);
         setErrorMessage("No results Found");
       }
     } catch (error) {
@@ -411,7 +413,7 @@ const Index = () => {
               className="primary-btn"
               onClick={handleVerifyZipCode}
             >
-              Free Quote
+              {isLoading ? "Validating Zip..." : "Free Quote"}
             </Button>
           </form>
         </div>
