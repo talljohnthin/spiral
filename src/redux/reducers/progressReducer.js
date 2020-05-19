@@ -2,7 +2,7 @@ import { SET_PROGRESS } from "../actions/progress/progressTypes";
 
 const initialState = {
   progressPercent: 0,
-  totalPage: 5,
+  totalPage: 9,
 };
 
 const reducer = (state = initialState, action) => {

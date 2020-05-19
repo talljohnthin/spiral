@@ -333,7 +333,7 @@ const Address = () => {
     }
     dispatch({
       type: SET_PROGRESS,
-      payload: 5,
+      payload: 6,
     });
   }, []);
 

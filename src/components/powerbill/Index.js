@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
+
 import { Redirect } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import useIsMounted from "ismounted";

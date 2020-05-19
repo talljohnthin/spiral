@@ -9,6 +9,7 @@ import Header from "./components/header/Index";
 import HomeOwner from "./components/homeowner/Index";
 import Provider from "./components/provider/Index";
 import Results from "./components/results/Results";
+import ProofShade from "./components/roofshade/Index";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/address/search" exact component={Search} />
         <Route path="/homeowner" exact component={HomeOwner} />
         <Route path="/provider" exact component={Provider} />
+        <Route path="/roofshade" exact component={ProofShade} />
         <Route path="/results" exact component={Results} />
       </Router>
     </Fragment>

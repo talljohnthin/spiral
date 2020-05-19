@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import useIsMounted from "ismounted";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
+import Loader from "react-loader-spinner";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_PROVIDER } from "./../../redux/actions/data/dataTypes";
 import { PROVIDERS_API } from "./../../config/keys";
@@ -115,7 +116,7 @@ const Index = () => {
   }
 
   if (redirectToNext) {
-    return <Redirect to="/address" />;
+    return <Redirect to="/roofshade" />;
   }
 
   return (
@@ -130,21 +131,23 @@ const Index = () => {
             Who is your Electricity Provider?
           </div>
           <div className="list">
-            {listOfProviders.length
-              ? listOfProviders.map((e, i) => (
-                  <li
-                    key={i}
-                    className="list-button"
-                    onClick={() => {
-                      setProvider(e);
-                      handleSelectProvider();
-                    }}
-                  >
-                    <RadioButtonUncheckedIcon />
-                    <span>{e}</span>
-                  </li>
-                ))
-              : null}
+            {listOfProviders.length ? (
+              listOfProviders.map((e, i) => (
+                <li
+                  key={i}
+                  className="list-button"
+                  onClick={() => {
+                    setProvider(e);
+                    handleSelectProvider();
+                  }}
+                >
+                  <RadioButtonUncheckedIcon />
+                  <span>{e}</span>
+                </li>
+              ))
+            ) : (
+              <Loader type="ThreeDots" color="#00BFFF" height={60} width={60} />
+            )}
           </div>
 
           <FormControl
@@ -169,15 +172,22 @@ const Index = () => {
               label="More Options"
               className={classes.select}
             >
-              {listOfProvidersWithRadius.length
-                ? listOfProvidersWithRadius.map((e, i) => {
-                    return (
-                      <MenuItem key={i} value={e}>
-                        {e}
-                      </MenuItem>
-                    );
-                  })
-                : null}
+              {listOfProvidersWithRadius.length ? (
+                listOfProvidersWithRadius.map((e, i) => {
+                  return (
+                    <MenuItem key={i} value={e}>
+                      {e}
+                    </MenuItem>
+                  );
+                })
+              ) : (
+                <Loader
+                  type="ThreeDots"
+                  color="#00BFFF"
+                  height={40}
+                  width={40}
+                />
+              )}
             </Select>
           </FormControl>
 

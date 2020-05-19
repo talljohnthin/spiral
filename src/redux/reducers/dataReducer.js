@@ -5,6 +5,7 @@ import {
   SET_STREET_ADDRESS,
   SET_IS_HOME_OWNER,
   SET_PROVIDER,
+  SET_ROOF_SHADE,
 } from "../actions/data/dataTypes";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   power_bill: 0,
   do_you_own_your_home: "",
   provider: "",
+  roof_shade: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -50,6 +52,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         provider: action.payload,
       };
+    case SET_ROOF_SHADE:
+      return {
+        ...state,
+        roof_shade: action.payload,
+      };
+
     default:
       return state;
   }
