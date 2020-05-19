@@ -118,11 +118,11 @@ body {
     -webkit-appearance: none;
     margin: 0;
     font-family: $primary-font;
-    color: #a6a6a6;
     font-size: 1rem !important;
-    &::placeholder {
-      color: #a6a6a6 !important;
-    }
+    font-weight: 400;
+    // &::placeholder {
+    //   color: #a6a6a6 !important;
+    // }
   }
 
   .primary-btn {
@@ -137,6 +137,9 @@ body {
     color: #fff;
     text-transform: capitalize;
     font-size: 1rem;
+    @media (max-width: 767px) {
+      max-width: 400px;
+    }
 
     &:hover {
       box-shadow: none;
@@ -190,13 +193,16 @@ body {
     box-shadow: none;
     padding: 12px 0;
     max-width: 200px;
-    margin: 20px auto 0;
+    margin: 0 auto;
     display: block;
     float: none;
     font-family: $primary-font;
     font-size: 15px;
     text-transform: capitalize;
     color: #fff;
+    @media (max-width: 767px) {
+      max-width: 400px;
+    }
     &:hover {
       box-shadow: none;
       background: $secondary-color;
@@ -360,6 +366,12 @@ body {
 
     &:hover {
       border-color: $primary-color;
+    }
+
+    .primary-btn {
+      @media (max-width: 767px) {
+        max-width: 400px;
+      }
     }
   }
 }

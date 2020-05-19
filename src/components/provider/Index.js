@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Alert from "@material-ui/lab/Alert";
 import useIsMounted from "ismounted";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
+import { SET_PROVIDER } from "./../../redux/actions/data/dataTypes";
 import { PROVIDERS_API } from "./../../config/keys";
 
 import {
@@ -42,6 +42,8 @@ const Index = () => {
   const [listOfProvidersWithRadius, setListOfProvidersWithRadius] = useState(
     []
   );
+  const [selectedProvider, setSelectedProvider] = useState("");
+  const [provider, setProvider] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -86,6 +88,14 @@ const Index = () => {
     }
   };
 
+  const handleSelectProvider = () => {
+    dispatch({
+      type: SET_PROVIDER,
+      payload: provider,
+    });
+    setRedirectToNext(true);
+  };
+
   useEffect(() => {
     if (!zipcode) {
       setRedirect(true);
@@ -105,7 +115,7 @@ const Index = () => {
   }
 
   if (redirectToNext) {
-    return <Redirect to="/homeowner" />;
+    return <Redirect to="/address" />;
   }
 
   return (
@@ -122,7 +132,14 @@ const Index = () => {
           <div className="list">
             {listOfProviders.length
               ? listOfProviders.map((e, i) => (
-                  <li key={i} className="list-button">
+                  <li
+                    key={i}
+                    className="list-button"
+                    onClick={() => {
+                      setProvider(e);
+                      handleSelectProvider();
+                    }}
+                  >
                     <RadioButtonUncheckedIcon />
                     <span>{e}</span>
                   </li>
@@ -143,9 +160,12 @@ const Index = () => {
             <Select
               labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
-              //value={state}
+              value={selectedProvider}
               fullWidth
-              onChange={(e) => {}}
+              onChange={(e) => {
+                setSelectedProvider(e.target.value);
+                setProvider(e.target.value);
+              }}
               label="More Options"
               className={classes.select}
             >
@@ -166,7 +186,7 @@ const Index = () => {
             variant="contained"
             color="primary"
             className="primary-btn"
-            onClick={handleSetPowerBill}
+            onClick={handleSelectProvider}
           >
             Continue
           </Button>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Alert from "@material-ui/lab/Alert";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import useIsMounted from "ismounted";
 
@@ -19,7 +18,6 @@ import {
   TextField,
   CssBaseline,
   Button,
-  Avatar,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -391,9 +389,6 @@ const Index = () => {
           <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
             <CustomTextField
               id="outlined-number"
-              InputLabelProps={{
-                color: "#a6a6a6",
-              }}
               variant="outlined"
               margin="normal"
               fullWidth

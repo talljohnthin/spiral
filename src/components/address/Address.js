@@ -8,6 +8,7 @@ import {
   SET_ZIPCODE_INFO,
   SET_ZIPCODE,
 } from "./../../redux/actions/data/dataTypes";
+import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 import { geocodeByAddress, getLatLng } from "react-google-places-autocomplete";
@@ -330,6 +331,10 @@ const Address = () => {
     if (!reducerZipCode) {
       setRedirect(true);
     }
+    dispatch({
+      type: SET_PROGRESS,
+      payload: 5,
+    });
   }, []);
 
   const getGeoCode = async (address) => {

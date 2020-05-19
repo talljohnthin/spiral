@@ -4,6 +4,7 @@ import {
   SET_ZIPCODE_INFO,
   SET_STREET_ADDRESS,
   SET_IS_HOME_OWNER,
+  SET_PROVIDER,
 } from "../actions/data/dataTypes";
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
   state: {},
   power_bill: 0,
   do_you_own_your_home: "",
+  provider: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -42,6 +44,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         do_you_own_your_home: action.payload,
+      };
+    case SET_PROVIDER:
+      return {
+        ...state,
+        provider: action.payload,
       };
     default:
       return state;
