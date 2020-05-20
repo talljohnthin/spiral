@@ -18,15 +18,15 @@ const initialState = {
   street_address: "",
   city: "",
   state: {},
+  name: {},
+  email: "",
+  phone: "",
   power_bill: {
     value: 300,
     text_value: "$301 - $400",
   },
   do_you_own_your_home: "",
   roof_shade: "",
-  name: {},
-  email: "",
-  phone: "",
   providers: {
     provider: "",
     is_dropdown: false,

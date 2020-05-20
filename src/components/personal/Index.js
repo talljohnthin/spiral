@@ -37,23 +37,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomTextField = withStyles({
-  // root: {
-  //   "& input:valid + fieldset": {
-  //     borderColor: "#48bf91",
-  //     borderWidth: 2,
-  //   },
-  //   "& input:invalid + fieldset": {
-  //     borderColor: "red",
-  //     borderWidth: 2,
-  //   },
-  // },
-})(TextField);
-
 const Index = () => {
   const classes = useStyles();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const storedFirstName = useSelector((state) => state.data.name?.first_name);
+  const storedLastName = useSelector((state) => state.data.name?.last_name);
+  const [firstName, setFirstName] = useState(storedFirstName || "");
+  const [lastName, setLastName] = useState(storedLastName || "");
   const [errorFirstName, setErrorFirstName] = useState("");
   const [errorLastName, setErrorLastName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -125,7 +114,7 @@ const Index = () => {
           </div>
 
           <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
-            <CustomTextField
+            <TextField
               variant="outlined"
               margin="normal"
               fullWidth
@@ -142,7 +131,7 @@ const Index = () => {
               style={{ marginBottom: 0 }}
             />
 
-            <CustomTextField
+            <TextField
               variant="outlined"
               margin="normal"
               fullWidth

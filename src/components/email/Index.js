@@ -39,24 +39,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomTextField = withStyles({
-  // root: {
-  //   "& input:valid + fieldset": {
-  //     borderColor: "#48bf91",
-  //     borderWidth: 2,
-  //   },
-  //   "& input:invalid + fieldset": {
-  //     borderColor: "red",
-  //     borderWidth: 2,
-  //   },
-  // },
-})(TextField);
-
 const Index = () => {
   const classes = useStyles();
-  const [email, setEmail] = useState("");
+  const storedEmail = useSelector((state) => state.data.email);
+  const [email, setEmail] = useState(storedEmail || "");
   const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
   const [redirect, setRedirect] = useState(false);
@@ -113,7 +100,7 @@ const Index = () => {
           </div>
 
           <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
-            <CustomTextField
+            <TextField
               id="outlined-number"
               variant="outlined"
               margin="normal"

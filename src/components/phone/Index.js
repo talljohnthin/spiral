@@ -54,7 +54,8 @@ const CustomTextField = withStyles({
 
 const Index = () => {
   const classes = useStyles();
-  const [phone, setPhone] = useState("");
+  const storedPhone = useSelector((state) => state.data.phone);
+  const [phone, setPhone] = useState(storedPhone || "");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -143,7 +144,7 @@ const Index = () => {
               Get Free Quote
             </Button>
           </form>
-          <div class="h6">
+          <div className="h6">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
