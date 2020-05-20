@@ -31,6 +31,10 @@ body {
     rgba(30, 140, 227, 0.24) 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#3d1e8ce3',GradientType=0 ); /* IE6-9 */
+
+  @media (max-width: 767px) {
+    height: auto;
+  }
 }
 
 // header

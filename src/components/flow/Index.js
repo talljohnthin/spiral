@@ -391,9 +391,7 @@ const Index = () => {
         <CssBaseline />
         <div className={classes.paper}>
           <div className="primary-heading">
-            Save On Your Monthly Electric Bill
-            <br />
-            With Affordable Solar Energy
+            Save On Your Monthly Electric Bill With Affordable Solar Energy
           </div>
           <div className="primary-sub-heading">
             Enter basic information to see if your home is eligible!
