@@ -32,9 +32,8 @@ body {
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#3d1e8ce3',GradientType=0 ); /* IE6-9 */
 
-  @media (max-width: 767px) {
-    height: auto;
-  }
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 // header
@@ -85,6 +84,12 @@ body {
 
 // flow
 .section-flow {
+  & > div {
+    @media (max-width: 767px) {
+      margin-top: 25px;
+    }
+  }
+
   .primary-heading {
     color: $primary-color;
     margin-bottom: 10px;
@@ -158,6 +163,11 @@ body {
 
 // powerbill
 .section-powerbill {
+  & > div {
+    @media (max-width: 767px) {
+      margin-top: 25px;
+    }
+  }
   .primary-heading {
     max-width: 800px;
     color: $primary-color;
@@ -341,6 +351,10 @@ body {
 
   .MuiSvgIcon-root {
     font-size: 1.2rem;
+  }
+
+  .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #2196f3 !important;
   }
 
   input {

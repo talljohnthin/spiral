@@ -32,7 +32,7 @@ const styles = (theme) => ({
 function Index(props) {
   const { classes, onDrawerToggle, logout } = props;
 
-  const [dimensions, setDimensions] = React.useState({
+  const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
   });
