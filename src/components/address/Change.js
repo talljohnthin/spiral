@@ -43,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  select: {
+    color: "#848484",
+  },
 }));
 
 const Change = ({
@@ -333,7 +336,7 @@ const Change = ({
           id="demo-simple-select-outlined"
           value={state}
           fullWidth
-          //style={{ border: "2px solid #48bf91", color: "#6a6a6a" }}
+          style={{ color: "#6a6a6a" }}
           onChange={(e) => handleSetState(e.target.value)}
           label="State"
         >

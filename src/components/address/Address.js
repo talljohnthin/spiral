@@ -65,9 +65,6 @@ const CustomTextField = withStyles({
 const Address = () => {
   const classes = useStyles();
   const storedStreetAddress = useSelector((state) => state.data.street_address);
-  // const [selectedAddress, setSelectedAddress] = useState(
-  //   storedStreetAddress || ""
-  // );
   const [street, setStreet] = useState(storedStreetAddress || "");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
