@@ -2,6 +2,7 @@ import {
   SET_ZIPCODE,
   SET_POWERBILL,
   SET_ZIPCODE_INFO,
+  SET_CITY,
   SET_STREET_ADDRESS,
   SET_IS_HOME_OWNER,
   SET_PROVIDER,
@@ -52,6 +53,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         city: action.payload.city,
         state: action.payload.state,
+      };
+    case SET_CITY:
+      return {
+        ...state,
+        city: action.payload.city,
       };
     case SET_STREET_ADDRESS:
       return {

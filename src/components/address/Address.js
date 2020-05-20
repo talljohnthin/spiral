@@ -7,6 +7,7 @@ import {
   SET_STREET_ADDRESS,
   SET_ZIPCODE_INFO,
   SET_ZIPCODE,
+  SET_CITY,
 } from "./../../redux/actions/data/dataTypes";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
@@ -63,12 +64,18 @@ const CustomTextField = withStyles({
 
 const Address = () => {
   const classes = useStyles();
-  const [selectedAddress, setSelectedAddress] = useState("");
-  const [street, setStreet] = useState("");
+  const storedStreetAddress = useSelector((state) => state.data.street_address);
+  // const [selectedAddress, setSelectedAddress] = useState(
+  //   storedStreetAddress || ""
+  // );
+  const [street, setStreet] = useState(storedStreetAddress || "");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
+  const [zipError, setZipError] = useState("");
+  const [cityError, setCityError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [streetError, setStreetError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -356,7 +363,7 @@ const Address = () => {
           setCity(formatted_address[0]);
           setStreet(check.streetAddress);
           setState(reducerState.long);
-          setSelectedAddress(check.streetAddress);
+          //setSelectedAddress(check.streetAddress);
           const addressObj = {
             city: formatted_address[1],
             state: {
@@ -377,7 +384,7 @@ const Address = () => {
           setStreet(check.streetAddress);
           setZip(check.postalCode);
           setState(long);
-          setSelectedAddress(check.streetAddress);
+          //setSelectedAddress(check.streetAddress);
           const addressObj = {
             city: formatted_address[1],
             state: {
@@ -445,17 +452,24 @@ const Address = () => {
     setState(state);
   };
 
+  const handleResetZipError = () => {
+    setZipError("");
+  };
+  const handleResetCityError = () => {
+    setCityError("");
+  };
+
   const streetAutofill = () => {
     const inputProps = {
-      value: selectedAddress,
+      value: street,
       placeholder: "Street Address",
-      onChange: (e) => setSelectedAddress(e.target.value),
+      onChange: (e) => setStreet(e.target.value),
     };
     return (
       <GooglePlacesAutocomplete
         renderInput={(props) => (
           <div className="custom-wrapper">
-            <CustomTextField
+            <TextField
               id="outlined-number"
               style={{ marginTop: 25 }}
               InputLabelProps={{
@@ -473,6 +487,8 @@ const Address = () => {
               className="text-input"
               inputProps={inputProps}
               {...props}
+              error={streetError ? true : false}
+              helperText={streetError}
             />
           </div>
         )}
@@ -493,6 +509,7 @@ const Address = () => {
         )}
         onSelect={({ description }) => {
           getGeoCode(description);
+          setStreetError("");
         }}
       />
     );
@@ -500,7 +517,7 @@ const Address = () => {
 
   const streetNotAutofill = () => {
     return (
-      <CustomTextField
+      <TextField
         variant="outlined"
         margin="normal"
         fullWidth
@@ -509,19 +526,79 @@ const Address = () => {
         name="streetNumber"
         autoComplete="Street Number"
         value={street}
-        onChange={(e) => setStreet(e.target.value)}
+        onChange={(e) => {
+          setStreet(e.target.value);
+          setStreetError("");
+        }}
         autoFocus
         className="text-input"
         InputLabelProps={{
           shrink: true,
         }}
+        error={streetError ? true : false}
+        helperText={streetError}
       />
     );
   };
 
+  function IsValidZipCode(zip) {
+    var isValid = /^[0-9]{5}(?:-[0-9]{4})?$/.test(zip);
+    return isValid;
+  }
+
   const handleContinue = () => {
     // need to update state here
-    history.push("/name");
+    if (!street) {
+      setStreetError("Please add street address.");
+      return;
+    } else {
+      setStreetError("");
+    }
+
+    if (editMode) {
+      if (!city) {
+        setCityError("Please add a city.");
+        return;
+      } else {
+        setCityError("");
+      }
+
+      if (!IsValidZipCode(zip)) {
+        setZipError("Please add a valid zipcode.");
+        return;
+      } else {
+        setZipError("");
+      }
+
+      dispatch({
+        type: SET_STREET_ADDRESS,
+        payload: street,
+      });
+
+      const addressObj = {
+        city: city,
+        state: {
+          long: state,
+          short: stateList.filter((e) => e.name === state)[0]?.abbreviation,
+        },
+      };
+
+      dispatch({
+        type: SET_ZIPCODE_INFO,
+        payload: addressObj,
+      });
+
+      setEditMode(false);
+      history.push("/name");
+    } else {
+      dispatch({
+        type: SET_STREET_ADDRESS,
+        payload: street,
+      });
+
+      setEditMode(false);
+      history.push("/name");
+    }
   };
 
   if (redirect) {
@@ -567,6 +644,10 @@ const Address = () => {
                 city={city}
                 zip={zip}
                 state={state}
+                zipError={zipError}
+                cityError={cityError}
+                setZipError={handleResetZipError}
+                setCityError={handleResetCityError}
                 handleSetZip={updateZip}
                 handleSetCity={updateCity}
                 handleSetState={updateState}

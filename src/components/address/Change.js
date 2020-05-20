@@ -45,23 +45,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomTextField = withStyles({
-  // root: {
-  //   "& input:valid + fieldset": {
-  //     borderColor: "#48bf91",
-  //     borderWidth: 2,
-  //   },
-  //   "& input:invalid + fieldset": {
-  //     borderColor: "red",
-  //     borderWidth: 2,
-  //   },
-  // },
-})(TextField);
-
 const Change = ({
   city,
   state,
   zip,
+  zipError,
+  cityError,
+  setZipError,
+  setCityError,
   handleSetZip,
   handleSetCity,
   handleSetState,
@@ -314,7 +305,7 @@ const Change = ({
   ];
   return (
     <Fragment>
-      <CustomTextField
+      <TextField
         variant="outlined"
         margin="normal"
         fullWidth
@@ -323,12 +314,17 @@ const Change = ({
         name="city"
         autoComplete="city"
         value={city}
-        onChange={(e) => handleSetCity(e.target.value)}
+        onChange={(e) => {
+          handleSetCity(e.target.value);
+          setCityError();
+        }}
         autoFocus
         className="text-input"
         InputLabelProps={{
           shrink: true,
         }}
+        error={cityError ? true : false}
+        helperText={cityError}
       />
       <FormControl variant="outlined" style={{ width: "100%" }}>
         <InputLabel id="demo-simple-select-outlined-label">State</InputLabel>
@@ -350,7 +346,7 @@ const Change = ({
           })}
         </Select>
       </FormControl>
-      <CustomTextField
+      <TextField
         variant="outlined"
         margin="normal"
         fullWidth
@@ -360,12 +356,17 @@ const Change = ({
         name="zipcode"
         autoComplete="Zip Code"
         value={zip}
-        onChange={(e) => handleSetZip(e.target.value)}
+        onChange={(e) => {
+          handleSetZip(e.target.value);
+          setZipError();
+        }}
         autoFocus
         className="text-input"
         InputLabelProps={{
           shrink: true,
         }}
+        error={zipError ? true : false}
+        helperText={zipError}
       />
     </Fragment>
   );
