@@ -329,7 +329,7 @@ const Change = ({
         error={cityError ? true : false}
         helperText={cityError}
       />
-      <FormControl variant="outlined" style={{ width: "100%" }}>
+      <FormControl variant="outlined" style={{ marginTop: 9, width: "100%" }}>
         <InputLabel id="demo-simple-select-outlined-label">State</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"

@@ -49,19 +49,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomTextField = withStyles({
-  // root: {
-  //   "& input:valid + fieldset": {
-  //     borderColor: "#48bf91",
-  //     borderWidth: 2,
-  //   },
-  //   "& input:invalid + fieldset": {
-  //     borderColor: "red",
-  //     borderWidth: 2,
-  //   },
-  // },
-})(TextField);
-
 const Address = () => {
   const classes = useStyles();
   const storedStreetAddress = useSelector((state) => state.data.street_address);
@@ -534,6 +521,7 @@ const Address = () => {
         }}
         error={streetError ? true : false}
         helperText={streetError}
+        style={{ marginBottom: 3 }}
       />
     );
   };
@@ -622,11 +610,9 @@ const Address = () => {
             ) : (
               errorMessage && <Alert severity="error">{errorMessage}</Alert>
             )}
-
-            <div className="address">
-              {/* {reducerStreetAddress ? `${reducerStreetAddress},` : null}{" "} */}
-              {reducerCity}, {reducerState?.short}, {reducerZipCode}
-              {!editMode && (
+            {!editMode && (
+              <div className="address">
+                {reducerCity}, {reducerState?.short}, {reducerZipCode}
                 <div
                   style={{ color: "#48bf91", cursor: "pointer" }}
                   className="edit"
@@ -634,8 +620,9 @@ const Address = () => {
                 >
                   Change
                 </div>
-              )}
-            </div>
+              </div>
+            )}
+
             <div style={editMode ? { display: "block" } : { display: "none" }}>
               <Change
                 city={city}
@@ -656,6 +643,7 @@ const Address = () => {
               color="primary"
               className="primary-btn"
               onClick={handleContinue}
+              style={{ marginTop: 20 }}
             >
               Continue
             </Button>

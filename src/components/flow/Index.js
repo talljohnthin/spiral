@@ -408,7 +408,10 @@ const Index = () => {
               name="zip"
               autoComplete="zip"
               value={zip}
-              onChange={(e) => setZip(e.target.value)}
+              onChange={(e) => {
+                setZip(e.target.value);
+                setErrorMessage("");
+              }}
               autoFocus
               className="text-input"
               error={errorMessage ? true : false}
