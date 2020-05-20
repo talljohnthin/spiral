@@ -70,11 +70,6 @@ function Index(props) {
             </Grid>
           </Grid>
         </Toolbar>
-        {dimensions.width < 767 ? (
-          <div style={{ padding: "0 20px", marginTop: 30 }}>
-            <Progress />{" "}
-          </div>
-        ) : null}
       </AppBar>
     </React.Fragment>
   );

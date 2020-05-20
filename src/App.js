@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Flow from "./components/flow/Index";
 import PowerBill from "./components/powerbill/Index";
@@ -13,11 +13,34 @@ import ProofShade from "./components/roofshade/Index";
 import Personal from "./components/personal/Index";
 import Email from "./components/email/Index";
 import Phone from "./components/phone/Index";
+import Progress from "./components/header/Progress";
 
 const App = () => {
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
   return (
     <Fragment>
       <Header />
+      {dimensions.width < 767 ? (
+        <div style={{ padding: "0 20px", marginTop: 30 }}>
+          <Progress />{" "}
+        </div>
+      ) : null}
       <Router>
         <Route path="/" exact component={Flow} />
         <Route path="/powerbill" exact component={PowerBill} />
