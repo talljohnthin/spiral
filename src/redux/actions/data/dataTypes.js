@@ -8,3 +8,6 @@ export const SET_ROOF_SHADE = "SET_ROOF_SHADE";
 export const SET_NAME = "SET_NAME";
 export const SET_EMAIL = "SET_EMAIL";
 export const SET_PHONE = "SET_PHONE";
+export const SET_LIST_OF_PROVIDERS = "SET_LIST_OF_PROVIDERS";
+export const SET_LIST_OF_PROVIDERS_WITH_RADIUS =
+  "SET_LIST_OF_PROVIDERS_WITH_RADIUS";

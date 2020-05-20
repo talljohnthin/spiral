@@ -9,6 +9,8 @@ import {
   SET_NAME,
   SET_EMAIL,
   SET_PHONE,
+  SET_LIST_OF_PROVIDERS,
+  SET_LIST_OF_PROVIDERS_WITH_RADIUS,
 } from "../actions/data/dataTypes";
 
 const initialState = {
@@ -16,13 +18,21 @@ const initialState = {
   street_address: "",
   city: "",
   state: {},
-  power_bill: 0,
+  power_bill: {
+    value: 300,
+    text_value: "$301 - $400",
+  },
   do_you_own_your_home: "",
-  provider: "",
   roof_shade: "",
   name: {},
   email: "",
   phone: "",
+  providers: {
+    provider: "",
+    is_dropdown: false,
+    list_of_providers: [],
+    list_of_providers_with_radius: [],
+  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -56,7 +66,11 @@ const reducer = (state = initialState, action) => {
     case SET_PROVIDER:
       return {
         ...state,
-        provider: action.payload,
+        providers: {
+          ...state.providers,
+          provider: action.payload.provider,
+          is_dropdown: action.payload.isDropdown,
+        },
       };
     case SET_ROOF_SHADE:
       return {
@@ -77,6 +91,22 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         phone: action.payload,
+      };
+    case SET_LIST_OF_PROVIDERS:
+      return {
+        ...state,
+        providers: {
+          ...state.providers,
+          list_of_providers: action.payload,
+        },
+      };
+    case SET_LIST_OF_PROVIDERS_WITH_RADIUS:
+      return {
+        ...state,
+        providers: {
+          ...state.providers,
+          list_of_providers_with_radius: action.payload,
+        },
       };
 
     default:

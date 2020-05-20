@@ -66,7 +66,8 @@ const PrettoSlider = withStyles({
 
 const Index = () => {
   const classes = useStyles();
-  const [cost, setCost] = useState("$301 - $400");
+  const storedCost = useSelector((state) => state.data.power_bill);
+  const [cost, setCost] = useState(storedCost);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -78,7 +79,10 @@ const Index = () => {
   const history = useHistory();
 
   const handleSliderChange = (value) => {
-    setCost(getMonthlyCost(value));
+    setCost({
+      value,
+      text_value: getMonthlyCost(value),
+    });
   };
 
   const handleSetPowerBill = () => {
@@ -138,10 +142,10 @@ const Index = () => {
           <div className="primary-heading power-heading">
             Current Monthly Power Bill
           </div>
-          <div className="cost">{cost}</div>
+          <div className="cost">{cost?.text_value || "$301 - $400"}</div>
           <PrettoSlider
             aria-label="pretto slider"
-            defaultValue={300}
+            value={cost?.value}
             step={100}
             max={800}
             valueLabelDisplay="off"

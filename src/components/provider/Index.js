@@ -1,12 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import useIsMounted from "ismounted";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
-import Loader from "react-loader-spinner";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_PROVIDER } from "./../../redux/actions/data/dataTypes";
-import { PROVIDERS_API } from "./../../config/keys";
 import { useHistory } from "react-router-dom";
 
 import {
@@ -34,62 +31,50 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   select: {
-    //color: "#a6a6a6",
+    color: "#848282",
   },
 }));
 
 const Index = () => {
   const classes = useStyles();
-  const [listOfProviders, setListOfProviders] = useState([]);
-  const [listOfProvidersWithRadius, setListOfProvidersWithRadius] = useState(
-    []
+  const storedMoreDropdown = useSelector(
+    (state) => state.data.providers.is_dropdown
   );
-  const [selectedProvider, setSelectedProvider] = useState("");
+  const storedProvider = useSelector((state) => state.data.providers.provider);
+  const [selectedProvider, setSelectedProvider] = useState(
+    storedMoreDropdown ? storedProvider : ""
+  );
   const [provider, setProvider] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
-  const isMounted = useIsMounted();
+  const providers = useSelector(
+    (state) => state.data.providers.list_of_providers
+  );
+  const providersWithRadius = useSelector(
+    (state) => state.data.providers.list_of_providers_with_radius
+  );
 
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const handleGetProviders = async () => {
-    try {
-      const response = await fetch(
-        `https://developer.nrel.gov/api/utility_rates/v3.json?api_key=${PROVIDERS_API}&format=JSON&address=${zipcode}`
-      );
-      const result = await response.json();
-      const data = result.outputs?.utility_name?.split("|");
-      if (isMounted.current) {
-        setListOfProviders(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleGetProvidersWithRadius = async (radius) => {
-    try {
-      const response = await fetch(
-        `https://developer.nrel.gov/api/utility_rates/v3.json?api_key=${PROVIDERS_API}&format=JSON&address=${zipcode}&radius=${radius}`
-      );
-      const result = await response.json();
-      const data = result.outputs?.utility_name?.split("|");
-      if (isMounted.current) {
-        setListOfProvidersWithRadius(Array.from(new Set(data)));
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleSelectProvider = () => {
+  const handleSelectProvider = (data, isDropdown) => {
     dispatch({
       type: SET_PROVIDER,
-      payload: provider,
+      payload: {
+        provider: data,
+        isDropdown: data ? isDropdown : false,
+      },
+    });
+    history.push("/roofshade");
+  };
+
+  const handleBtnSelectProvider = (data, isDropdown) => {
+    dispatch({
+      type: SET_PROVIDER,
+      payload: {
+        provider: storedMoreDropdown ? storedProvider : data,
+        isDropdown: data ? isDropdown : storedMoreDropdown ? true : false,
+      },
     });
     history.push("/roofshade");
   };
@@ -98,10 +83,6 @@ const Index = () => {
     if (!zipcode) {
       setRedirect(true);
     }
-
-    if (!listOfProviders.length) handleGetProviders();
-    if (!listOfProvidersWithRadius.length) handleGetProvidersWithRadius(200);
-
     dispatch({
       type: SET_PROGRESS,
       payload: 4,
@@ -124,23 +105,21 @@ const Index = () => {
             Who is your Electricity Provider?
           </div>
           <div className="list">
-            {listOfProviders.length ? (
-              listOfProviders.map((e, i) => (
-                <li
-                  key={i}
-                  className="list-button"
-                  onClick={() => {
-                    setProvider(e);
-                    handleSelectProvider();
-                  }}
-                >
-                  <RadioButtonUncheckedIcon />
-                  <span>{e}</span>
-                </li>
-              ))
-            ) : (
-              <Loader type="ThreeDots" color="#00BFFF" height={60} width={60} />
-            )}
+            {providers.length
+              ? providers.map((e, i) => (
+                  <li
+                    key={i}
+                    className="list-button"
+                    onClick={() => {
+                      setProvider(e);
+                      handleSelectProvider(e, false);
+                    }}
+                  >
+                    <RadioButtonUncheckedIcon style={{ color: "#848282" }} />
+                    <span style={{ color: "#848282" }}>{e}</span>
+                  </li>
+                ))
+              : null}
           </div>
 
           <FormControl
@@ -149,7 +128,7 @@ const Index = () => {
           >
             <InputLabel
               id="demo-simple-select-outlined-label"
-              style={{ color: "rgba(0, 0, 0, 0.87)" }}
+              style={{ color: "#848282" }}
             >
               More Options
             </InputLabel>
@@ -165,22 +144,15 @@ const Index = () => {
               label="More Options"
               className={classes.select}
             >
-              {listOfProvidersWithRadius.length ? (
-                listOfProvidersWithRadius.map((e, i) => {
-                  return (
-                    <MenuItem key={i} value={e}>
-                      {e}
-                    </MenuItem>
-                  );
-                })
-              ) : (
-                <Loader
-                  type="ThreeDots"
-                  color="#00BFFF"
-                  height={40}
-                  width={40}
-                />
-              )}
+              {providersWithRadius.length
+                ? providersWithRadius.map((e, i) => {
+                    return (
+                      <MenuItem key={i} value={e} style={{ color: "#848282" }}>
+                        {e}
+                      </MenuItem>
+                    );
+                  })
+                : null}
             </Select>
           </FormControl>
 
@@ -189,7 +161,7 @@ const Index = () => {
             variant="contained"
             color="primary"
             className="primary-btn"
-            onClick={handleSelectProvider}
+            onClick={() => handleBtnSelectProvider(provider, true)}
           >
             Continue
           </Button>

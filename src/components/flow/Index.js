@@ -1,7 +1,11 @@
 import React, { useState, useEffect, Fragment } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
+import {
+  handleGetProviders,
+  handleGetProvidersWithRadius,
+} from "./../../redux/actions/data/dataActions";
 import useIsMounted from "ismounted";
 import { useHistory } from "react-router-dom";
 
@@ -57,7 +61,8 @@ const CustomTextField = withStyles({
 
 const Index = () => {
   const classes = useStyles();
-  const [zip, setZip] = useState("");
+  const storedZip = useSelector((state) => state.data.zip_code);
+  const [zip, setZip] = useState(storedZip);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -348,14 +353,21 @@ const Index = () => {
             short,
           },
         };
+
+        dispatch(handleGetProviders(zip));
+
+        dispatch(handleGetProvidersWithRadius(zip, 200)); // pass zipcode & radius range
+
         dispatch({
           type: SET_ZIPCODE_INFO,
           payload: addressObj,
         });
+
         dispatch({
           type: SET_ZIPCODE,
           payload: zip,
         });
+
         setIsLoading(false);
         setErrorMessage("");
         history.push("/powerbill");
