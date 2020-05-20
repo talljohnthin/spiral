@@ -443,6 +443,12 @@ const Address = () => {
     setCityError("");
   };
 
+  const removeCountryAtTheEnd = (suggestion) => {
+    const arr = suggestion.split(",");
+    arr.pop();
+    return arr.join(",");
+  };
+
   const streetAutofill = () => {
     const inputProps = {
       value: street,
@@ -486,7 +492,8 @@ const Address = () => {
                 onClick={(event) => onSelectSuggestion(suggestion, event)}
               >
                 <RoomRounded />
-                {suggestion.description}
+
+                {removeCountryAtTheEnd(suggestion.description)}
               </div>
             ))}
           </div>

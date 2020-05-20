@@ -257,10 +257,14 @@ body {
   padding: 10px;
 }
 
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #2196f3 !important;
+}
+
 .suggestion {
   cursor: pointer;
   color: #a6a6a6;
-  font-size: 16px;
+  font-size: 15px;
   display: flex;
   align-items: flex-start;
   margin-bottom: 4px;
@@ -320,7 +324,7 @@ body {
       &:hover {
         transform: translate(0px, -5%);
         box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 0px;
-        border-color: #000;
+        border-color: #2196f3;
       }
     }
 
@@ -356,10 +360,6 @@ body {
 
   .MuiSvgIcon-root {
     font-size: 1.2rem;
-  }
-
-  .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-    border-color: #2196f3 !important;
   }
 
   input {
@@ -459,7 +459,7 @@ body {
       &:hover {
         transform: translate(0px, -5%);
         box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 0px;
-        border-color: #000;
+        border-color: #2196f3;
       }
     }
 
