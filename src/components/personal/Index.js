@@ -81,7 +81,7 @@ const Index = () => {
     if (lastName) {
       setErrorLastName("");
     } else if (lastName.length < 2) {
-      setErrorFirstName("Please a valid last name.");
+      setErrorLastName("Please a valid last name.");
       return;
     } else {
       setErrorLastName("Please add last name.");

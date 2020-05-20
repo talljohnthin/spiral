@@ -37,7 +37,7 @@ body {
 .AppBar {
   position: fixed;
   overflow: visible;
-  background: transparent !important;
+  background: #fff !important;
   z-index: 9999;
   width: 100%;
   transition: all ease-out 0.25s;
@@ -101,7 +101,7 @@ body {
     letter-spacing: 0.00938em;
     text-align: center;
     -webkit-font-smoothing: antialiased;
-    color: #a6a6a6;
+    color: #6a6a6a;
   }
 
   form {
@@ -115,6 +115,7 @@ body {
     font-family: $primary-font;
     font-size: 1rem !important;
     font-weight: 400;
+    color: #6a6a6a !important;
   }
 
   .primary-btn {
@@ -165,6 +166,10 @@ body {
     @media (max-width: 767px) {
       font-size: 1.8rem;
     }
+  }
+
+  input {
+    color: #848484;
   }
 
   .cost {
@@ -304,7 +309,7 @@ body {
       display: block;
       text-align: center;
       font-size: 1rem;
-      color: #3b3b3b;
+      color: #6a6a6a;
       font-weight: 400;
       line-height: 1.5;
       letter-spacing: 0.00938em;
@@ -314,6 +319,9 @@ body {
     }
     .icon {
       font-size: 90px;
+    }
+    svg.mobile-icon {
+      fill: #6a6a6a;
     }
   }
 }
@@ -329,6 +337,10 @@ body {
 
   .MuiSvgIcon-root {
     font-size: 1.2rem;
+  }
+
+  input {
+    color: #848484;
   }
 
   li.list-button {
@@ -412,6 +424,7 @@ body {
       flex-direction: row;
       justify-content: space-between;
       padding: 6px 20px;
+      min-height: 58.8px;
       border: 1px solid #c4c4c4;
       & > span {
         display: flex;
@@ -431,7 +444,7 @@ body {
       display: block;
       text-align: center;
       font-size: 1rem;
-      color: #3b3b3b;
+      color: #6a6a6a;
       font-weight: 400;
       line-height: 1.5;
       letter-spacing: 0.00938em;
@@ -455,6 +468,10 @@ body {
           left: 10px;
         }
       }
+    }
+
+    svg.mobile-icon {
+      fill: #6a6a6a;
     }
   }
 }
