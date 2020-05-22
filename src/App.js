@@ -14,6 +14,7 @@ import Personal from "./components/personal/Index";
 import Email from "./components/email/Index";
 import Phone from "./components/phone/Index";
 import Progress from "./components/header/Progress";
+import Footer from "./components/footer/Index";
 
 const App = () => {
   const [dimensions, setDimensions] = useState({
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/tel" exact component={Phone} />
         <Route path="/results" exact component={Results} />
       </Router>
+      <Footer />
     </Fragment>
   );
 };

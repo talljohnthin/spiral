@@ -112,6 +112,39 @@ body {
   }
 }
 
+//footer
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  align-items: center;
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    align-items: center;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  li {
+    list-style-type: none;
+    padding: 0 10px;
+    @media (max-width: 767px) {
+      padding: 4px 10px;
+    }
+
+    &.hasLink {
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 // flow
 .section-flow {
   & > div {
@@ -541,6 +574,54 @@ body {
     margin-top: 40px;
     text-align: justify;
     color: #a6a6a6;
+    font-weight: 300;
+  }
+}
+
+//modal
+.MuiDialog-paperWidthSm {
+  max-width: 800px !important;
+}
+
+div.contact-modal-dialog {
+  .MuiDialog-paperWidthSm {
+    max-width: 400px !important;
+  }
+  .primary-btn {
+    background: $primary-color;
+    box-shadow: none;
+    padding: 12px 0;
+    max-width: 100%;
+    display: block;
+    float: none;
+    font-family: $primary-font;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 1rem;
+    @media (max-width: 767px) {
+      max-width: 400px;
+    }
+
+    &:hover {
+      box-shadow: none;
+      background: $secondary-color;
+    }
+  }
+}
+
+.MuiDialogTitle-root {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modalTitle h2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  cursor: pointer;
+  span {
+    color: $primary-color;
+    font-family: $primary-font;
     font-weight: 300;
   }
 }
