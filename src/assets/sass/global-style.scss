@@ -475,6 +475,10 @@ body {
   div[aria-busy="true"] {
     text-align: center;
   }
+
+  .MuiOutlinedInput-root.isCurrent .MuiOutlinedInput-notchedOutline {
+    border-color: #2196f3 !important;
+  }
 }
 
 //roofshade

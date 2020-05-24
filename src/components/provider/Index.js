@@ -110,6 +110,13 @@ const Index = () => {
                   <li
                     key={i}
                     className="list-button"
+                    style={
+                      !storedMoreDropdown
+                        ? e === storedProvider
+                          ? { borderColor: "#2196f3" }
+                          : null
+                        : null
+                    }
                     onClick={() => {
                       setProvider(e);
                       handleSelectProvider(e, false);
@@ -142,7 +149,10 @@ const Index = () => {
                 setProvider(e.target.value);
               }}
               label="More Options"
-              className={classes.select}
+              className={[
+                classes.select,
+                storedMoreDropdown ? "isCurrent" : null,
+              ]}
             >
               {providersWithRadius.length
                 ? providersWithRadius.map((e, i) => {
