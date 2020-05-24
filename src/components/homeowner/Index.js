@@ -36,6 +36,7 @@ const Index = () => {
   const [redirectToNext, setRedirectToNext] = useState(false);
   const isMounted = useIsMounted();
   const zipcode = useSelector((state) => state.data.zip_code);
+  const homeOwner = useSelector((state) => state.data.do_you_own_your_home);
   const [dimensions, setDimensions] = React.useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -87,7 +88,13 @@ const Index = () => {
           <div className="primary-heading">Do you own your home?</div>
           <div className="home-owners-wrapper">
             <div className="box--wrapper">
-              <div className="box" onClick={() => handleSetHomeOwner("Yes")}>
+              <div
+                className="box"
+                style={
+                  homeOwner === "Yes" ? { border: "2px solid #2196f3" } : null
+                }
+                onClick={() => handleSetHomeOwner("Yes")}
+              >
                 <span>
                   <span>
                     <MdCheckmark
@@ -110,7 +117,13 @@ const Index = () => {
                   />
                 </span>
               </div>
-              <div className="box" onClick={() => handleSetHomeOwner("No")}>
+              <div
+                className="box"
+                style={
+                  homeOwner === "No" ? { border: "2px solid #2196f3" } : null
+                }
+                onClick={() => handleSetHomeOwner("No")}
+              >
                 <span>
                   <span>
                     <MdClose

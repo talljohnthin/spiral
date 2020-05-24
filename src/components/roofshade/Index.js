@@ -34,6 +34,7 @@ const Index = () => {
   const [redirectToNext, setRedirectToNext] = useState(false);
   const isMounted = useIsMounted();
   const zipcode = useSelector((state) => state.data.zip_code);
+  const roof_shade = useSelector((state) => state.data.roof_shade);
   const [dimensions, setDimensions] = React.useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -88,7 +89,15 @@ const Index = () => {
           </div>
           <div className="roofshade-wrapper">
             <div className="box--wrapper">
-              <div className="box" onClick={() => handleRoofShade("No Shade")}>
+              <div
+                className="box"
+                style={
+                  roof_shade === "No Shade"
+                    ? { border: "2px solid #2196f3" }
+                    : null
+                }
+                onClick={() => handleRoofShade("No Shade")}
+              >
                 <span>
                   <span>
                     <img src={noShade} alt="No Shade" className="home home-1" />
@@ -109,6 +118,11 @@ const Index = () => {
               </div>
               <div
                 className="box"
+                style={
+                  roof_shade === "A Little Shade"
+                    ? { border: "2px solid #2196f3" }
+                    : null
+                }
                 onClick={() => handleRoofShade("A Little Shade")}
               >
                 <span>
@@ -135,6 +149,11 @@ const Index = () => {
               </div>
               <div
                 className="box"
+                style={
+                  roof_shade === "A Lot Of Shade"
+                    ? { border: "2px solid #2196f3" }
+                    : null
+                }
                 onClick={() => handleRoofShade("A Lot Of Shade")}
               >
                 <span>
@@ -159,7 +178,15 @@ const Index = () => {
                   />
                 </span>
               </div>
-              <div className="box" onClick={() => handleRoofShade("Uncertain")}>
+              <div
+                className="box"
+                style={
+                  roof_shade === "Uncertain"
+                    ? { border: "2px solid #2196f3" }
+                    : null
+                }
+                onClick={() => handleRoofShade("Uncertain")}
+              >
                 <span>
                   <span>
                     <img
