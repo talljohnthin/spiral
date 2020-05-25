@@ -71,7 +71,7 @@ const Index = () => {
     if (firstName) {
       setErrorFirstName("");
     } else if (firstName.length < 2) {
-      setErrorFirstName("Please a valid first name.");
+      setErrorFirstName("First name must be not less than two characters.");
       return;
     } else {
       setErrorFirstName("Please add first name.");
@@ -81,7 +81,7 @@ const Index = () => {
     if (lastName) {
       setErrorLastName("");
     } else if (lastName.length < 2) {
-      setErrorLastName("Please a valid last name.");
+      setErrorLastName("Last name must be not less than two characters.");
       return;
     } else {
       setErrorLastName("Please add last name.");
