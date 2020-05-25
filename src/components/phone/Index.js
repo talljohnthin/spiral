@@ -115,7 +115,12 @@ const Index = () => {
             Complete this final step to see your savings.
           </div>
 
-          <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
+          <form
+            onSubmit={handleSetPhone}
+            style={{ paddingTop: 10 }}
+            className={classes.form}
+            noValidate
+          >
             <CustomTextField
               id="outlined-number"
               variant="outlined"
@@ -139,7 +144,7 @@ const Index = () => {
               variant="contained"
               color="primary"
               className="primary-btn"
-              onClick={handleSetPhone}
+              type="submit"
             >
               Get Free Quote
             </Button>

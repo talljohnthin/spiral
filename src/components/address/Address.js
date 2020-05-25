@@ -606,7 +606,7 @@ const Address = () => {
           <div className="primary-sub-heading">
             For verification only. We do not mail.
           </div>
-          <form className={classes.form} noValidate>
+          <form onSubmit={handleContinue} className={classes.form} noValidate>
             {editMode ? streetNotAutofill() : streetAutofill()}
 
             {successMessage && (
@@ -649,7 +649,7 @@ const Address = () => {
               variant="contained"
               color="primary"
               className="primary-btn"
-              onClick={handleContinue}
+              type="submit"
               style={{ marginTop: 20 }}
             >
               Continue

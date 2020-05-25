@@ -99,7 +99,12 @@ const Index = () => {
             We take privacy seriously. No spam!
           </div>
 
-          <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
+          <form
+            onSubmit={handleSetEmail}
+            style={{ paddingTop: 10 }}
+            className={classes.form}
+            noValidate
+          >
             <TextField
               id="outlined-number"
               variant="outlined"
@@ -122,7 +127,7 @@ const Index = () => {
               variant="contained"
               color="primary"
               className="primary-btn"
-              onClick={handleSetEmail}
+              type="submit"
             >
               Continue
             </Button>
