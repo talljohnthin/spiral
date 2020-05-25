@@ -59,6 +59,7 @@ const Index = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
   const [redirect, setRedirect] = useState(false);
   const isMounted = useIsMounted();
@@ -76,6 +77,15 @@ const Index = () => {
     });
   }, []);
 
+  const onErrorValidate = (p) => {
+    if (validPhone(p)) {
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Please add a valid phone number");
+      return;
+    }
+  };
+
   const handleSetPhone = (e) => {
     e.preventDefault();
 
@@ -83,6 +93,7 @@ const Index = () => {
       setErrorMessage("");
     } else {
       setErrorMessage("Please add a valid phone number");
+      setIsError(true);
       return;
     }
 
@@ -131,7 +142,10 @@ const Index = () => {
               name="phone"
               autoComplete="Phone"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                setPhone(e.target.value);
+                isError && onErrorValidate(e.target.value);
+              }}
               autoFocus
               type="Number"
               className="text-input"

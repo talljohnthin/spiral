@@ -149,10 +149,8 @@ const Index = () => {
                 setProvider(e.target.value);
               }}
               label="More Options"
-              className={[
-                classes.select,
-                storedMoreDropdown ? "isCurrent" : null,
-              ]}
+              style={{ color: "#848484" }}
+              className={storedMoreDropdown ? "isCurrent" : null}
             >
               {providersWithRadius.length
                 ? providersWithRadius.map((e, i) => {

@@ -47,6 +47,7 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
   const [redirect, setRedirect] = useState(false);
+  const [isError, setIsError] = useState(false);
   const isMounted = useIsMounted();
 
   const dispatch = useDispatch();
@@ -62,6 +63,15 @@ const Index = () => {
     });
   }, []);
 
+  const onErrorValidate = (e) => {
+    if (validEmail(e)) {
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Please a valid email address");
+      return;
+    }
+  };
+
   const handleSetEmail = (e) => {
     e.preventDefault();
 
@@ -69,6 +79,7 @@ const Index = () => {
       setErrorMessage("");
     } else {
       setErrorMessage("Please a valid email address");
+      setIsError(true);
       return;
     }
 
@@ -115,7 +126,10 @@ const Index = () => {
               name="email"
               autoComplete="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                isError && onErrorValidate(e.target.value);
+              }}
               autoFocus
               className="text-input"
               error={errorMessage ? true : false}

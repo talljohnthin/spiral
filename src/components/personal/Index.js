@@ -48,6 +48,7 @@ const Index = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
   const [redirect, setRedirect] = useState(false);
   const isMounted = useIsMounted();
@@ -65,27 +66,42 @@ const Index = () => {
     });
   }, []);
 
+  const validateFN = (value) => {
+    if (value.length < 2) {
+      setErrorFirstName("Please add valid first name.");
+      return;
+    } else {
+      setErrorFirstName("");
+    }
+  };
+
+  const validateLN = (value) => {
+    if (value.length < 2) {
+      setIsError(true);
+      setErrorLastName("Please add valid last name.");
+      return;
+    } else {
+      setErrorLastName("");
+    }
+  };
+
   const handleSetPersonalInformation = (e) => {
     e.preventDefault();
 
-    if (firstName) {
-      setErrorFirstName("");
-    } else if (firstName.length < 2) {
-      setErrorFirstName("First name must be not less than two characters.");
+    if (firstName.length < 2) {
+      setIsError(true);
+      setErrorFirstName("Please add valid first name.");
       return;
     } else {
-      setErrorFirstName("Please add first name.");
-      return;
+      setErrorFirstName("");
     }
 
-    if (lastName) {
-      setErrorLastName("");
-    } else if (lastName.length < 2) {
-      setErrorLastName("Last name must be not less than two characters.");
+    if (lastName.length < 2) {
+      setIsError(true);
+      setErrorLastName("Please add valid last name.");
       return;
     } else {
-      setErrorLastName("Please add last name.");
-      return;
+      setErrorLastName("");
     }
 
     dispatch({
@@ -123,7 +139,10 @@ const Index = () => {
               name="firstName"
               autoComplete="First Name"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e) => {
+                setFirstName(e.target.value);
+                isError && validateFN(e.target.value);
+              }}
               autoFocus
               className="text-input"
               error={errorFirstName ? true : false}
@@ -140,7 +159,10 @@ const Index = () => {
               name="lastName"
               autoComplete="Last Name"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={(e) => {
+                setLastName(e.target.value);
+                isError && validateLN(e.target.value);
+              }}
               className="text-input"
               error={errorLastName ? true : false}
               helperText={errorLastName}
