@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { Redirect } from "react-router-dom";
-import Alert from "@material-ui/lab/Alert";
 import useIsMounted from "ismounted";
 import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
@@ -131,7 +130,7 @@ const Index = () => {
   }, []);
 
   if (redirect) {
-    return <Redirect to="/" />;
+    return <Redirect to="/flow" />;
   }
 
   return (

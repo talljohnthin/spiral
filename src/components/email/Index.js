@@ -97,7 +97,7 @@ const Index = () => {
   }
 
   if (redirect) {
-    return <Redirect to="/" />;
+    return <Redirect to="/flow" />;
   }
 
   return (

@@ -14,6 +14,9 @@ import Personal from "./components/personal/Index";
 import Email from "./components/email/Index";
 import Phone from "./components/phone/Index";
 import Progress from "./components/header/Progress";
+import Homepage from "./components/site/homepage/Index";
+import Faq from "./components/site/faq/Index";
+import About from "./components/site/about/Index";
 import Footer from "./components/footer/Index";
 
 const App = () => {
@@ -21,7 +24,6 @@ const App = () => {
     height: window.innerHeight,
     width: window.innerWidth,
   });
-
   useEffect(() => {
     function handleResize() {
       setDimensions({
@@ -43,7 +45,10 @@ const App = () => {
         </div>
       ) : null}
       <Router>
-        <Route path="/" exact component={Flow} />
+        <Route path="/" exact component={Homepage} />
+        <Route path="/about" exact component={About} />
+        <Route path="/faq" exact component={Faq} />
+        <Route path="/flow" exact component={Flow} />
         <Route path="/powerbill" exact component={PowerBill} />
         <Route path="/address" exact component={Address} />
         <Route path="/address/change" exact component={Change} />

@@ -10,7 +10,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   font-family: $primary-font;
-  height: 100vh;
+  //height: 100vh;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+1,1e8ce3+100&0+78,0.24+100 */
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,2196f3+100&0+72,0.24+100 */
   background: -moz-linear-gradient(
@@ -43,7 +43,7 @@ body {
 
 #root {
   @media (min-width: 768px) {
-    height: 100vh;
+    //height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -114,7 +114,7 @@ body {
 
 //footer
 .footer {
-  position: absolute;
+  //position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
