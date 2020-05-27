@@ -110,6 +110,23 @@ body {
       display: block;
     }
   }
+
+  .menu--items {
+    padding: 0 30px;
+    @media (max-width: 767px) {
+      display: none;
+    }
+    a {
+      text-decoration: none;
+      padding: 0 10px;
+      color: #6a6a6a;
+      transition: 0.3s;
+      &:hover,
+      &.active {
+        color: $primary-color;
+      }
+    }
+  }
 }
 
 //footer
@@ -150,6 +167,12 @@ body {
 
 // flow
 .section-flow {
+  @media (min-width: 768px) {
+    height: calc(100vh - 80px);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
   & > div {
     @media (max-width: 767px) {
       margin-top: 25px;
@@ -234,6 +257,12 @@ body {
 
 // powerbill
 .section-powerbill {
+  @media (min-width: 768px) {
+    height: calc(100vh - 80px);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
   & > div {
     @media (max-width: 767px) {
       margin-top: 25px;

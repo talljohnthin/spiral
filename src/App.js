@@ -17,6 +17,7 @@ import Progress from "./components/header/Progress";
 import Homepage from "./components/site/homepage/Index";
 import Faq from "./components/site/faq/Index";
 import About from "./components/site/about/Index";
+import Incentives from "./components/site/incentives/Index";
 import Footer from "./components/footer/Index";
 
 const App = () => {
@@ -38,14 +39,15 @@ const App = () => {
   });
   return (
     <Fragment>
-      <Header />
-      {dimensions.width < 767 ? (
-        <div style={{ padding: "0 20px", marginTop: 30 }}>
-          <Progress />{" "}
-        </div>
-      ) : null}
       <Router>
+        <Header />
+        {dimensions.width < 767 ? (
+          <div style={{ padding: "0 20px", marginTop: 30 }}>
+            <Progress />{" "}
+          </div>
+        ) : null}
         <Route path="/" exact component={Homepage} />
+        <Route path="/incentives" exact component={Incentives} />
         <Route path="/about" exact component={About} />
         <Route path="/faq" exact component={Faq} />
         <Route path="/flow" exact component={Flow} />
