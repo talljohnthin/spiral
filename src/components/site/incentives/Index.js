@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link, Redirect } from "react-router-dom";
 import aboutHeroImg from "./../../../assets/images/sites/about-hero.jpg";
 import { InputLabel, FormControl, Select, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
 const Index = () => {
   const classes = useStyles();
   const history = useHistory();
+  const [selectedState, setSelectedState] = useState("");
+  const [redirectTo, setRedirectTo] = useState("");
+
+  if (redirectTo) {
+    return <Redirect to={`/incentives/${selectedState}`} />;
+  }
 
   return (
     <>
@@ -43,8 +49,8 @@ const Index = () => {
                   <InputLabel>Search incentives by state</InputLabel>
                   <Select
                     native
-                    //value={state.age}
-                    // onChange={handleChange}
+                    value={selectedState}
+                    onChange={(e) => setSelectedState(e.target.value)}
                     name="location"
                     style={{ padding: 10, width: 260, fontSize: 18 }}
                   >
@@ -71,7 +77,9 @@ const Index = () => {
                   variant="contained"
                   color="primary"
                   className="primary-btn"
-                  type="submit"
+                  onClick={() => {
+                    setRedirectTo(selectedState);
+                  }}
                 >
                   Continue
                 </Button>
@@ -87,43 +95,43 @@ const Index = () => {
 
             <div className="boxes">
               <div>
-                <Link href="/incentives/AZ">Arizona</Link>
+                <Link to="/incentives/AZ">Arizona</Link>
               </div>
               <div>
-                <Link href="/incentives/CA">California</Link>
+                <Link to="/incentives/CA">California</Link>
               </div>
               <div>
-                <Link href="/incentives/CO">Colorado</Link>
+                <Link to="/incentives/CO">Colorado</Link>
               </div>
               <div>
-                <Link href="/incentives/CT">Connecticut</Link>
+                <Link to="/incentives/CT">Connecticut</Link>
               </div>
               <div>
-                <Link href="/incentives/FL">Florida</Link>
+                <Link to="/incentives/FL">Florida</Link>
               </div>
               <div>
-                <Link href="/incentives/HI">Hawaii</Link>
+                <Link to="/incentives/HI">Hawaii</Link>
               </div>
               <div>
-                <Link href="/incentives/MD">Maryland</Link>
+                <Link to="/incentives/MD">Maryland</Link>
               </div>
               <div>
-                <Link href="/incentives/MA">Massachusetts</Link>
+                <Link to="/incentives/MA">Massachusetts</Link>
               </div>
               <div>
-                <Link href="/incentives/NV">Nevada</Link>
+                <Link to="/incentives/NV">Nevada</Link>
               </div>
               <div>
-                <Link href="/incentives/NJ">New Jersey</Link>
+                <Link to="/incentives/NJ">New Jersey</Link>
               </div>
               <div>
-                <Link href="/incentives/NY">New York</Link>
+                <Link to="/incentives/NY">New York</Link>
               </div>
               <div>
-                <Link href="/incentives/SC">South Carolina</Link>
+                <Link to="/incentives/SC">South Carolina</Link>
               </div>
               <div>
-                <Link href="/incentives/TX">Texas</Link>
+                <Link to="/incentives/TX">Texas</Link>
               </div>
             </div>
           </div>

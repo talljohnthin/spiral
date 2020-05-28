@@ -179,3 +179,109 @@
     }
   }
 }
+
+.incentives--single-wrapper {
+  @media (min-width: 768px) {
+    padding: 0 30px;
+  }
+  .cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 800px;
+  }
+  .section {
+    &--container {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+  }
+
+  .section-hero {
+    min-height: 800px;
+    position: relative;
+    padding-top: 120px;
+
+    @media (max-width: 767px) {
+      min-height: auto;
+      padding: 0;
+    }
+
+    .breadcrumb {
+      padding-bottom: 30px;
+      a,
+      span {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+      }
+    }
+    .section--box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      padding: 50px 8%;
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 30px;
+    }
+
+    .primary-heading {
+      color: $primary-color;
+      margin: 0 0 10px;
+      text-align: center;
+      font-size: 3rem;
+      line-height: 1.167;
+      letter-spacing: 0em;
+      font-weight: 300;
+      text-align: center;
+      position: relative;
+      max-width: 600px;
+      z-index: 1;
+      @media (max-width: 767px) {
+        font-size: 1.8rem;
+      }
+
+      &.small-primary {
+        font-size: 1.8rem;
+        margin: 30px 0 20px;
+        @media (max-width: 767px) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .boxes {
+      margin-top: 50px;
+      .box {
+        margin-bottom: 40px;
+        &--title {
+          font-size: 1.5rem;
+          line-height: 1.3;
+          letter-spacing: 0.00938em;
+          -webkit-font-smoothing: antialiased;
+          color: #333;
+          margin: 0 auto 10px;
+          @media (max-width: 767px) {
+            font-size: 1.2rem;
+          }
+        }
+        &--text {
+          color: #6a6a6a;
+          line-height: 1.5;
+          text-align: justify;
+          font-size: 1rem;
+          letter-spacing: 0.00938em;
+        }
+      }
+    }
+  }
+}
