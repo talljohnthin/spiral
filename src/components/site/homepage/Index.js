@@ -1,27 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { getIncentives } from "./../../../redux/actions/site/siteActions";
 import { useDispatch } from "react-redux";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
 import "./scss/style.scss";
 
 const Index = () => {
   const history = useHistory();
-  const [redirect, setRedirect] = useState(false);
   const dispatch = useDispatch();
-
-  const handleRedirect = () => {
-    setRedirect(true);
-  };
 
   useEffect(() => {
     dispatch(getIncentives());
   }, [dispatch]);
-
-  if (redirect) {
-    return <Redirect to="/flow" />;
-  }
 
   return (
     <>
@@ -38,7 +29,7 @@ const Index = () => {
               variant="contained"
               color="primary"
               className="primary-btn"
-              onClick={handleRedirect}
+              onClick={() => history.push("/flow")}
             >
               Get Started
             </Button>

@@ -100,7 +100,7 @@ function Index(props) {
                 <Link
                   className={menuActive === "contact" ? "active" : ""}
                   onClick={() => setMenuActive("contact")}
-                  to="/faq"
+                  to="/contact"
                 >
                   Contact Us
                 </Link>

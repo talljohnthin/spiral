@@ -19,6 +19,7 @@ import Faq from "./components/site/faq/Index";
 import About from "./components/site/about/Index";
 import Incentives from "./components/site/incentives/Index";
 import IncentivesSingle from "./components/site/incentives/Single";
+import Contact from "./components/site/contact/Index";
 import Footer from "./components/footer/Index";
 
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
         <Route path="/" exact component={Homepage} />
         <Route path="/incentives" exact component={Incentives} />
         <Route path="/incentives/:state" exact component={IncentivesSingle} />
+        <Route path="/contact" exact component={Contact} />
         <Route path="/about" exact component={About} />
         <Route path="/faq" exact component={Faq} />
         <Route path="/flow" exact component={Flow} />
