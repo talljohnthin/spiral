@@ -94,6 +94,9 @@
       align-items: center;
       border-radius: 6px;
       margin-top: 20px;
+      .MuiSelect-select:focus {
+        background-color: transparent;
+      }
     }
     .primary-btn {
       background: $primary-color;
@@ -219,6 +222,7 @@
         font-size: 18px;
       }
     }
+
     .section--box {
       display: flex;
       flex-direction: column;
@@ -281,6 +285,42 @@
           font-size: 1rem;
           letter-spacing: 0.00938em;
         }
+      }
+    }
+
+    .dropdown--wrapper {
+      background: #fff;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      padding: 10px 20px;
+      align-items: center;
+      border-radius: 6px;
+      margin-top: 20px;
+      .MuiSelect-select:focus {
+        background-color: transparent;
+      }
+    }
+
+    .primary-btn {
+      background: $primary-color;
+      box-shadow: none;
+      padding: 12px 20px;
+      max-width: 100%;
+      margin: 10px auto 0;
+      display: block;
+      float: none;
+      font-family: $primary-font;
+      color: #fff;
+      text-transform: capitalize;
+      font-size: 1rem;
+      @media (max-width: 767px) {
+        max-width: 400px;
+      }
+
+      &:hover {
+        box-shadow: none;
+        background: $secondary-color;
       }
     }
   }

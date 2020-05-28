@@ -3,7 +3,7 @@
     "state": "Arizona",
     "short_name": "AZ",
     "title": "Arizona Solar Incentives & Rebates",
-    "image": "",
+    "image": "AZ.png",
     "list": [
       {
         "list_title": "Arizona is Leading The Way Thanks To Solar Incentives",
@@ -31,7 +31,7 @@
     "state": "California",
     "short_name": "CA",
     "title": "California Solar Incentives & Rebates",
-    "image": "",
+    "image": "CA.png",
     "list": [
       {
         "list_title": "California is Leading The Way Thanks To Solar Incentives",
@@ -55,7 +55,7 @@
     "state": "Colorado",
     "short_name": "CO",
     "title": "Colorado Solar Incentives & Rebates",
-    "image": "",
+    "image": "CO.png",
     "list": [
       {
         "list_title": "Colorado Investing Heavily In Solar",
@@ -79,7 +79,7 @@
     "state": "Connecticut",
     "short_name": "CT",
     "title": "Connecticut Solar Incentives & Rebates",
-    "image": "",
+    "image": "CT.png",
     "list": [
       {
         "list_title": "Connecticut’s Solar Incentives Are Among The Best & Brightest",
@@ -107,7 +107,7 @@
     "state": "Florida",
     "short_name": "FL",
     "title": "Florida Solar Incentives & Rebates",
-    "image": "",
+    "image": "FL.png",
     "list": [
       {
         "list_title": "Florida Beginning To Offer More Solar Incentives",
@@ -135,7 +135,7 @@
     "state": "Hawaii",
     "short_name": "HI",
     "title": "Hawaii Solar Incentives & Rebates",
-    "image": "",
+    "image": "HI.png",
     "list": [
       {
         "list_title": "Hawaii’s Solar Incentives Are Shining Bright",
@@ -163,7 +163,7 @@
     "state": "Maryland",
     "short_name": "MD",
     "title": "Maryland Solar Incentives & Rebates",
-    "image": "",
+    "image": "MD.png",
     "list": [
       {
         "list_title": "Maryland Offering Solar Tax Incentives and SRECs",
@@ -187,7 +187,7 @@
     "state": "Massachusetts",
     "short_name": "MA",
     "title": "Massachusetts Solar Incentives & Rebates",
-    "image": "",
+    "image": "MA.png",
     "list": [
       {
         "list_title": "Massachusetts Says ‘No’ To Overpaying For Electricity",
@@ -215,7 +215,7 @@
     "state": "Nevada",
     "short_name": "NV",
     "title": "Nevada Solar Incentives & Rebates",
-    "image": "",
+    "image": "NV.png",
     "list": [
       {
         "list_title": "Nevada Solar Incentives Are Some of the Largest in The U.S.",
@@ -243,7 +243,7 @@
     "state": "New Jersey",
     "short_name": "NJ",
     "title": "New Jersey Solar Incentives & Rebates",
-    "image": "",
+    "image": "NJ.png",
     "list": [
       {
         "list_title": "New Jersey Shows Rest of U.S. How Solar Is Done",
@@ -267,7 +267,7 @@
     "state": "New York",
     "short_name": "NY",
     "title": "New York Solar Incentives & Rebates",
-    "image": "",
+    "image": "NY.png",
     "list": [
       {
         "list_title": "New York Shows Rest of U.S. How Solar Is Done",
@@ -291,7 +291,7 @@
     "state": "South Carolina",
     "short_name": "SC",
     "title": "South Carolina Solar Incentives & Rebates",
-    "image": "",
+    "image": "SC.png",
     "list": [
       {
         "list_title": "South Carolina Homeowners Get The Most Solar Incentives in the Southeast",
@@ -315,7 +315,7 @@
     "state": "Texas",
     "short_name": "TX",
     "title": "Texas Solar Incentives & Rebates",
-    "image": "",
+    "image": "TX.png",
     "list": [
       {
         "list_title": "Texas Homeowners Are Cashing In On Solar Incentives",

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getIncentives } from "./../../../redux/actions/site/siteActions";
 import HeroImg from "./../../../assets/images/sites/states.jpg";
 import { makeStyles } from "@material-ui/core/styles";
+import { InputLabel, FormControl, Select, Button } from "@material-ui/core";
 
 import "./scss/style.scss";
 
@@ -24,6 +25,7 @@ const Index = (props) => {
   const dispatch = useDispatch();
   const [data, setData] = useState({});
   const incentives = useSelector((state) => state.site.incentives);
+  const [selectedState, setSelectedState] = useState("");
 
   const getData = () => {
     const filteredData = incentives.filter((e) => e.short_name === paramState);
@@ -36,6 +38,24 @@ const Index = (props) => {
     }
     getData();
   }, [dispatch, incentives]);
+
+  const handleLoadState = () => {
+    const filteredData = incentives.filter(
+      (e) => e.short_name === selectedState
+    );
+    setData(filteredData[0]);
+    history.push(`/incentives/${selectedState}`);
+  };
+
+  const renderImage = () => {
+    if (typeof data?.image !== "undefined") {
+      return (
+        <img
+          src={require(`../../../assets/images/sites/states/${data?.image}`)}
+        />
+      );
+    }
+  };
 
   return (
     <>
@@ -53,9 +73,7 @@ const Index = (props) => {
               <span> {data?.state} </span>
             </div>
             <div className="section--box">
-              <img
-                src={require("./../../../assets/images/sites/America.png")}
-              />
+              {renderImage()}
               <h1 className="primary-heading">{data?.title}</h1>
               <div className="boxes">
                 {data?.list?.map((e, i) => {
@@ -66,6 +84,46 @@ const Index = (props) => {
                     </div>
                   );
                 })}
+              </div>
+              <div className="dropdown--wrapper">
+                <div className="box">
+                  <FormControl required className={classes.formControl}>
+                    <InputLabel>Search incentives by state</InputLabel>
+                    <Select
+                      native
+                      value={selectedState}
+                      onChange={(e) => setSelectedState(e.target.value)}
+                      name="location"
+                      style={{ padding: 10, width: 260, fontSize: 18 }}
+                    >
+                      <option value=""></option>
+                      <option value="AZ">Arizona</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="FL">Florida</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NY">New York</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="TX">Texas</option>
+                    </Select>
+                  </FormControl>
+                </div>
+                <div className="box">
+                  <Button
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className="primary-btn"
+                    onClick={handleLoadState}
+                  >
+                    Continue
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

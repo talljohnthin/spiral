@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link, Redirect } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import aboutHeroImg from "./../../../assets/images/sites/about-hero.jpg";
 import { InputLabel, FormControl, Select, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,11 +20,6 @@ const Index = () => {
   const classes = useStyles();
   const history = useHistory();
   const [selectedState, setSelectedState] = useState("");
-  const [redirectTo, setRedirectTo] = useState("");
-
-  if (redirectTo) {
-    return <Redirect to={`/incentives/${selectedState}`} />;
-  }
 
   return (
     <>
@@ -78,7 +73,7 @@ const Index = () => {
                   color="primary"
                   className="primary-btn"
                   onClick={() => {
-                    setRedirectTo(selectedState);
+                    history.push(`/incentives/${selectedState}`);
                   }}
                 >
                   Continue
