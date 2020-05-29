@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import useIsMounted from "ismounted";
 import { useHistory } from "react-router-dom";
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 
 import { SET_PHONE } from "./../../redux/actions/data/dataTypes";
 
@@ -75,6 +76,10 @@ const Index = () => {
       type: SET_PROGRESS,
       payload: 9,
     });
+    dispatch(setCurrentView(true));
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   const onErrorValidate = (p) => {

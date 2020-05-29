@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
+import { setCurrentView } from "./../../../redux/actions/data/dataActions";
 import { useDispatch, useSelector } from "react-redux";
 import { getIncentives } from "./../../../redux/actions/site/siteActions";
 import HeroImg from "./../../../assets/images/sites/states.jpg";
@@ -38,6 +39,10 @@ const Index = (props) => {
     }
     getData();
   }, [dispatch, incentives]);
+
+  useEffect(() => {
+    dispatch(setCurrentView(false));
+  }, []);
 
   const handleLoadState = () => {
     const filteredData = incentives.filter(

@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import aboutHeroImg from "./../../../assets/images/sites/about-hero.jpg";
-
+import { setCurrentView } from "./../../../redux/actions/data/dataActions";
+import { useDispatch } from "react-redux";
 import "./scss/style.scss";
 
 const Index = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCurrentView(false));
+  }, []);
 
   return (
     <>

@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
+import { setCurrentView } from "./../../../redux/actions/data/dataActions";
+import { useDispatch } from "react-redux";
 import aboutHeroImg from "./../../../assets/images/sites/about-hero.jpg";
 import { InputLabel, FormControl, Select, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,6 +22,11 @@ const Index = () => {
   const classes = useStyles();
   const history = useHistory();
   const [selectedState, setSelectedState] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCurrentView(false));
+  }, []);
 
   return (
     <>

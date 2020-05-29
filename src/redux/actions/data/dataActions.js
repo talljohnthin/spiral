@@ -2,6 +2,7 @@ import { PROVIDERS_API } from "./../../../config/keys";
 import {
   SET_LIST_OF_PROVIDERS,
   SET_LIST_OF_PROVIDERS_WITH_RADIUS,
+  SET_IS_CURRENT_VIEW_LANDING,
 } from "./../../actions/data/dataTypes";
 
 export const handleGetProviders = (zipcode) => {
@@ -37,5 +38,12 @@ export const handleGetProvidersWithRadius = (zipcode, radius) => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const setCurrentView = (isCurrentViewLanding) => {
+  return {
+    type: SET_IS_CURRENT_VIEW_LANDING,
+    payload: isCurrentViewLanding,
   };
 };

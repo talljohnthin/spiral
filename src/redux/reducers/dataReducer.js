@@ -12,9 +12,11 @@ import {
   SET_PHONE,
   SET_LIST_OF_PROVIDERS,
   SET_LIST_OF_PROVIDERS_WITH_RADIUS,
+  SET_IS_CURRENT_VIEW_LANDING,
 } from "../actions/data/dataTypes";
 
 const initialState = {
+  landingView: false,
   zip_code: "",
   street_address: "",
   city: "",
@@ -114,7 +116,11 @@ const reducer = (state = initialState, action) => {
           list_of_providers_with_radius: action.payload,
         },
       };
-
+    case SET_IS_CURRENT_VIEW_LANDING:
+      return {
+        ...state,
+        landingView: action.payload,
+      };
     default:
       return state;
   }

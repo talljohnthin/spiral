@@ -9,6 +9,7 @@ import {
   SET_ZIPCODE,
   SET_CITY,
 } from "./../../redux/actions/data/dataTypes";
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
@@ -328,6 +329,10 @@ const Address = () => {
       type: SET_PROGRESS,
       payload: 7,
     });
+    dispatch(setCurrentView(true));
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   const getGeoCode = async (address) => {

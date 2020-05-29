@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { setCurrentView } from "./../../../redux/actions/data/dataActions";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
   ExpansionPanel,
@@ -33,10 +35,15 @@ const Index = () => {
   const history = useHistory();
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const dispatch = useDispatch();
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  useEffect(() => {
+    dispatch(setCurrentView(false));
+  }, []);
 
   return (
     <>

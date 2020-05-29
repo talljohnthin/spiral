@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import Alert from "@material-ui/lab/Alert";
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_IS_HOME_OWNER } from "./../../redux/actions/data/dataTypes";
 import useIsMounted from "ismounted";
@@ -62,10 +62,17 @@ const Index = () => {
     if (!zipcode) {
       setRedirect(true);
     }
+
     dispatch({
       type: SET_PROGRESS,
       payload: 3,
     });
+
+    dispatch(setCurrentView(true));
+
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   const handleSetHomeOwner = (isHomeOwner) => {

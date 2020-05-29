@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getIncentives } from "./../../../redux/actions/site/siteActions";
+import { setCurrentView } from "./../../../redux/actions/data/dataActions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
@@ -20,6 +21,7 @@ const Index = () => {
 
   useEffect(() => {
     dispatch(getIncentives());
+    dispatch(setCurrentView(false));
   }, [dispatch]);
 
   return (

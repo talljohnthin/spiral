@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_PROVIDER } from "./../../redux/actions/data/dataTypes";
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { useHistory } from "react-router-dom";
 
 import {
@@ -87,6 +88,10 @@ const Index = () => {
       type: SET_PROGRESS,
       payload: 4,
     });
+    dispatch(setCurrentView(true));
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   if (redirect) {

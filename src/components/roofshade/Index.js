@@ -9,6 +9,7 @@ import littleShade from "./../../assets/images/littleshade.png";
 import lotsOfShade from "./../../assets/images/lotofshade.png";
 import uncertain from "./../../assets/images/uncertain.png";
 import IosArrowForward from "react-ionicons/lib/IosArrowForward";
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { useHistory } from "react-router-dom";
 
 import { makeStyles, Container, CssBaseline } from "@material-ui/core";
@@ -64,6 +65,10 @@ const Index = () => {
       type: SET_PROGRESS,
       payload: 5,
     });
+    dispatch(setCurrentView(true));
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   const handleRoofShade = (value) => {

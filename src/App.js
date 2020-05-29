@@ -13,45 +13,27 @@ import ProofShade from "./components/roofshade/Index";
 import Personal from "./components/personal/Index";
 import Email from "./components/email/Index";
 import Phone from "./components/phone/Index";
-import Progress from "./components/header/Progress";
+import ProgressMobile from "./components/header/ProgressMobile";
 import Homepage from "./components/site/homepage/Index";
 import Faq from "./components/site/faq/Index";
 import About from "./components/site/about/Index";
 import Incentives from "./components/site/incentives/Index";
 import IncentivesSingle from "./components/site/incentives/Single";
 import Contact from "./components/site/contact/Index";
+import HowItWorks from "./components/site/howItWorks/Index";
 import Footer from "./components/footer/Index";
 
 const App = () => {
-  const [dimensions, setDimensions] = useState({
-    height: window.innerHeight,
-    width: window.innerWidth,
-  });
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
-      });
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
   return (
     <Fragment>
       <Router>
         <Header />
-        {dimensions.width < 767 ? (
-          <div style={{ padding: "0 20px", marginTop: 30 }}>
-            <Progress />{" "}
-          </div>
-        ) : null}
+        <ProgressMobile />
         <Route path="/" exact component={Homepage} />
         <Route path="/incentives" exact component={Incentives} />
         <Route path="/incentives/:state" exact component={IncentivesSingle} />
         <Route path="/contact" exact component={Contact} />
+        <Route path="/how-solar-works" exact component={HowItWorks} />
         <Route path="/about" exact component={About} />
         <Route path="/faq" exact component={Faq} />
         <Route path="/flow" exact component={Flow} />

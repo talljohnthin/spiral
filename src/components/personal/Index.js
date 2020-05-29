@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import useIsMounted from "ismounted";
 import { useHistory } from "react-router-dom";
 
@@ -64,6 +65,10 @@ const Index = () => {
       type: SET_PROGRESS,
       payload: 7,
     });
+    dispatch(setCurrentView(true));
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   const validateFN = (value) => {

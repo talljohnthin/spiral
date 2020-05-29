@@ -8,7 +8,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Slider from "@material-ui/core/Slider";
 import { SET_POWERBILL } from "./../../redux/actions/data/dataTypes";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
-
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { makeStyles, Container, CssBaseline, Button } from "@material-ui/core";
 import ValueLabel from "@material-ui/core/Slider/ValueLabel";
 
@@ -127,6 +127,10 @@ const Index = () => {
       type: SET_PROGRESS,
       payload: 2,
     });
+    dispatch(setCurrentView(true));
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   if (redirect) {

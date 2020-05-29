@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 import { AppBar, Toolbar, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -33,6 +34,7 @@ const styles = (theme) => ({
 function Index(props) {
   const { classes, onDrawerToggle, logout } = props;
   const [menuActive, setMenuActive] = useState("");
+  const isLanding = useSelector((state) => state.data.landingView);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -52,9 +54,56 @@ function Index(props) {
     };
   });
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    logout();
+  const renderProgressbar = () => {
+    return (
+      <Grid item>
+        {dimensions.width > 767 ? <Progress /> : <SecureFormText />}
+      </Grid>
+    );
+  };
+
+  const renderMenuItem = () => {
+    return (
+      <Grid item>
+        <ul className="menu--items">
+          <Link
+            className={menuActive === "about" ? "active" : ""}
+            onClick={() => setMenuActive("about")}
+            to="/about"
+          >
+            About
+          </Link>
+          <Link
+            className={menuActive === "faq" ? "active" : ""}
+            onClick={() => setMenuActive("faq")}
+            to="/faq"
+          >
+            Faqs
+          </Link>
+          <Link
+            className={menuActive === "incentives" ? "active" : ""}
+            onClick={() => setMenuActive("incentives")}
+            to="/incentives"
+          >
+            Rebates and Incentives
+          </Link>
+          <Link
+            className={menuActive === "works" ? "active" : ""}
+            onClick={() => setMenuActive("works")}
+            to="/how-solar-works"
+          >
+            How Solar Works
+          </Link>
+          <Link
+            className={menuActive === "contact" ? "active" : ""}
+            onClick={() => setMenuActive("contact")}
+            to="/contact"
+          >
+            Contact Us
+          </Link>
+        </ul>
+      </Grid>
+    );
   };
 
   return (
@@ -66,49 +115,7 @@ function Index(props) {
               Logo
             </Grid>
             <Grid item xs />
-
-            <Grid item>
-              <ul className="menu--items">
-                <Link
-                  className={menuActive === "about" ? "active" : ""}
-                  onClick={() => setMenuActive("about")}
-                  to="/about"
-                >
-                  About
-                </Link>
-                <Link
-                  className={menuActive === "faq" ? "active" : ""}
-                  onClick={() => setMenuActive("faq")}
-                  to="/faq"
-                >
-                  Faqs
-                </Link>
-                <Link
-                  className={menuActive === "incentives" ? "active" : ""}
-                  onClick={() => setMenuActive("incentives")}
-                  to="/incentives"
-                >
-                  Rebates and Incentives
-                </Link>
-                <Link
-                  className={menuActive === "works" ? "active" : ""}
-                  onClick={() => setMenuActive("works")}
-                  to="/faq"
-                >
-                  How Solar Works
-                </Link>
-                <Link
-                  className={menuActive === "contact" ? "active" : ""}
-                  onClick={() => setMenuActive("contact")}
-                  to="/contact"
-                >
-                  Contact Us
-                </Link>
-              </ul>
-            </Grid>
-            {/* <Grid item>
-              {dimensions.width > 767 ? <Progress /> : <SecureFormText />}
-            </Grid> */}
+            {isLanding ? renderProgressbar() : renderMenuItem()}
           </Grid>
         </Toolbar>
       </AppBar>

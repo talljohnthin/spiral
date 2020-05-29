@@ -8,7 +8,7 @@ import {
 } from "./../../redux/actions/data/dataActions";
 import useIsMounted from "ismounted";
 import { useHistory } from "react-router-dom";
-
+import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import {
   SET_ZIPCODE,
   SET_ZIPCODE_INFO,
@@ -332,6 +332,10 @@ const Index = () => {
       type: SET_PROGRESS,
       payload: 1,
     });
+    dispatch(setCurrentView(true));
+    return () => {
+      dispatch(setCurrentView(false));
+    };
   }, []);
 
   const getZipCode = async (zip) => {
