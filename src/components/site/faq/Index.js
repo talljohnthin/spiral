@@ -154,6 +154,51 @@ const Index = () => {
                   </Typography>
                 </ExpansionPanelDetails>
               </ExpansionPanel>
+              <ExpansionPanel
+                expanded={expanded === "panel5"}
+                onChange={handleChange("panel5")}
+              >
+                <ExpansionPanelSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel5bh-content"
+                  id="panel5bh-header"
+                >
+                  <Typography className={classes.heading}>
+                    Will EnergyBillCruncher evaluate the solar quotes I’ve
+                    already received?
+                  </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Typography className={classes.subHeading}>
+                    Yes. Our network of partners can look at your current quote,
+                    and in most cases they will beat it. They joined our
+                    platform to win your business after all. After you’ve
+                    compared your current bid against the ones you received
+                    here, you can gauge our value in terms of quality and cost
+                    to make the most informed decision possible.
+                  </Typography>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+              <ExpansionPanel
+                expanded={expanded === "panel6"}
+                onChange={handleChange("panel6")}
+              >
+                <ExpansionPanelSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel6bh-content"
+                  id="panel6bh-header"
+                >
+                  <Typography className={classes.heading}>
+                    How much does EnergyBillCruncher charge?
+                  </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Typography className={classes.subHeading}>
+                    EnergyBillCruncher is a 100% free service. We will never
+                    charge homeowners to use our platform.
+                  </Typography>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
             </div>
           </div>
         </section>
