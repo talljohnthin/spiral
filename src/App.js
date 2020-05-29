@@ -22,11 +22,13 @@ import IncentivesSingle from "./components/site/incentives/Single";
 import Contact from "./components/site/contact/Index";
 import HowItWorks from "./components/site/howItWorks/Index";
 import Footer from "./components/footer/Index";
+import MobileSideMenu from "./components/sideMenu/Index";
 
 const App = () => {
   return (
     <Fragment>
       <Router>
+        <MobileSideMenu />
         <Header />
         <ProgressMobile />
         <Route path="/" exact component={Homepage} />

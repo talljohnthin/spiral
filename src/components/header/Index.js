@@ -5,6 +5,7 @@ import { AppBar, Toolbar, Grid } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import Progress from "./Progress";
+import MobileMenu from "./MobileMenu";
 import SecureFormText from "./SecureFormText";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
@@ -65,6 +66,7 @@ function Index(props) {
   const renderMenuItem = () => {
     return (
       <Grid item>
+        <MobileMenu />
         <ul className="menu--items">
           <Link
             className={menuActive === "about" ? "active" : ""}

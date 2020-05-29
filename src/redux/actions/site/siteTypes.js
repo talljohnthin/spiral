@@ -1,1 +1,2 @@
 export const GET_INCENTIVES = "GET_INCENTIVES";
+export const OPEN_SIDEMENU = "OPEN_SIDEMENU";

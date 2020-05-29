@@ -127,6 +127,48 @@ body {
       }
     }
   }
+
+  .hamburger-icon {
+    font-size: 30px;
+    color: $primary-color;
+    cursor: pointer;
+    display: none;
+    position: relative;
+    right: 40px;
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+}
+
+// mobile side menu
+.mobile-side-menu {
+  position: fixed;
+  width: 225px;
+  height: 100%;
+  background: $primary-color;
+  z-index: 999;
+  padding: 60px 0 0;
+  transition: 0.3s;
+  transform: translate3d(-100%, 0, 0);
+  &.open {
+    transform: translate3d(0, 0, 0);
+  }
+  .menu--items {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      padding: 15px 30px;
+      text-decoration: none;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: 300;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
 }
 
 //footer
