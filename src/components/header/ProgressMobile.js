@@ -24,16 +24,9 @@ const ProgressMobile = () => {
     };
   });
 
-  useEffect(() => {
-    dispatch(setCurrentView(true));
-    return () => {
-      dispatch(setCurrentView(false));
-    };
-  }, []);
-
   return dimensions.width < 767 ? (
     isLanding ? (
-      <div style={{ padding: "0 20px", marginTop: 30 }}>
+      <div className="progress--mobile">
         <Progress />
       </div>
     ) : null

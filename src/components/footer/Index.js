@@ -3,12 +3,14 @@ import TermsAndDisclosuresModal from "./TermsAndDisclosuresModal";
 import SellInfoModal from "./SellInfoModal";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
 import ContactUsModal from "./ContactUsModal";
+import { useSelector } from "react-redux";
 
 function Index() {
   const [termsModal, setTermsModal] = useState(false);
   const [sellInfoModal, setSellInfoModal] = useState(false);
   const [privacyModal, setPrivacyModal] = useState(false);
   const [contactModal, setContactModal] = useState(false);
+  const isLanding = useSelector((state) => state.data.landingView);
 
   const pleaseClose = () => {
     setTermsModal(false);
@@ -24,7 +26,7 @@ function Index() {
       <PrivacyPolicyModal isOpen={privacyModal} pleaseClose={pleaseClose} />
       <ContactUsModal isOpen={contactModal} pleaseClose={pleaseClose} />
 
-      <footer className="footer">
+      <footer className={isLanding ? "footer landing" : "footer"}>
         <li>Company Name</li>
         <li className="hasLink" onClick={() => setTermsModal(true)}>
           Terms and Disclosures

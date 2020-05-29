@@ -50,6 +50,7 @@ body {
   }
   @media (max-width: 767px) {
     min-height: 100vh;
+    position: relative;
   }
 }
 
@@ -69,7 +70,7 @@ body {
   @media (max-width: 767px) {
     height: 55px;
     border: 0;
-
+    position: fixed !important;
     .toolbar {
       box-shadow: 0 14px 20px rgba(0, 0, 0, 0.01),
         0 10px 10px rgba(0, 0, 0, 0.01);
@@ -100,6 +101,10 @@ body {
     color: $primary-color;
     font-weight: 900;
     font-size: 26px;
+    a {
+      color: $primary-color;
+      text-decoration: none;
+    }
   }
 
   .header-progress {
@@ -148,16 +153,33 @@ body {
 // mobile side menu
 .mobile-side-menu {
   position: fixed;
-  width: 225px;
+  width: 100%;
   height: 100%;
-  background: $primary-color;
   z-index: 999;
-  padding: 60px 0 0;
   transition: 0.3s;
   transform: translate3d(-100%, 0, 0);
   &.open {
     transform: translate3d(0, 0, 0);
   }
+
+  .click--outside {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+  }
+
+  .menu--wrapper {
+    padding: 0;
+    width: 225px;
+    height: 100%;
+    background: $primary-color;
+    position: relative;
+    z-index: 2;
+  }
+
   .menu--items {
     padding: 0;
     margin: 0;
@@ -177,7 +199,6 @@ body {
 
 //footer
 .footer {
-  //position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -190,8 +211,14 @@ body {
     align-items: center;
     height: auto;
     position: relative;
-    margin-top: 100px;
-    padding-bottom: 20px;
+    margin-top: 30px;
+    padding-bottom: 15px;
+  }
+
+  &.landing {
+    position: absolute;
+    margin-top: 0;
+    padding-bottom: 15px;
   }
 
   li {
@@ -212,8 +239,21 @@ body {
   }
 }
 
+// progress mobile
+.progress--mobile {
+  padding: 0 30px;
+  margin-top: 30px;
+  @media (max-width: 767px) {
+    margin-top: 0;
+    padding-top: 85px;
+  }
+}
+
 // flow
 .section-flow {
+  @media (max-width: 767px) {
+    padding-bottom: 100px;
+  }
   @media (min-width: 768px) {
     height: calc(100vh - 80px);
     display: flex !important;
@@ -304,6 +344,9 @@ body {
 
 // powerbill
 .section-powerbill {
+  @media (max-width: 767px) {
+    padding-bottom: 100px;
+  }
   @media (min-width: 768px) {
     height: calc(100vh - 80px);
     display: flex !important;

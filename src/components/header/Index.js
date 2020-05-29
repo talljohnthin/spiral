@@ -114,7 +114,7 @@ function Index(props) {
         <Toolbar className="toolbar">
           <Grid container spacing={1} alignItems="center">
             <Grid item className="logo">
-              Logo
+              <Link to="/">Logo</Link>
             </Grid>
             <Grid item xs />
             {isLanding ? renderProgressbar() : renderMenuItem()}

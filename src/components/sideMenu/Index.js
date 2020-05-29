@@ -14,43 +14,49 @@ const Index = () => {
   };
   return (
     <div className={isOpenMenu ? "mobile-side-menu open" : "mobile-side-menu"}>
-      <ul className="menu--items">
-        <Link
-          className={menuActive === "about" ? "active" : ""}
-          onClick={() => handleOnLinkClick("about")}
-          to="/about"
-        >
-          About
-        </Link>
-        <Link
-          className={menuActive === "faq" ? "active" : ""}
-          onClick={() => handleOnLinkClick("faq")}
-          to="/faq"
-        >
-          Faqs
-        </Link>
-        <Link
-          className={menuActive === "incentives" ? "active" : ""}
-          onClick={() => handleOnLinkClick("incentives")}
-          to="/incentives"
-        >
-          Rebates and Incentives
-        </Link>
-        <Link
-          className={menuActive === "works" ? "active" : ""}
-          onClick={() => handleOnLinkClick("works")}
-          to="/how-solar-works"
-        >
-          How Solar Works
-        </Link>
-        <Link
-          className={menuActive === "contact" ? "active" : ""}
-          onClick={() => handleOnLinkClick("contact")}
-          to="/contact"
-        >
-          Contact Us
-        </Link>
-      </ul>
+      <div
+        className="click--outside"
+        onClick={() => dispatch(openSideMenu())}
+      ></div>
+      <div className="menu--wrapper">
+        <ul className="menu--items">
+          <Link
+            className={menuActive === "about" ? "active" : ""}
+            onClick={() => handleOnLinkClick("about")}
+            to="/about"
+          >
+            About
+          </Link>
+          <Link
+            className={menuActive === "faq" ? "active" : ""}
+            onClick={() => handleOnLinkClick("faq")}
+            to="/faq"
+          >
+            Faqs
+          </Link>
+          <Link
+            className={menuActive === "incentives" ? "active" : ""}
+            onClick={() => handleOnLinkClick("incentives")}
+            to="/incentives"
+          >
+            Rebates and Incentives
+          </Link>
+          <Link
+            className={menuActive === "works" ? "active" : ""}
+            onClick={() => handleOnLinkClick("works")}
+            to="/how-solar-works"
+          >
+            How Solar Works
+          </Link>
+          <Link
+            className={menuActive === "contact" ? "active" : ""}
+            onClick={() => handleOnLinkClick("contact")}
+            to="/contact"
+          >
+            Contact Us
+          </Link>
+        </ul>
+      </div>
     </div>
   );
 };
