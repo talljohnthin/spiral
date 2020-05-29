@@ -4,7 +4,7 @@
   padding: 0 30px 0;
   min-height: calc(100vh - 80px);
   @media (max-width: 767px) {
-    padding: 0 30px;
+    padding: 20px 30px 0;
     min-height: auto;
   }
   .section {
@@ -26,7 +26,8 @@
       color: #333;
       margin: 0 0 20px;
       @media (max-width: 767px) {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        line-height: 1.1;
       }
     }
 

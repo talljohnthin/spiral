@@ -94,8 +94,21 @@
       align-items: center;
       border-radius: 6px;
       margin-top: 20px;
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
       .MuiSelect-select:focus {
         background-color: transparent;
+      }
+      @media (max-width: 767px) {
+        .box {
+          width: 100%;
+        }
+      }
+      @media (max-width: 374px) {
+        .MuiInput-underline.MuiInput-formControl {
+          width: 200px !important;
+        }
       }
     }
     .primary-btn {
@@ -111,7 +124,8 @@
       text-transform: capitalize;
       font-size: 1rem;
       @media (max-width: 767px) {
-        max-width: 400px;
+        max-width: 100%;
+        width: 100%;
       }
 
       &:hover {
@@ -186,6 +200,9 @@
 .incentives--single-wrapper {
   @media (min-width: 768px) {
     padding: 0 30px;
+  }
+  @media (max-width: 767px) {
+    padding: 30px 0 0;
   }
   .cover {
     width: 100%;
@@ -297,8 +314,21 @@
       align-items: center;
       border-radius: 6px;
       margin-top: 20px;
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
       .MuiSelect-select:focus {
         background-color: transparent;
+      }
+      @media (max-width: 767px) {
+        .box {
+          width: 100%;
+        }
+      }
+      @media (max-width: 374px) {
+        .MuiInput-underline.MuiInput-formControl {
+          width: 200px !important;
+        }
       }
     }
 

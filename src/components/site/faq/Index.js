@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
     fontWeight: 500,
     color: "#333",
+    [theme.breakpoints.down("sm")]: {
+      lineHeight: 1.2,
+    },
   },
   subHeading: {
     color: "#6a6a6a",
