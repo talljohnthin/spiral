@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Progress from "./Progress";
 import MobileMenu from "./MobileMenu";
 import SecureFormText from "./SecureFormText";
+import logo from "./../../assets/images/solar-logo.png";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -114,7 +115,9 @@ function Index(props) {
         <Toolbar className="toolbar">
           <Grid container spacing={1} alignItems="center">
             <Grid item className="logo">
-              <Link to="/">Logo</Link>
+              <Link to="/">
+                <img src={logo} alt="solor logo" />
+              </Link>
             </Grid>
             <Grid item xs />
             {isLanding ? renderProgressbar() : renderMenuItem()}

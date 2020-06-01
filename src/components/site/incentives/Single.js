@@ -52,15 +52,15 @@ const Index = (props) => {
     history.push(`/incentives/${selectedState}`);
   };
 
-  const renderImage = () => {
-    if (typeof data?.image !== "undefined") {
-      return (
-        <img
-          src={require(`../../../assets/images/sites/states/${data?.image}`)}
-        />
-      );
-    }
-  };
+  // const renderImage = () => {
+  //   if (typeof data?.image !== "undefined") {
+  //     return (
+  //       <img
+  //         src={require(`../../../assets/images/sites/states/${data?.image}`)}
+  //       />
+  //     );
+  //   }
+  // };
 
   return (
     <>
@@ -78,7 +78,7 @@ const Index = (props) => {
               <span> {data?.state} </span>
             </div>
             <div className="section--box">
-              {renderImage()}
+              {/* {renderImage()} */}
               <h1 className="primary-heading">{data?.title}</h1>
               <div className="boxes">
                 {data?.list?.map((e, i) => {

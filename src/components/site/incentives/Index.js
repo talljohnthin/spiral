@@ -38,7 +38,7 @@ const Index = () => {
           }}
         >
           <div className="section--container">
-            <img src={require("./../../../assets/images/sites/America.png")} />
+            {/* <img src={require("./../../../assets/images/sites/America.png")} /> */}
             <h1 className="primary-heading">Solar Incentives</h1>
             <h3 className="primary-sub-heading">
               {" "}

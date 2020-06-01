@@ -101,6 +101,16 @@ body {
     color: $primary-color;
     font-weight: 900;
     font-size: 26px;
+    img {
+      width: 100%;
+      max-width: 190px;
+      @media (max-width: 1024px) {
+        max-width: 150px;
+      }
+      @media (max-width: 767px) {
+        max-width: 120px;
+      }
+    }
     a {
       color: $primary-color;
       text-decoration: none;
@@ -130,6 +140,9 @@ body {
       padding: 0 10px;
       color: #6a6a6a;
       transition: 0.3s;
+      @media (max-width: 1024px) {
+        padding: 0 5px;
+      }
       &:hover,
       &.active {
         color: $primary-color;
