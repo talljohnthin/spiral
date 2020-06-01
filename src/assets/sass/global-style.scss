@@ -107,9 +107,13 @@ body {
       @media (max-width: 1024px) {
         max-width: 200px;
         font-size: 14px;
+        position: relative;
+        top: 3px;
       }
       @media (max-width: 767px) {
         max-width: 180px;
+        position: relative;
+        top: 5px;
       }
     }
     a {
