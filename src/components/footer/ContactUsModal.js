@@ -4,10 +4,10 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import MdClose from "react-ionicons/lib/MdClose";
+import { useForm } from "react-hook-form";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ContactUsModal({ isOpen, pleaseClose }) {
   const classes = useStyles();
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div>
       <Dialog
@@ -56,7 +60,11 @@ export default function ContactUsModal({ isOpen, pleaseClose }) {
               <br />
               sales@energybillcruncher.com
             </div>
-            <form className={classes.form} noValidate>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className={classes.form}
+              noValidate
+            >
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
@@ -67,6 +75,8 @@ export default function ContactUsModal({ isOpen, pleaseClose }) {
                     id="name"
                     label="Name"
                     autoFocus
+                    inputRef={register({ required: true })}
+                    error={errors.name ? true : false}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -77,6 +87,14 @@ export default function ContactUsModal({ isOpen, pleaseClose }) {
                     label="Email"
                     name="email"
                     autoComplete="email"
+                    inputRef={register({
+                      required: "E-mail required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "Enter a valid email address",
+                      },
+                    })}
+                    error={errors.email ? true : false}
                   />
                 </Grid>
                 <Grid item xs={12}>

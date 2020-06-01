@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { setCurrentView } from "./../../redux/actions/data/dataActions";
+import { validEmail } from "./../../helpers/Validations";
 import useIsMounted from "ismounted";
 import { useHistory } from "react-router-dom";
 
@@ -95,11 +96,6 @@ const Index = () => {
 
     history.push("/tel");
   };
-
-  function validEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
 
   if (redirect) {
     return <Redirect to="/flow" />;
