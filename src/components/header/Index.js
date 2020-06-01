@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Progress from "./Progress";
 import MobileMenu from "./MobileMenu";
 import SecureFormText from "./SecureFormText";
-import logo from "./../../assets/images/solar-logo.png";
+import logo from "./../../assets/images/logo.png";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
