@@ -13,7 +13,7 @@ export class Tracker {
     this.timer = new Date();
     this.ts = this.timer.getTime();
     this.timezone_offset = this.timer.getTimezoneOffset();
-    this.baseurl = "http://0.0.0.0:5000";
+    this.baseurl = "https://realsolar.free.beeceptor.com";
   }
   getParameterByName(name) {
     if (!this.currenturl) {
@@ -39,10 +39,10 @@ export class Tracker {
       s3: this.s3,
       s4: this.s4,
       s5: this.s5,
-      ts: this.ts,
-      timezone_offset: this.timezone_offset,
-      useragent: this.useragent,
-      referral: this.referrer,
+      //ts: this.ts,
+      //timezone_offset: this.timezone_offset,
+      //useragent: this.useragent,
+      //referral: this.referrer,
     };
     try {
       const response = await axios.get(
@@ -55,8 +55,8 @@ export class Tracker {
           },
         }
       );
-      const data = await response.json();
-      console.log(data);
+      //const data = await response.json();
+      alert(response.data);
     } catch (error) {
       console.log(error);
     }
