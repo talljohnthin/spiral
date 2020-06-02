@@ -13,6 +13,7 @@ import {
   SET_ZIPCODE,
   SET_ZIPCODE_INFO,
 } from "./../../redux/actions/data/dataTypes";
+import { Tracker } from "./Tracker";
 
 import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 
@@ -45,19 +46,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
-const CustomTextField = withStyles({
-  // root: {
-  //   "& input:valid + fieldset": {
-  //     borderColor: "#48bf91",
-  //     borderWidth: 2,
-  //   },
-  //   "& input:invalid + fieldset": {
-  //     borderColor: "red",
-  //     borderWidth: 2,
-  //   },
-  // },
-})(TextField);
 
 const Index = () => {
   const classes = useStyles();
@@ -332,11 +320,24 @@ const Index = () => {
       type: SET_PROGRESS,
       payload: 1,
     });
+
     dispatch(setCurrentView(true));
+
+    InitTracker(); //https://realsolarquotes.herokuapp.com/flow?s1=yahoo.com&s2=Advertisement_ID&s3=RandomWord
+
     return () => {
       dispatch(setCurrentView(false));
     };
   }, []);
+
+  const InitTracker = () => {
+    const tracker = new Tracker(
+      document.referrer,
+      window.navigator.userAgent,
+      window.location.href
+    );
+    tracker.initate_track();
+  };
 
   const getZipCode = async (zip) => {
     try {
@@ -406,7 +407,7 @@ const Index = () => {
             className={classes.form}
             noValidate
           >
-            <CustomTextField
+            <TextField
               id="outlined-number"
               variant="outlined"
               margin="normal"

@@ -23,7 +23,10 @@ const Index = () => {
           }}
         >
           <div className="section--container">
-            <img src={require("./../../../assets/images/sites/AMMIcon.png")} />
+            <img
+              src={require("./../../../assets/images/sites/AMMIcon.png")}
+              style={{ maxWidth: 140 }}
+            />
 
             <h3 className="primary-sub-heading">Our mission</h3>
             <h1 className="primary-heading">
@@ -36,6 +39,7 @@ const Index = () => {
           <div className="section--container">
             <img
               src={require("./../../../assets/images/sites/UnderstandIcon.png")}
+              style={{ maxWidth: 140 }}
             />
             <h2 className="primary-heading">
               We understand Going solar can get complicated
@@ -54,6 +58,7 @@ const Index = () => {
           <div className="section--container">
             <img
               src={require("./../../../assets/images/sites/SimplifiedIcon.png")}
+              style={{ maxWidth: 140 }}
             />
             <h2 className="primary-heading">So we simplified the process.</h2>
             <p>

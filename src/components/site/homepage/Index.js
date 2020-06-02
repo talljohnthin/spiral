@@ -44,27 +44,29 @@ const Index = () => {
             </h3>
             <div className="boxes">
               <div className="box">
-                <img src={require("./../../../assets/images/noshade.png")} />
-                <span className="box--title">Title</span>
+                <img src={require("./../../../assets/images/sites/zip.png")} />
+                <span className="box--title">1. Enter your zip code</span>
                 <p className="box--descriptions">
-                  Enter basic information to see if installing solar panels make
-                  sense for your home
+                  We will find you the biggest rebates and incentives currently
+                  offered in your region.
                 </p>
               </div>
               <div className="box">
-                <img src={require("./../../../assets/images/noshade.png")} />
-                <span className="box--title">Title</span>
+                <img
+                  src={require("./../../../assets/images/sites/check.png")}
+                />
+                <span className="box--title">2. Check eligibility</span>
                 <p className="box--descriptions">
                   Enter basic information to see if installing solar panels make
-                  sense for your home
+                  sense for your home.
                 </p>
               </div>
               <div className="box">
-                <img src={require("./../../../assets/images/noshade.png")} />
-                <span className="box--title">Title</span>
+                <img src={require("./../../../assets/images/sites/save.png")} />
+                <span className="box--title">3. See your savings</span>
                 <p className="box--descriptions">
-                  Enter basic information to see if installing solar panels make
-                  sense for your home
+                  Once your home is approved, you can compare the best savings
+                  offers in your area.
                 </p>
               </div>
             </div>
