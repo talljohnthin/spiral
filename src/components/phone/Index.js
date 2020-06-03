@@ -5,6 +5,7 @@ import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import useIsMounted from "ismounted";
 import { useHistory } from "react-router-dom";
 import { setCurrentView } from "./../../redux/actions/data/dataActions";
+import ModelsModal from "./ModelsModal";
 
 import { SET_PHONE } from "./../../redux/actions/data/dataTypes";
 
@@ -64,13 +65,18 @@ const Index = () => {
   const zipcode = useSelector((state) => state.data.zip_code);
   const [redirect, setRedirect] = useState(false);
   const isMounted = useIsMounted();
+  const [modelsModal, setModelsModal] = useState(false);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const pleaseClose = () => {
+    setModelsModal(false);
+  };
+
   useEffect(() => {
     if (!zipcode) {
-      setRedirect(true);
+      // setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -174,18 +180,28 @@ const Index = () => {
               Get Free Quote
             </Button>
           </form>
-          <label>
+          <label className="h6">
             <input type="hidden" id="leadid_tcpa_disclosure" />
-            <div className="h6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
-            </div>
+            By clicking above, you authorize up to
+            <span
+              style={{
+                padding: "0 7px",
+                color: "#333",
+                cursor: "pointer",
+                textDecoration: "underline",
+              }}
+              onClick={() => setModelsModal(true)}
+            >
+              four Solar Companies
+            </span>{" "}
+            to call you and send you pre-recorded messages and text messages at
+            the number you entered above, using an autodialer, with offers about
+            their products or services, even if your phone number is on any
+            national or state “Do Not Call” list. Your consent here is not based
+            on a condition of purchase.
           </label>
         </div>
+        <ModelsModal isOpen={modelsModal} pleaseClose={pleaseClose} />
       </Container>
       <noscript>
         <img src="http://api.trustedform.com/ns.gif" />
