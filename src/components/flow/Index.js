@@ -325,7 +325,7 @@ const Index = () => {
 
     dispatch(setCurrentView(true));
 
-    //InitTracker(); //https://realsolarquotes.herokuapp.com/flow?s1=yahoo.com&s2=Advertisement_ID&s3=RandomWord
+    InitTracker(); //https://realsolarquotes.herokuapp.com/flow?s1=yahoo.com&s2=Advertisement_ID&s3=RandomWord
 
     return () => {
       dispatch(setCurrentView(false));
