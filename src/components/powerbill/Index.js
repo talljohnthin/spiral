@@ -140,6 +140,12 @@ const Index = () => {
   return (
     <Fragment>
       <Container component="main" className="section-powerbill">
+        <input
+          id="leadid_token"
+          name="universal_leadid"
+          type="hidden"
+          value=""
+        />
         <CssBaseline />
         <div className={classes.paper}>
           <div className="primary-heading power-heading">
@@ -170,6 +176,12 @@ const Index = () => {
           </Button>
         </div>
       </Container>
+      <noscript>
+        <img src="http://api.trustedform.com/ns.gif" />
+      </noscript>
+      <noscript>
+        <img src="//create.leadid.com/noscript.gif?lac=064c6972-8aba-292f-69eb-5b338dd8b54f&lck=0cfd5396-15c4-921a-bae8-2f4c79ad8761&snippet_version=2" />
+      </noscript>
     </Fragment>
   );
 };
