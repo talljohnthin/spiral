@@ -3,7 +3,26 @@
 
 //@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 @import url("//db.onlinewebfonts.com/c/3cff9206b4c8d578245ef1aaeeaf9e84?family=SF+Pro+Display");
-@import url("//db.onlinewebfonts.com/c/1c45e28f8e86cc89876f003b953cc3e9?family=SF+Pro+Text");
+
+@font-face {
+  font-family: "SF Pro Text Regular";
+  src: url("./../fonts//SFPTRegular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("//db.onlinewebfonts.com/t/236987803794b916d95e7fd41ed4fee0.eot");
+  src: url("//db.onlinewebfonts.com/t/236987803794b916d95e7fd41ed4fee0.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/236987803794b916d95e7fd41ed4fee0.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/236987803794b916d95e7fd41ed4fee0.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/236987803794b916d95e7fd41ed4fee0.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/236987803794b916d95e7fd41ed4fee0.svg#SF Pro Text")
+      format("svg");
+}
 
 // Reset
 html,
@@ -384,7 +403,7 @@ body {
     margin: 15px auto 0;
     display: block;
     float: none;
-    font-family: $primary-font;
+    font-family: $primary-font-light;
     color: #fff;
     font-weight: 300;
     text-transform: uppercase;
@@ -442,12 +461,13 @@ body {
   .primary-heading {
     max-width: 800px;
     color: $primary-color;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     text-align: center;
-    font-size: 3rem;
+    font-size: 40px;
     font-weight: 300;
     line-height: 1.167;
     letter-spacing: 0em;
+    font-family: $secondary-font;
     @media (max-width: 767px) {
       font-size: 1.8rem;
     }
@@ -458,29 +478,33 @@ body {
   }
 
   .cost {
-    font-size: 30px;
+    font-size: 18px;
     margin-bottom: 25px;
-    color: #6a6a6a;
-    letter-spacing: 1px;
+    font-family: $primary-font;
+    color: $primary-text-color;
+    letter-spacing: -0.5px;
   }
 
   .text {
-    color: #a6a6a6;
-    font-size: 17px;
+    font-size: 16px;
     margin: 10px 0 10px;
+    font-family: $primary-font;
+    text-align: center;
+    color: $primary-text-color;
   }
 
   .primary-btn {
     background: $primary-color;
     box-shadow: none;
     padding: 12px 0;
-    max-width: 320px;
+    max-width: 441px;
     margin: 0 auto;
     display: block;
     float: none;
-    font-family: $primary-font;
-    font-size: 15px;
-    text-transform: capitalize;
+    font-family: $primary-font-light;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 13px;
     color: #fff;
     @media (max-width: 767px) {
       max-width: 400px;
@@ -524,7 +548,7 @@ body {
 }
 
 .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-  border-color: #2196f3 !important;
+  border-color: $primary-color !important;
 }
 
 .suggestion {
@@ -542,7 +566,7 @@ body {
 //home owners
 .section-home-owners {
   .primary-heading {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 
   .home-owners-wrapper {
@@ -560,10 +584,10 @@ body {
   }
 
   .box {
-    width: 190px;
-    height: 190px;
+    width: 152px;
+    height: 152px;
     margin: 0 5px;
-    border: 2px solid #c4c4c4;
+    border: 1.5px solid #c4c4c4;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;

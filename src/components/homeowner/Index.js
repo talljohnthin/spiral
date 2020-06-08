@@ -14,7 +14,7 @@ import { makeStyles, Container, CssBaseline } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -110,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

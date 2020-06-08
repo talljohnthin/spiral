@@ -14,7 +14,7 @@ import ValueLabel from "@material-ui/core/Slider/ValueLabel";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -110,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -35,15 +35,15 @@ const StyledValueLabel = withStyles({
 
 const PrettoSlider = withStyles({
   root: {
-    color: "#2196f3",
-    height: 8,
+    color: "#4d8ecc",
+    height: 7,
   },
   thumb: {
     height: 24,
     width: 24,
-    backgroundColor: "#2196f3",
-    border: "2px solid currentColor",
-    marginTop: -8,
+    backgroundColor: "#4d8ecc",
+    border: "2px solid #4d8ecc",
+    marginTop: -9,
     marginLeft: -12,
     "&:focus, &:hover, &$active": {
       boxShadow: "inherit",
@@ -54,12 +54,13 @@ const PrettoSlider = withStyles({
     left: "calc(-50% + 4px)",
   },
   track: {
-    height: 8,
+    height: 7,
     borderRadius: 4,
   },
   rail: {
-    height: 8,
+    height: 7,
     borderRadius: 4,
+    backgroundColor: "#b1eca3",
   },
 })(Slider);
 
@@ -151,7 +152,10 @@ const Index = () => {
           <div className="primary-heading power-heading">
             Current Monthly Power Bill
           </div>
-          <div className="cost">{cost?.text_value || "$301 - $400"}</div>
+          <div className="text">
+            Drag the slider above to indicate your average power bill
+          </div>
+
           <PrettoSlider
             aria-label="pretto slider"
             value={cost?.value}
@@ -162,9 +166,9 @@ const Index = () => {
             thumb="red"
             onChange={(event, value) => handleSliderChange(value)}
           />
-          <div className="text">
-            Drag the slider above to indicate your average power bill
-          </div>
+
+          <div className="cost">{cost?.text_value || "$301 - $400"}</div>
+
           <Button
             fullWidth
             variant="contained"
