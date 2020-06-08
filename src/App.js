@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Flow from "./components/flow/Index";
 import PowerBill from "./components/powerbill/Index";
@@ -25,6 +26,7 @@ import Footer from "./components/footer/Index";
 import MobileSideMenu from "./components/sideMenu/Index";
 
 const App = () => {
+  const isFunnel = useSelector((state) => state.data.landingView);
   return (
     <Fragment>
       <Router>
@@ -51,7 +53,7 @@ const App = () => {
         <Route path="/tel" exact component={Phone} />
         <Route path="/results" exact component={Results} />
       </Router>
-      <Footer />
+      {!isFunnel && <Footer />}
     </Fragment>
   );
 };

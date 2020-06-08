@@ -86,7 +86,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Container component="main" className="section-flow section-roofshade">
+      <div className="section-flow section-roofshade">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -224,7 +224,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
       <noscript>
         <img src="http://api.trustedform.com/ns.gif" />
       </noscript>

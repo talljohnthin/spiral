@@ -604,7 +604,7 @@ const Address = () => {
 
   return (
     <Fragment>
-      <Container component="main" className="section-flow">
+      <div className="section-flow">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -667,7 +667,7 @@ const Address = () => {
             </Button>
           </form>
         </div>
-      </Container>
+      </div>
       <noscript>
         <img src="http://api.trustedform.com/ns.gif" />
       </noscript>

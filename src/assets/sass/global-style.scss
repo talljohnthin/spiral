@@ -271,15 +271,24 @@ body {
 
 // flow
 .section-flow {
+  background: url("./../images/BG_Image.png");
+  background-size: cover;
+  background-position: bottom;
+  padding: 0 20px;
+  height: 100vh;
+
   @media (max-width: 767px) {
     padding-bottom: 100px;
   }
+
   @media (min-width: 768px) {
-    height: calc(100vh - 80px);
+    //height: calc(100vh - 80px);
+
     display: flex !important;
     align-items: center;
     justify-content: center;
   }
+
   & > div {
     @media (max-width: 767px) {
       margin-top: 25px;
@@ -299,6 +308,7 @@ body {
       font-size: 1.8rem;
     }
   }
+
   .primary-sub-heading {
     font-weight: 400;
     font-size: 1.2rem;
@@ -364,20 +374,30 @@ body {
 
 // powerbill
 .section-powerbill {
+  background-image: url("./../images/BG_Image.png");
+  background-size: cover;
+  background-position: bottom;
+  padding: 0 20px;
+  height: 100vh;
+
   @media (max-width: 767px) {
     padding-bottom: 100px;
   }
+
   @media (min-width: 768px) {
-    height: calc(100vh - 80px);
+    // height: calc(100vh - 80px);
+    height: 100vh;
     display: flex !important;
     align-items: center;
     justify-content: center;
   }
+
   & > div {
     @media (max-width: 767px) {
       margin-top: 25px;
     }
   }
+
   .primary-heading {
     max-width: 800px;
     color: $primary-color;

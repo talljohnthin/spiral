@@ -76,7 +76,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      // setRedirect(true);
+      setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -127,7 +127,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Container component="main" className="section-flow section-phone">
+      <div className="section-flow section-phone">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -202,7 +202,7 @@ const Index = () => {
           </label>
         </div>
         <ModelsModal isOpen={modelsModal} pleaseClose={pleaseClose} />
-      </Container>
+      </div>
       <noscript>
         <img src="http://api.trustedform.com/ns.gif" />
       </noscript>

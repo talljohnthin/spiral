@@ -100,10 +100,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <Container
-        component="main"
-        className="section-powerbill section-providers"
-      >
+      <div className="section-powerbill section-providers">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -185,7 +182,7 @@ const Index = () => {
             Continue
           </Button>
         </div>
-      </Container>
+      </div>
       <noscript>
         <img src="http://api.trustedform.com/ns.gif" />
       </noscript>
