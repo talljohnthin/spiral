@@ -27,6 +27,16 @@ import MobileSideMenu from "./components/sideMenu/Index";
 
 const App = () => {
   const isFunnel = useSelector((state) => state.data.landingView);
+
+  useEffect(() => {
+    if (isFunnel) {
+      document.body.className = "isFunnel";
+    }
+    return () => {
+      document.body.className = "";
+    };
+  }, [isFunnel]);
+
   return (
     <Fragment>
       <Router>

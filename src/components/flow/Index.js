@@ -20,6 +20,7 @@ import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 
 import {
   makeStyles,
+  withStyles,
   Container,
   TextField,
   CssBaseline,
@@ -28,7 +29,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -50,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -40,12 +41,30 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const CustomTextField = withStyles({
+  root: {
+    background: "#fff",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#343131",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#343131 !important",
+        borderWidth: 1,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#343131",
+        borderWidth: 1,
+      },
+    },
+  },
+})(TextField);
 
 const Index = () => {
   const classes = useStyles();
@@ -411,14 +430,14 @@ const Index = () => {
             className={classes.form}
             noValidate
           >
-            <TextField
+            <CustomTextField
               id="outlined-number"
               variant="outlined"
               margin="normal"
               fullWidth
               type="number"
               id="zip"
-              label="Enter Zip Code"
+              label="Enter Your Zip Code"
               name="zip"
               autoComplete="zip"
               value={zip}
@@ -427,9 +446,13 @@ const Index = () => {
                 setErrorMessage("");
               }}
               autoFocus
-              className="text-input"
+              //className="text-input"
               error={errorMessage ? true : false}
               helperText={errorMessage}
+              InputLabelProps={{
+                //shrink: true,
+                margin: "dense",
+              }}
             />
             <Button
               fullWidth
