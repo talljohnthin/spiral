@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 import {
   makeStyles,
-  Container,
+  withStyles,
   CssBaseline,
   Button,
   Select,
@@ -20,7 +20,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -110,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -30,9 +30,6 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-  },
-  select: {
-    color: "#848484",
   },
 }));
 
@@ -82,7 +79,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      setRedirect(true);
+      //setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -121,7 +118,7 @@ const Index = () => {
                     style={
                       !storedMoreDropdown
                         ? e === storedProvider
-                          ? { borderColor: "#2196f3" }
+                          ? { borderColor: "#4d8ecc" }
                           : null
                         : null
                     }
@@ -130,8 +127,10 @@ const Index = () => {
                       handleSelectProvider(e, false);
                     }}
                   >
-                    <RadioButtonUncheckedIcon style={{ color: "#848282" }} />
-                    <span style={{ color: "#848282" }}>{e}</span>
+                    <RadioButtonUncheckedIcon
+                      style={{ color: "#c4c4c4", marginLeft: 10 }}
+                    />
+                    <span style={{ color: "#343131" }}>{e}</span>
                   </li>
                 ))
               : null}
@@ -143,7 +142,7 @@ const Index = () => {
           >
             <InputLabel
               id="demo-simple-select-outlined-label"
-              style={{ color: "#848282" }}
+              style={{ color: "#343131" }}
             >
               More Options
             </InputLabel>
@@ -157,13 +156,13 @@ const Index = () => {
                 setProvider(e.target.value);
               }}
               label="More Options"
-              style={{ color: "#848484" }}
+              style={{ color: "#343131", borderColor: "#343131" }}
               className={storedMoreDropdown ? "isCurrent" : null}
             >
               {providersWithRadius.length
                 ? providersWithRadius.map((e, i) => {
                     return (
-                      <MenuItem key={i} value={e} style={{ color: "#848282" }}>
+                      <MenuItem key={i} value={e} style={{ color: "#343131" }}>
                         {e}
                       </MenuItem>
                     );

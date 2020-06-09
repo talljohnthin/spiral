@@ -60,7 +60,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      setRedirect(true);
+      //setRedirect(true);
     }
 
     dispatch({
@@ -104,7 +104,7 @@ const Index = () => {
               <div
                 className="box"
                 style={
-                  homeOwner === "Yes" ? { border: "2px solid #2196f3" } : null
+                  homeOwner === "Yes" ? { border: "1.5px solid #4d8ecc" } : null
                 }
                 onClick={() => handleSetHomeOwner("Yes")}
               >

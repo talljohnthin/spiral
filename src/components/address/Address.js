@@ -29,29 +29,26 @@ import {
   Avatar,
 } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(6),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    background: "transparent",
+const CustomTextField = withStyles({
+  root: {
+    background: "#fff",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#343131",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#343131 !important",
+        borderWidth: 1,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#343131",
+        borderWidth: 1,
+      },
+    },
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+})(TextField);
 
 const Address = () => {
-  const classes = useStyles();
   const storedStreetAddress = useSelector((state) => state.data.street_address);
   const [street, setStreet] = useState(storedStreetAddress || "");
   const [city, setCity] = useState("");
@@ -76,6 +73,29 @@ const Address = () => {
   const reducerState = useSelector((state) => state.data.state);
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: editMode ? 30 : -110,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      background: "transparent",
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: "100%", // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
+
+  const classes = useStyles();
 
   const stateList = [
     {
@@ -323,7 +343,7 @@ const Address = () => {
       setState(reducerState.long);
     }
     if (!reducerZipCode) {
-      setRedirect(true);
+      //setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -464,11 +484,12 @@ const Address = () => {
       <GooglePlacesAutocomplete
         renderInput={(props) => (
           <div className="custom-wrapper">
-            <TextField
+            <CustomTextField
               id="outlined-number"
               style={{ marginTop: 25 }}
               InputLabelProps={{
-                shrink: true,
+                //shrink: true,
+                margin: "dense",
               }}
               variant="outlined"
               margin="normal"
@@ -513,14 +534,14 @@ const Address = () => {
 
   const streetNotAutofill = () => {
     return (
-      <TextField
+      <CustomTextField
         variant="outlined"
         margin="normal"
         fullWidth
         id="street"
         label="Street Number"
         name="streetNumber"
-        autoComplete="Street Number"
+        autoComplete="off"
         value={street}
         onChange={(e) => {
           setStreet(e.target.value);
@@ -530,6 +551,7 @@ const Address = () => {
         className="text-input"
         InputLabelProps={{
           shrink: true,
+          margin: "dense",
         }}
         error={streetError ? true : false}
         helperText={streetError}

@@ -439,7 +439,7 @@ const Index = () => {
               id="zip"
               label="Enter Your Zip Code"
               name="zip"
-              autoComplete="zip"
+              autoComplete="off"
               value={zip}
               onChange={(e) => {
                 setZip(e.target.value);

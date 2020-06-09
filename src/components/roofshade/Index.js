@@ -16,12 +16,12 @@ import { makeStyles, Container, CssBaseline } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -110,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     background: "transparent",
-    maxWidth: 800,
+    maxWidth: 900,
     margin: "8px auto",
   },
   submit: {
@@ -105,7 +105,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "No Shade"
-                    ? { border: "2px solid #2196f3" }
+                    ? { border: "1.5px solid #4d8ecc" }
                     : null
                 }
                 onClick={() => handleRoofShade("No Shade")}

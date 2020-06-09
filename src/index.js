@@ -22,6 +22,9 @@ const theme = createMuiTheme({
     secondary: {
       main: "#eee",
     },
+    action: {
+      selected: "transparent",
+    },
   },
   typography: {
     useNextVariants: true,

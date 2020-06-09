@@ -310,7 +310,6 @@ body {
 
   @media (min-width: 768px) {
     //height: calc(100vh - 80px);
-
     display: flex !important;
     align-items: center;
     justify-content: center;
@@ -363,7 +362,7 @@ body {
     font-size: 1rem !important;
     font-weight: 400;
     height: 55px;
-    padding: 0 14px;
+    padding: 0 20px;
   }
 
   .MuiInputLabel-marginDense {
@@ -419,7 +418,7 @@ body {
   }
 
   .address {
-    color: #6a6a6a;
+    color: $primary-text-color;
     font-size: 14px;
     text-align: center;
     display: flex;
@@ -429,6 +428,57 @@ body {
       color: $primary-color;
       margin-left: 4px;
     }
+  }
+
+  .form-select {
+    /* ************ start select *********** */
+
+    .MuiInputLabel-outlined {
+      z-index: 999;
+      transform: translate(25px, 20px) scale(1);
+    }
+
+    .MuiInputLabel-outlined.MuiInputLabel-shrink {
+      transform: translate(25px, -6px) scale(0.75);
+      padding: 0 20px;
+      background: #fff;
+      font-size: 17px;
+    }
+
+    .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+      border-color: $primary-text-color;
+      border-width: 1px;
+      padding-left: 26px;
+    }
+
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+      border-color: $primary-text-color;
+      border-width: 1px;
+    }
+
+    .MuiSelect-outlined.MuiSelect-outlined {
+      background: #ffff;
+    }
+
+    .MuiOutlinedInput-input {
+      padding: 18.5px 25px;
+    }
+
+    .MuiSelect-iconOutlined {
+      right: 15px;
+    }
+
+    .MuiSelect-icon {
+      top: calc(50% - 9px);
+      color: rgb(196, 196, 196);
+      transform: scale(1.5);
+    }
+
+    .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+      border-color: $primary-text-color !important;
+    }
+
+    /* ************ end select *********** */
   }
 }
 
@@ -492,6 +542,51 @@ body {
     text-align: center;
     color: $primary-text-color;
   }
+
+  /* ************ start select *********** */
+
+  .MuiInputLabel-outlined {
+    z-index: 999;
+    transform: translate(25px, 20px) scale(1);
+  }
+
+  .MuiInputLabel-outlined.MuiInputLabel-shrink {
+    transform: translate(25px, -6px) scale(0.75);
+    padding: 0 20px;
+    background: #fff;
+    font-size: 17px;
+  }
+
+  .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: $primary-text-color;
+    border-width: 1px;
+    padding-left: 26px;
+  }
+
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: $primary-color;
+    border-width: 1px;
+  }
+
+  .MuiSelect-outlined.MuiSelect-outlined {
+    background: #ffff;
+  }
+
+  .MuiOutlinedInput-input {
+    padding: 18.5px 25px;
+  }
+
+  .MuiSelect-iconOutlined {
+    right: 15px;
+  }
+
+  .MuiSelect-icon {
+    top: calc(50% - 9px);
+    color: rgb(196, 196, 196);
+    transform: scale(1.5);
+  }
+
+  /* ************ end select *********** */
 
   .primary-btn {
     background: $primary-color;
@@ -614,7 +709,10 @@ body {
       &:hover {
         transform: translate(0px, -5%);
         box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 0px;
-        border-color: #2196f3;
+        border-color: $primary-color;
+        .text {
+          color: #6a6a6a;
+        }
       }
     }
 
@@ -622,10 +720,11 @@ body {
       display: block;
       text-align: center;
       font-size: 1rem;
-      color: #6a6a6a;
+      color: #a7a2a2;
       font-weight: 400;
       line-height: 1.5;
       letter-spacing: 0.00938em;
+      transition: 0.3s;
       @media (max-width: 767px) {
         margin-left: 5px;
       }
@@ -653,7 +752,7 @@ body {
   }
 
   input {
-    color: #848484;
+    color: #343131;
   }
 
   .primary-btn {
@@ -662,7 +761,7 @@ body {
 
   li.list-button {
     list-style-type: none;
-    border: 1px solid #c4c4c4;
+    border: 1px solid #343131;
     border-radius: 5px;
     width: 100%;
     display: flex;
@@ -674,7 +773,7 @@ body {
     span {
       //color: #a6a6a6;
       font-size: 1rem;
-      padding-left: 3px;
+      padding-left: 12px;
     }
 
     @media (min-width: 768px) {
@@ -701,14 +800,15 @@ body {
   }
 
   .MuiOutlinedInput-root.isCurrent .MuiOutlinedInput-notchedOutline {
-    border-color: #2196f3 !important;
+    border-color: $primary-color !important;
   }
 }
 
 //roofshade
 .section-roofshade {
   .primary-heading {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    max-width: 670px;
   }
 
   .roofshade-wrapper {
@@ -726,10 +826,10 @@ body {
   }
 
   .box {
-    width: 190px;
-    height: 190px;
+    width: 152px;
+    height: 152px;
     margin: 0 5px;
-    border: 2px solid #c4c4c4;
+    border: 1.5px solid #c4c4c4;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
@@ -758,7 +858,10 @@ body {
       &:hover {
         transform: translate(0px, -5%);
         box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 5px 0px;
-        border-color: #2196f3;
+        border-color: $primary-color;
+        .text {
+          color: #6a6a6a;
+        }
       }
     }
 
@@ -766,10 +869,11 @@ body {
       display: block;
       text-align: center;
       font-size: 1rem;
-      color: #6a6a6a;
+      color: #a7a2a2;
       font-weight: 400;
       line-height: 1.5;
       letter-spacing: 0.00938em;
+      transition: 0.3s;
       @media (max-width: 767px) {
         margin-left: 10px;
       }

@@ -48,6 +48,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const CustomTextField = withStyles({
+  root: {
+    background: "#fff",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#343131",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#343131 !important",
+        borderWidth: 1,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#343131",
+        borderWidth: 1,
+      },
+    },
+  },
+})(TextField);
+
 const Change = ({
   city,
   state,
@@ -308,14 +327,14 @@ const Change = ({
   ];
   return (
     <Fragment>
-      <TextField
+      <CustomTextField
         variant="outlined"
         margin="normal"
         fullWidth
         id="city"
         label="City"
         name="city"
-        autoComplete="city"
+        autoComplete="off"
         value={city}
         onChange={(e) => {
           handleSetCity(e.target.value);
@@ -325,18 +344,23 @@ const Change = ({
         className="text-input"
         InputLabelProps={{
           shrink: true,
+          margin: "dense",
         }}
         error={cityError ? true : false}
         helperText={cityError}
       />
-      <FormControl variant="outlined" style={{ marginTop: 9, width: "100%" }}>
+      <FormControl
+        className="form-select"
+        variant="outlined"
+        style={{ marginTop: 9, width: "100%" }}
+      >
         <InputLabel id="demo-simple-select-outlined-label">State</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
           value={state}
           fullWidth
-          style={{ color: "#6a6a6a" }}
+          style={{ color: "#343131" }}
           onChange={(e) => handleSetState(e.target.value)}
           label="State"
         >
@@ -349,7 +373,7 @@ const Change = ({
           })}
         </Select>
       </FormControl>
-      <TextField
+      <CustomTextField
         variant="outlined"
         margin="normal"
         fullWidth
@@ -357,7 +381,7 @@ const Change = ({
         id="zip"
         label="Zip Code"
         name="zipcode"
-        autoComplete="Zip Code"
+        autoComplete="off"
         value={zip}
         onChange={(e) => {
           handleSetZip(e.target.value);
@@ -367,6 +391,7 @@ const Change = ({
         className="text-input"
         InputLabelProps={{
           shrink: true,
+          margin: "dense",
         }}
         error={zipError ? true : false}
         helperText={zipError}
