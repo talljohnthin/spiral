@@ -55,6 +55,7 @@
       text-align: center;
       position: relative;
       max-width: 800px;
+      font-family: $secondary-font;
       z-index: 1;
       @media (max-width: 767px) {
         font-size: 1.8rem;
@@ -70,8 +71,8 @@
     }
     .primary-sub-heading {
       font-weight: 300;
-      font-size: 1.5rem;
-      line-height: 1.3;
+      font-size: 1.1rem;
+      line-height: 1.2;
       letter-spacing: 0.00938em;
       text-align: center;
       -webkit-font-smoothing: antialiased;
@@ -81,6 +82,7 @@
       position: relative;
       max-width: 500px;
       z-index: 1;
+      font-family: $primary-font-light;
       @media (max-width: 767px) {
         font-size: 1rem;
       }
@@ -139,14 +141,15 @@
     padding: 40px 0;
     .primary-sub-heading {
       font-weight: 300;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       line-height: 1.3;
       letter-spacing: 0.00938em;
       margin-bottom: 20px;
       position: relative;
       z-index: 1;
+      font-family: $secondary-font;
       @media (max-width: 767px) {
-        font-size: 1.2rem;
+        font-size: 1rem;
       }
     }
     .boxes {
@@ -239,7 +242,7 @@
       span {
         text-decoration: none;
         color: #333;
-        font-size: 18px;
+        font-size: 15px;
       }
     }
 
@@ -270,6 +273,7 @@
       position: relative;
       max-width: 600px;
       z-index: 1;
+      font-family: $secondary-font;
       @media (max-width: 767px) {
         font-size: 1.8rem;
       }
@@ -288,14 +292,14 @@
       .box {
         margin-bottom: 40px;
         &--title {
-          font-size: 1.5rem;
+          font-size: 1.3rem;
           line-height: 1.3;
           letter-spacing: 0.00938em;
           -webkit-font-smoothing: antialiased;
           color: #333;
           margin: 0 auto 10px;
           @media (max-width: 767px) {
-            font-size: 1.2rem;
+            font-size: 1rem;
           }
         }
         &--text {
