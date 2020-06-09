@@ -162,7 +162,7 @@ const Index = () => {
               id="phone"
               label="Phone"
               name="phone"
-              autoComplete="Phone"
+              autoComplete="off"
               value={phone}
               onChange={(e) => {
                 setPhone(e.target.value);
