@@ -428,6 +428,9 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
+    @media (max-width: 767px) {
+      margin-top: 10px;
+    }
     .edit {
       text-decoration: none;
       color: $primary-color;
@@ -437,6 +440,10 @@ body {
 
   .form-select {
     /* ************ start select *********** */
+    @media (max-width: 767px) {
+      margin-top: 12px;
+      margin-bottom: 5px;
+    }
 
     .MuiInputLabel-outlined {
       z-index: 999;
