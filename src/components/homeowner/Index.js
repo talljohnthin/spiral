@@ -60,7 +60,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      //setRedirect(true);
+      setRedirect(true);
     }
 
     dispatch({

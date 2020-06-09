@@ -343,7 +343,7 @@ const Address = () => {
       setState(reducerState.long);
     }
     if (!reducerZipCode) {
-      //setRedirect(true);
+      setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
