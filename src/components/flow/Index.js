@@ -409,7 +409,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <div className="section-flow">
+      <Container className="section-flow">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -463,7 +463,7 @@ const Index = () => {
             </Button>
           </form>
         </div>
-      </div>
+      </Container>
       <noscript>
         <img src="http://api.trustedform.com/ns.gif" />
       </noscript>

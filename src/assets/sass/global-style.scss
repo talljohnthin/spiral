@@ -1,7 +1,6 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
-//@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 @font-face {
   font-family: "SF Pro Display";
   src: url("//db.onlinewebfonts.com/t/3cff9206b4c8d578245ef1aaeeaf9e84.eot");
@@ -16,11 +15,6 @@
     url("//db.onlinewebfonts.com/t/3cff9206b4c8d578245ef1aaeeaf9e84.svg#SF Pro Display")
       format("svg");
 }
-
-// @font-face {
-//   font-family: "SF Pro Text Regular";
-//   src: url("./../fonts//SFPTRegular.ttf") format("truetype");
-// }
 
 @font-face {
   font-family: "SF Pro Text";
@@ -45,9 +39,6 @@ body {
   overflow-x: hidden;
   font-family: $primary-font;
   font-size: 14px;
-  //height: 100vh;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+1,1e8ce3+100&0+78,0.24+100 */
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffffff+0,2196f3+100&0+72,0.24+100 */
   background: -moz-linear-gradient(
     top,
     rgba(255, 255, 255, 0) 0%,
@@ -346,6 +337,7 @@ body {
     font-weight: 300;
     @media (max-width: 767px) {
       font-size: 1.8rem;
+      line-height: 28px;
     }
   }
 
