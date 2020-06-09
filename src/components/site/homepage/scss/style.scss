@@ -28,6 +28,7 @@
     font-weight: 300;
     text-align: center;
     margin-top: 130px;
+    font-family: $secondary-font;
     @media (max-width: 767px) {
       font-size: 1.8rem;
       margin-top: 60px;
@@ -43,13 +44,14 @@
   }
   .primary-sub-heading {
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.5;
     letter-spacing: 0.00938em;
     text-align: center;
     -webkit-font-smoothing: antialiased;
     color: #6a6a6a;
     margin: 0 0 10px;
+    font-family: $primary-font;
     @media (max-width: 767px) {
       font-size: 1rem;
     }
@@ -97,6 +99,7 @@
       }
       &--descriptions {
         text-align: center;
+        font-size: 15px;
       }
     }
   }
