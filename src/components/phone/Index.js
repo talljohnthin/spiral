@@ -14,7 +14,6 @@ import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 import {
   makeStyles,
   withStyles,
-  Container,
   TextField,
   CssBaseline,
   Button,
@@ -22,7 +21,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -65,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -42,16 +41,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CustomTextField = withStyles({
-  // root: {
-  //   "& input:valid + fieldset": {
-  //     borderColor: "#48bf91",
-  //     borderWidth: 2,
-  //   },
-  //   "& input:invalid + fieldset": {
-  //     borderColor: "red",
-  //     borderWidth: 2,
-  //   },
-  // },
+  root: {
+    background: "#fff",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#343131",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#343131 !important",
+        borderWidth: 1,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#343131",
+        borderWidth: 1,
+      },
+    },
+  },
 })(TextField);
 
 const Index = () => {
@@ -168,6 +173,9 @@ const Index = () => {
               className="text-input"
               error={errorMessage ? true : false}
               helperText={errorMessage}
+              InputLabelProps={{
+                margin: "dense",
+              }}
             />
 
             <Button

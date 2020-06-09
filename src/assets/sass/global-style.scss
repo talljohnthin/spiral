@@ -904,12 +904,22 @@ body {
 
 //section phone
 .section-phone {
+  .primary-heading {
+    line-height: 40px;
+  }
   .h6 {
-    max-width: 650px;
-    margin-top: 40px;
-    text-align: justify;
+    max-width: 800px;
+    margin-top: 25px;
+    text-align: center;
     color: #a6a6a6;
     font-weight: 300;
+    font-size: 14px;
+  }
+  span {
+    font-weight: 400;
+  }
+  .MuiTextField-root {
+    margin-top: 0;
   }
 }
 

@@ -14,7 +14,6 @@ import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
 import {
   makeStyles,
   withStyles,
-  Container,
   TextField,
   CssBaseline,
   Button,
@@ -22,7 +21,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -110,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -40,6 +39,25 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const CustomTextField = withStyles({
+  root: {
+    background: "#fff",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#343131",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#343131 !important",
+        borderWidth: 1,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#343131",
+        borderWidth: 1,
+      },
+    },
+  },
+})(TextField);
 
 const Index = () => {
   const classes = useStyles();
@@ -123,7 +141,7 @@ const Index = () => {
             className={classes.form}
             noValidate
           >
-            <TextField
+            <CustomTextField
               id="outlined-number"
               variant="outlined"
               margin="normal"
@@ -131,7 +149,7 @@ const Index = () => {
               id="email"
               label="Email"
               name="email"
-              autoComplete="Email"
+              autoComplete="off"
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -141,6 +159,9 @@ const Index = () => {
               className="text-input"
               error={errorMessage ? true : false}
               helperText={errorMessage}
+              InputLabelProps={{
+                margin: "dense",
+              }}
             />
 
             <Button

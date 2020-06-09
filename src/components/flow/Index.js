@@ -446,11 +446,9 @@ const Index = () => {
                 setErrorMessage("");
               }}
               autoFocus
-              //className="text-input"
               error={errorMessage ? true : false}
               helperText={errorMessage}
               InputLabelProps={{
-                //shrink: true,
                 margin: "dense",
               }}
             />

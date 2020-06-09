@@ -19,7 +19,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: -110,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -37,6 +37,25 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+const CustomTextField = withStyles({
+  root: {
+    background: "#fff",
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#343131",
+      },
+      "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#343131 !important",
+        borderWidth: 1,
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#343131",
+        borderWidth: 1,
+      },
+    },
+  },
+})(TextField);
 
 const Index = () => {
   const classes = useStyles();
@@ -59,7 +78,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      setRedirect(true);
+      //setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -141,14 +160,14 @@ const Index = () => {
           </div>
 
           <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
-            <TextField
+            <CustomTextField
               variant="outlined"
               margin="normal"
               fullWidth
               id="firstname"
               label="First Name"
               name="firstName"
-              autoComplete="First Name"
+              autoComplete="off"
               value={firstName}
               onChange={(e) => {
                 setFirstName(e.target.value);
@@ -159,16 +178,19 @@ const Index = () => {
               error={errorFirstName ? true : false}
               helperText={errorFirstName}
               style={{ marginBottom: 0 }}
+              InputLabelProps={{
+                margin: "dense",
+              }}
             />
 
-            <TextField
+            <CustomTextField
               variant="outlined"
               margin="normal"
               fullWidth
               id="lastname"
               label="Last Name"
               name="lastName"
-              autoComplete="Last Name"
+              autoComplete="off"
               value={lastName}
               onChange={(e) => {
                 setLastName(e.target.value);
@@ -177,6 +199,9 @@ const Index = () => {
               className="text-input"
               error={errorLastName ? true : false}
               helperText={errorLastName}
+              InputLabelProps={{
+                margin: "dense",
+              }}
             />
 
             <Button
