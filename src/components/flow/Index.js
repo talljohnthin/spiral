@@ -53,6 +53,7 @@ const CustomTextField = withStyles({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
         borderColor: "#343131",
+        borderRadius: 8,
       },
       "&:hover .MuiOutlinedInput-notchedOutline": {
         borderColor: "#343131 !important",
@@ -418,10 +419,11 @@ const Index = () => {
         />
         <CssBaseline />
         <div className={classes.paper}>
-          <div className="primary-heading">
-            Save On Your Monthly Electric Bill With Affordable Solar Energy
-          </div>
-          <div className="primary-sub-heading">
+          <h1 className="primary-heading">
+            Save On Your Monthly Electric Bill
+          </h1>
+          <h2 className="primary-sub-heading">With Affordable Solar Energy</h2>
+          <div className="primary-sub-text">
             Enter basic information to see if your home is eligible!
           </div>
           <form

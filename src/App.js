@@ -24,6 +24,7 @@ import Contact from "./components/site/contact/Index";
 import HowItWorks from "./components/site/howItWorks/Index";
 import Footer from "./components/footer/Index";
 import MobileSideMenu from "./components/sideMenu/Index";
+import BottomProgress from "./components/progress/BottomProgress";
 
 const App = () => {
   const isFunnel = useSelector((state) => state.data.landingView);
@@ -63,6 +64,7 @@ const App = () => {
         <Route path="/tel" exact component={Phone} />
         <Route path="/results" exact component={Results} />
       </Router>
+      {/* <BottomProgress /> */}
       {!isFunnel && <Footer />}
     </Fragment>
   );

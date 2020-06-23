@@ -31,6 +31,8 @@
       format("svg");
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@700;900&display=swap");
+
 // Reset
 html,
 body {
@@ -88,16 +90,17 @@ body {
 .AppBar {
   position: fixed;
   overflow: visible;
-  background: #fff !important;
+  background: transparent !important;
   z-index: 9999;
   width: 100%;
   transition: all ease-out 0.25s;
   display: flex;
   justify-content: space-between;
   height: 88px;
-  border: 1px solid #eee;
+  //border: 1px solid #eee;
   //box-shadow: 0 5px 30px rgba(0, 0, 0, 0.02), 0 20px 30px rgba(0, 0, 0, 0.02) !important;
   @media (max-width: 767px) {
+    background: #fff !important;
     height: 55px;
     border: 0;
     position: fixed !important;
@@ -302,11 +305,44 @@ body {
 
 // flow
 .section-flow {
-  background: url("./../images/BG_Image.png");
-  background-size: cover;
-  background-position: bottom;
   padding: 0 20px;
   min-height: 100vh;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 900px;
+    height: 500px;
+    background: url("./../images/final/slide1L.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    z-index: 0;
+    @media (max-width: 1100px) {
+      width: 700px;
+    }
+    @media (max-width: 900px) {
+      width: 500px;
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: url("./../images/final/slide1U.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
 
   @media (max-width: 767px) {
     padding-bottom: 100px;
@@ -320,38 +356,42 @@ body {
   }
 
   & > div {
+    z-index: 1;
+    position: relative;
     @media (max-width: 767px) {
       margin-top: 25px;
     }
   }
 
-  .primary-heading {
-    font-family: $secondary-font;
-    color: $primary-color;
-    margin-bottom: 20px;
+  .primary-heading,
+  .primary-sub-heading {
+    font-family: $roboto;
+    color: $dark;
     text-align: center;
-    max-width: 618px;
     font-size: 40px;
     line-height: 55px;
     letter-spacing: 0.33px;
-    font-weight: 300;
+    font-weight: 700;
+    margin: 0;
     @media (max-width: 767px) {
       font-size: 1.8rem;
-      line-height: 28px;
+      line-height: 36px;
     }
   }
 
   .primary-sub-heading {
-    font-family: $primary-font;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    letter-spacing: 0.13px;
+    color: $blue;
+  }
+
+  .primary-sub-text {
+    font-family: $poppins;
+    font-size: 20px;
+    font-weight: 500;
+    color: $dark;
+    margin-top: 12px;
     text-align: center;
-    -webkit-font-smoothing: antialiased;
-    color: #343131;
     @media (max-width: 767px) {
-      font-size: 1rem;
+      font-size: 17px;
     }
   }
 
@@ -363,30 +403,35 @@ body {
   select {
     -webkit-appearance: none;
     margin: 0;
-    font-family: $primary-font;
+    font-family: $poppins;
     font-size: 1rem !important;
     font-weight: 400;
     height: 55px;
     padding: 0 20px;
   }
 
+  .MuiFormControl-root {
+    border-radius: 10px;
+  }
+
   .MuiInputLabel-marginDense {
     margin-left: 15px;
     background: #fff;
-    padding: 0 17px;
+    padding: 0 12px;
     font-size: 15px;
-    color: $primary-text-color;
-    font-family: $primary-font;
+    color: $dark;
+    font-family: $poppins;
   }
 
   .MuiInputLabel-outlined.MuiInputLabel-marginDense {
-    transform: translate(-14px, 20px) scale(1);
+    transform: translate(-10px, 20px) scale(1);
   }
 
   .MuiInputLabel-outlined.MuiInputLabel-shrink {
-    transform: translate(14px, -6px) scale(0.75);
-    font-size: 18px;
-    color: $primary-text-color;
+    transform: translate(7px, -4px) scale(0.75);
+    font-size: 15px;
+    color: $dark;
+    font-weight: 500;
   }
 
   .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
@@ -400,25 +445,26 @@ body {
   }
 
   .primary-btn {
-    background: $primary-color;
+    background: $green;
     box-shadow: none;
     padding: 12px 0;
-    max-width: 100%;
+    max-width: 170px;
     margin: 15px auto 0;
-    display: block;
     float: none;
-    font-family: $primary-font-light;
+    display: block;
+    border-radius: 50px;
+    float: none;
+    font-family: $poppins;
     color: #fff;
     font-weight: 300;
     text-transform: uppercase;
     font-size: 13px;
-    @media (max-width: 767px) {
-      max-width: 400px;
-    }
+    transition: all ease 0.3s;
 
     &:hover {
       box-shadow: none;
-      background: $secondary-color;
+      background: $green;
+      opacity: 0.8;
     }
   }
 
