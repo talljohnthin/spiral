@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import Progress from "./Progress";
 import MobileMenu from "./MobileMenu";
 import SecureFormText from "./SecureFormText";
-import logo from "./../../assets/images/logo.png";
+import logo from "./../../assets/images/final/Logo.png";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
@@ -111,7 +111,11 @@ function Index(props) {
 
   return (
     <React.Fragment>
-      <AppBar className="AppBar" position="sticky" elevation={0}>
+      <AppBar
+        className={isLanding ? "AppBar landing" : "AppBar"}
+        position="sticky"
+        elevation={0}
+      >
         <Toolbar className="toolbar">
           <Grid container spacing={1} alignItems="center">
             <Grid item className="logo">
@@ -120,7 +124,8 @@ function Index(props) {
               </Link>
             </Grid>
             <Grid item xs />
-            {isLanding ? renderProgressbar() : renderMenuItem()}
+            {/* {isLanding ? renderProgressbar() : renderMenuItem()} */}
+            {renderMenuItem()}
           </Grid>
         </Toolbar>
       </AppBar>

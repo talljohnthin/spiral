@@ -43,7 +43,6 @@ const App = () => {
       <Router>
         <MobileSideMenu />
         <Header />
-        <ProgressMobile />
         <Route path="/" exact component={Homepage} />
         <Route path="/incentives" exact component={Incentives} />
         <Route path="/incentives/:state" exact component={IncentivesSingle} />

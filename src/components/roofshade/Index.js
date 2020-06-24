@@ -4,10 +4,10 @@ import { Redirect } from "react-router-dom";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_ROOF_SHADE } from "./../../redux/actions/data/dataTypes";
 import useIsMounted from "ismounted";
-import noShade from "./../../assets/images/noshade.png";
-import littleShade from "./../../assets/images/littleshade.png";
-import lotsOfShade from "./../../assets/images/lotofshade.png";
-import uncertain from "./../../assets/images/uncertain.png";
+import noShade from "./../../assets/images/final/slide-5/Noshade.png";
+import littleShade from "./../../assets/images/final/slide-5/Alittleshade.png";
+import lotsOfShade from "./../../assets/images/final/slide-5/Alotofshade.png";
+import uncertain from "./../../assets/images/final/slide-5/Uncertain.png";
 import IosArrowForward from "react-ionicons/lib/IosArrowForward";
 import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { useHistory } from "react-router-dom";
@@ -59,7 +59,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      setRedirect(true);
+      // setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -105,7 +105,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "No Shade"
-                    ? { border: "1.5px solid #4d8ecc" }
+                    ? { border: "2px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("No Shade")}
@@ -132,7 +132,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "A Little Shade"
-                    ? { border: "2px solid #2196f3" }
+                    ? { border: "2px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("A Little Shade")}
@@ -163,7 +163,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "A Lot Of Shade"
-                    ? { border: "2px solid #2196f3" }
+                    ? { border: "2px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("A Lot Of Shade")}
@@ -194,7 +194,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "Uncertain"
-                    ? { border: "2px solid #2196f3" }
+                    ? { border: "2px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("Uncertain")}
