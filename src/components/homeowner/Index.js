@@ -5,8 +5,6 @@ import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_IS_HOME_OWNER } from "./../../redux/actions/data/dataTypes";
 import useIsMounted from "ismounted";
-import MdCheckmark from "react-ionicons/lib/MdCheckmark";
-import MdClose from "react-ionicons/lib/MdClose";
 import IosArrowForward from "react-ionicons/lib/IosArrowForward";
 import { useHistory } from "react-router-dom";
 
@@ -104,16 +102,15 @@ const Index = () => {
               <div
                 className="box"
                 style={
-                  homeOwner === "Yes" ? { border: "1.5px solid #4d8ecc" } : null
+                  homeOwner === "Yes" ? { border: "2px solid #1b8ec1" } : null
                 }
                 onClick={() => handleSetHomeOwner("Yes")}
               >
                 <span>
                   <span>
-                    <MdCheckmark
-                      className="icon"
-                      fontSize={dimensions.width < 768 ? "20px" : "90px"}
-                      color="#48bf91"
+                    <img
+                      src={require("../../assets/images/final/slide-3/Yes.png")}
+                      alt="yes"
                     />
                   </span>
                   <span className="text">Yes</span>
@@ -133,16 +130,15 @@ const Index = () => {
               <div
                 className="box"
                 style={
-                  homeOwner === "No" ? { border: "2px solid #2196f3" } : null
+                  homeOwner === "No" ? { border: "2px solid #1b8ec1" } : null
                 }
                 onClick={() => handleSetHomeOwner("No")}
               >
                 <span>
                   <span>
-                    <MdClose
-                      className="icon"
-                      fontSize={dimensions.width < 768 ? "20px" : "90px"}
-                      color="#f44438"
+                    <img
+                      src={require("../../assets/images/final/slide-3/No.png")}
+                      alt="no"
                     />
                   </span>
                   <span className="text">No</span>

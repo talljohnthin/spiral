@@ -1,22 +1,13 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import { SET_PROGRESS } from "./../../redux/actions/progress/progressTypes";
 import { SET_PROVIDER } from "./../../redux/actions/data/dataTypes";
 import { setCurrentView } from "./../../redux/actions/data/dataActions";
 import { useHistory } from "react-router-dom";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import {
-  makeStyles,
-  withStyles,
-  CssBaseline,
-  Button,
-  Select,
-  FormControl,
-  InputLabel,
-  MenuItem,
-} from "@material-ui/core";
+import { makeStyles, CssBaseline, Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -42,7 +33,10 @@ const Index = () => {
   const [selectedProvider, setSelectedProvider] = useState(
     storedMoreDropdown ? storedProvider : ""
   );
-  const [provider, setProvider] = useState("");
+  const [provider, setProvider] = useState(
+    storedProvider ? storedProvider : "More Options"
+  );
+  const [toggleDropdown, setToggleDropdown] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const zipcode = useSelector((state) => state.data.zip_code);
   const providers = useSelector(
@@ -97,7 +91,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <div className="section-powerbill section-providers">
+      <div className="section-flow section-providers">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -106,9 +100,9 @@ const Index = () => {
         />
         <CssBaseline />
         <div className={classes.paper}>
-          <div className="primary-heading power-heading">
+          <h2 className="primary-heading power-heading">
             Who is your Electricity Provider?
-          </div>
+          </h2>
           <div className="list">
             {providers.length
               ? providers.map((e, i) => (
@@ -118,7 +112,7 @@ const Index = () => {
                     style={
                       !storedMoreDropdown
                         ? e === storedProvider
-                          ? { borderColor: "#4d8ecc" }
+                          ? { borderColor: "#1b8ec1" }
                           : null
                         : null
                     }
@@ -127,49 +121,58 @@ const Index = () => {
                       handleSelectProvider(e, false);
                     }}
                   >
-                    <RadioButtonUncheckedIcon
-                      style={{ color: "#c4c4c4", marginLeft: 10 }}
-                    />
+                    <div className="circle"></div>
                     <span style={{ color: "#343131" }}>{e}</span>
                   </li>
                 ))
               : null}
           </div>
 
-          <FormControl
-            variant="outlined"
-            style={{ width: "100%", maxWidth: 400, margin: "20px auto" }}
+          <div
+            className={
+              storedMoreDropdown
+                ? "dropdown-provider isCurrent"
+                : "dropdown-provider"
+            }
           >
-            <InputLabel
-              id="demo-simple-select-outlined-label"
-              style={{ color: "#343131" }}
-            >
-              More Options
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-outlined-label"
-              id="demo-simple-select-outlined"
-              value={selectedProvider}
-              fullWidth
-              onChange={(e) => {
-                setSelectedProvider(e.target.value);
-                setProvider(e.target.value);
+            <span
+              className={
+                toggleDropdown ? "dropdown-selected open" : "dropdown-selected"
+              }
+              onClick={() => {
+                setToggleDropdown(!toggleDropdown);
               }}
-              label="More Options"
-              style={{ color: "#343131", borderColor: "#343131" }}
-              className={storedMoreDropdown ? "isCurrent" : null}
+            >
+              {provider}
+              <ExpandMoreIcon
+                className={toggleDropdown ? "caret open" : "caret"}
+              />
+            </span>
+            <ul
+              className="list-item"
+              style={
+                toggleDropdown ? { display: "block" } : { display: "none" }
+              }
             >
               {providersWithRadius.length
                 ? providersWithRadius.map((e, i) => {
                     return (
-                      <MenuItem key={i} value={e} style={{ color: "#343131" }}>
+                      <li
+                        key={i}
+                        value={e}
+                        onClick={() => {
+                          setSelectedProvider(e);
+                          setProvider(e);
+                          setToggleDropdown(!toggleDropdown);
+                        }}
+                      >
                         {e}
-                      </MenuItem>
+                      </li>
                     );
                   })
                 : null}
-            </Select>
-          </FormControl>
+            </ul>
+          </div>
 
           <Button
             fullWidth
