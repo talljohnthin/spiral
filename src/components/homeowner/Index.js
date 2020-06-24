@@ -102,7 +102,7 @@ const Index = () => {
               <div
                 className="box"
                 style={
-                  homeOwner === "Yes" ? { border: "2px solid #1b8ec1" } : null
+                  homeOwner === "Yes" ? { border: "1px solid #1b8ec1" } : null
                 }
                 onClick={() => handleSetHomeOwner("Yes")}
               >
@@ -130,7 +130,7 @@ const Index = () => {
               <div
                 className="box"
                 style={
-                  homeOwner === "No" ? { border: "2px solid #1b8ec1" } : null
+                  homeOwner === "No" ? { border: "1px solid #1b8ec1" } : null
                 }
                 onClick={() => handleSetHomeOwner("No")}
               >

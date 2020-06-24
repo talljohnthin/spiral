@@ -105,7 +105,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "No Shade"
-                    ? { border: "2px solid #1b8ec1" }
+                    ? { border: "1px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("No Shade")}
@@ -132,7 +132,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "A Little Shade"
-                    ? { border: "2px solid #1b8ec1" }
+                    ? { border: "1px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("A Little Shade")}
@@ -194,7 +194,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "Uncertain"
-                    ? { border: "2px solid #1b8ec1" }
+                    ? { border: "1px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("Uncertain")}

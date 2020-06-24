@@ -186,6 +186,7 @@ body {
       transition: 0.3s;
       font-size: 14px;
       font-family: $poppins;
+      font-weight: 500;
       @media (max-width: 1024px) {
         padding: 0 5px;
       }
@@ -416,12 +417,28 @@ body {
     font-weight: 400;
   }
 
+  .MuiOutlinedInput-input {
+    padding: 18.5px 20px;
+  }
+
   .MuiInputLabel-outlined.MuiInputLabel-marginDense {
-    transform: translate(14px, 20px) scale(1);
+    transform: translate(20px, 20px) scale(1);
   }
 
   .MuiInputLabel-outlined.MuiInputLabel-shrink {
-    transform: translate(14px, -6px) scale(0.75);
+    transform: translate(20px, -6px) scale(0.75);
+    background: #fff;
+    padding: 0 10px;
+    color: $dark;
+  }
+
+  .MuiInputLabel-outlined {
+    font-family: $poppins;
+    color: rgba($dark, 0.5);
+  }
+
+  .MuiOutlinedInput-notchedOutline {
+    padding-left: 20px;
   }
 
   .primary-btn {
