@@ -35,14 +35,15 @@ const StyledValueLabel = withStyles({
 
 const PrettoSlider = withStyles({
   root: {
-    color: "#4d8ecc",
+    color: "#1b8ec1",
     height: 7,
+    marginTop: 30,
   },
   thumb: {
     height: 24,
     width: 24,
-    backgroundColor: "#4d8ecc",
-    border: "2px solid #4d8ecc",
+    backgroundColor: "#1b8ec1",
+    border: "5.5px solid #e8f5f9",
     marginTop: -9,
     marginLeft: -12,
     "&:focus, &:hover, &$active": {
@@ -60,7 +61,7 @@ const PrettoSlider = withStyles({
   rail: {
     height: 7,
     borderRadius: 4,
-    backgroundColor: "#b1eca3",
+    backgroundColor: "rgb(232,245,249)",
   },
 })(Slider);
 
@@ -141,6 +142,7 @@ const Index = () => {
   return (
     <Fragment>
       <div className="section-powerbill">
+        <div className="object-1"></div>
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -149,10 +151,10 @@ const Index = () => {
         />
         <CssBaseline />
         <div className={classes.paper}>
-          <div className="primary-heading power-heading">
+          <h2 className="primary-sub-heading power-heading">
             Current Monthly Power Bill
-          </div>
-          <div className="text">
+          </h2>
+          <div className="primary-sub-text">
             Drag the slider above to indicate your average power bill
           </div>
 

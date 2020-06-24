@@ -1,26 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const BottomProgress = () => {
-  const totalSlideNumber = useSelector((state) => state.progress.totalPage);
-  const buildArray = [];
-
-  const renderList = () => {
-    for (let i = 0; i < totalSlideNumber; i++) {
-      buildArray.push("");
-    }
-  };
-
-  useEffect(() => {
-    renderList();
-  }, []);
+  const progressPercent = useSelector(
+    (state) => state.progress.progressPercent
+  );
+  const current = Number(Math.floor(progressPercent).toString().split("")[0]);
 
   return (
     <div className="bottom-progress">
       <ul className="progress-list">
-        {buildArray.map((item) => (
-          <li></li>
-        ))}
+        <li className={1 <= current ? "active" : null}></li>
+        <li className={2 <= current ? "active" : null}></li>
+        <li className={3 <= current ? "active" : null}></li>
+        <li className={4 <= current ? "active" : null}></li>
+        <li className={5 <= current ? "active" : null}></li>
+        <li className={6 <= current ? "active" : null}></li>
+        <li className={7 <= current ? "active" : null}></li>
+        <li className={8 <= current ? "active" : null}></li>
+        <li className={9 <= current ? "active" : null}></li>
       </ul>
     </div>
   );

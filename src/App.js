@@ -64,7 +64,7 @@ const App = () => {
         <Route path="/tel" exact component={Phone} />
         <Route path="/results" exact component={Results} />
       </Router>
-      {/* <BottomProgress /> */}
+      <BottomProgress />
       {!isFunnel && <Footer />}
     </Fragment>
   );
