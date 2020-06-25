@@ -81,11 +81,11 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      //setRedirect(true);
+      setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
-      payload: 9,
+      payload: 8.5,
     });
     dispatch(setCurrentView(true));
     return () => {

@@ -213,6 +213,17 @@ body {
     }
   }
 }
+body.isFunnel {
+  .AppBar {
+    .hamburger-icon {
+      right: 0;
+    }
+  }
+
+  .mobile-side-menu .menu--wrapper {
+    padding-top: 55px;
+  }
+}
 
 // mobile side menu
 .mobile-side-menu {

@@ -31,7 +31,7 @@ const Index = () => {
   );
   const storedProvider = useSelector((state) => state.data.providers.provider);
   const [selectedProvider, setSelectedProvider] = useState(
-    storedMoreDropdown ? storedProvider : ""
+    storedMoreDropdown ? storedProvider : "More Options"
   );
   const [provider, setProvider] = useState(
     storedProvider ? storedProvider : "More Options"
@@ -143,7 +143,7 @@ const Index = () => {
                 setToggleDropdown(!toggleDropdown);
               }}
             >
-              {provider}
+              {selectedProvider}
               <ExpandMoreIcon
                 className={toggleDropdown ? "caret open" : "caret"}
               />
