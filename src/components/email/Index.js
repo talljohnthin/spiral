@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     background: "transparent",
+    maxWidth: 441,
+    width: "100%",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   avatar: {
     margin: theme.spacing(1),
@@ -121,7 +125,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <div className="section-flow">
+      <div className="section-flow section-email">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -130,17 +134,12 @@ const Index = () => {
         />
         <CssBaseline />
         <div className={classes.paper}>
-          <div className="primary-heading">What's your email?</div>
-          <div className="primary-sub-heading">
+          <h2 className="primary-heading">What's your email?</h2>
+          <div className="primary-sub-text">
             We take privacy seriously. No spam!
           </div>
 
-          <form
-            onSubmit={handleSetEmail}
-            style={{ paddingTop: 10 }}
-            className={classes.form}
-            noValidate
-          >
+          <form onSubmit={handleSetEmail} className={classes.form} noValidate>
             <CustomTextField
               id="outlined-number"
               variant="outlined"

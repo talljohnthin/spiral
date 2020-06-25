@@ -86,6 +86,10 @@ body {
   }
 }
 
+.MuiOutlinedInput-root {
+  border-radius: 8px !important;
+}
+
 // header
 .AppBar {
   position: fixed;
@@ -913,7 +917,7 @@ body {
   li.list-button {
     list-style-type: none;
     border: 1px solid $dark;
-    border-radius: 5px;
+    border-radius: 8px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -957,7 +961,7 @@ body {
     max-width: 350px;
     width: 100%;
     margin-top: 20px;
-    border-radius: 6px;
+    border-radius: 8px;
     position: relative;
     &.isCurrent {
       span {
@@ -976,10 +980,10 @@ body {
       position: relative;
       color: $dark;
       border: 1px solid $dark;
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
-      border-bottom-left-radius: 6px;
-      border-bottom-right-radius: 6px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
       &.open {
         border-bottom: 0;
         border-bottom-left-radius: 0;
@@ -1229,7 +1233,7 @@ body {
     margin-bottom: 6px;
     width: 100%;
     margin-top: 10px;
-    border-radius: 6px;
+    border-radius: 8px;
     position: relative;
 
     &.isCurrent {
@@ -1262,10 +1266,10 @@ body {
       position: relative;
       color: $dark;
       border: 1px solid $dark;
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
-      border-bottom-left-radius: 6px;
-      border-bottom-right-radius: 6px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
       &.open {
         border-bottom: 0;
         border-bottom-left-radius: 0;
@@ -1340,22 +1344,88 @@ body {
   }
 }
 
+//email
+.section-email {
+  &:before {
+    width: 40%;
+    background: url("./../images/final/slide-8/Lowerright.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    @media (max-width: 767px) {
+      width: 60%;
+    }
+  }
+
+  &:after {
+    width: 50px;
+    background: url("./../images/final/slide-8/Left.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    top: auto;
+    right: -25px;
+    bottom: 200px;
+  }
+
+  .primary-sub-heading {
+    color: $dark;
+  }
+
+  form {
+    max-width: 550px;
+  }
+}
+
 //section phone
 .section-phone {
+  &:before {
+    width: 40%;
+    background: url("./../images/final/slide-9/Lowerright.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    @media (max-width: 767px) {
+      width: 60%;
+    }
+  }
+
+  &:after {
+    width: 25%;
+    background: url("./../images/final/slide-9/Lowerleft.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    top: auto;
+    right: 0;
+    bottom: 0;
+  }
+
   .primary-heading {
     line-height: 40px;
   }
+
   .h6 {
-    max-width: 800px;
+    max-width: 700px;
     margin-top: 25px;
     text-align: center;
-    color: #a6a6a6;
-    font-weight: 300;
-    font-size: 14px;
+    color: rgba(#a6a6a6, 0.7);
+    line-height: 18px;
+    font-size: 11px;
+    font-family: $poppins;
+
+    span {
+      font-family: $poppins;
+      font-weight: 500;
+      color: $green !important;
+      text-decoration: none !important;
+    }
   }
+
   span {
-    font-weight: 400;
+    font-family: $poppins;
   }
+
   .MuiTextField-root {
     margin-top: 0;
   }

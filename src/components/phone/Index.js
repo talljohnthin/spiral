@@ -81,7 +81,7 @@ const Index = () => {
 
   useEffect(() => {
     if (!zipcode) {
-      setRedirect(true);
+      //setRedirect(true);
     }
     dispatch({
       type: SET_PROGRESS,
@@ -141,10 +141,9 @@ const Index = () => {
         />
         <CssBaseline />
         <div className={classes.paper}>
-          <div className="primary-heading">
-            You've Been Matched With Solar Experts In Your Area!
-          </div>
-          <div className="primary-sub-heading">
+          <h1 className="primary-heading">You've Been Matched With Solar</h1>
+          <h2 className="primary-sub-heading">Experts In Your Area!</h2>
+          <div className="primary-sub-text">
             Complete this final step to see your savings.
           </div>
 
