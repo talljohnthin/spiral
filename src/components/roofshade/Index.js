@@ -163,7 +163,7 @@ const Index = () => {
                 className="box"
                 style={
                   roof_shade === "A Lot Of Shade"
-                    ? { border: "2px solid #1b8ec1" }
+                    ? { border: "1px solid #1b8ec1" }
                     : null
                 }
                 onClick={() => handleRoofShade("A Lot Of Shade")}

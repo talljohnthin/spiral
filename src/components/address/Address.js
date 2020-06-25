@@ -21,12 +21,9 @@ import { useHistory } from "react-router-dom";
 import {
   makeStyles,
   withStyles,
-  Container,
-  Grid,
   TextField,
   CssBaseline,
   Button,
-  Avatar,
 } from "@material-ui/core";
 
 const CustomTextField = withStyles({
@@ -88,7 +85,6 @@ const Address = () => {
     },
     form: {
       width: "100%", // Fix IE 11 issue.
-      marginTop: theme.spacing(1),
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
@@ -486,7 +482,6 @@ const Address = () => {
           <div className="custom-wrapper">
             <CustomTextField
               id="outlined-number"
-              style={{ marginTop: 25 }}
               InputLabelProps={{
                 //shrink: true,
                 margin: "dense",
@@ -626,7 +621,7 @@ const Address = () => {
 
   return (
     <Fragment>
-      <div className="section-flow">
+      <div className="section-flow section-address">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -635,8 +630,8 @@ const Address = () => {
         />
         <CssBaseline />
         <div className={classes.paper}>
-          <div className="primary-heading">What's your property address?</div>
-          <div className="primary-sub-heading">
+          <h2 className="primary-sub-heading">What's your property address?</h2>
+          <div className="primary-sub-text">
             For verification only. We do not mail.
           </div>
           <form className={classes.form} noValidate>

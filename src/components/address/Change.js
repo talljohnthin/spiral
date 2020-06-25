@@ -10,19 +10,9 @@ import {
   SET_ZIPCODE,
 } from "./../../redux/actions/data/dataTypes";
 import { GOOGLE_MAP_API_KEY } from "./../../config/keys";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import {
-  makeStyles,
-  withStyles,
-  Container,
-  FormControl,
-  TextField,
-  CssBaseline,
-  Button,
-  MenuItem,
-  Select,
-  InputLabel,
-} from "@material-ui/core";
+import { makeStyles, withStyles, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -83,6 +73,7 @@ const Change = ({
   const [streetAddress, setStreetAddress] = useState("");
   const [redirect, setRedirect] = useState(false);
   const [redirectToNext, setRedirectToNext] = useState(false);
+  const [toggleDropdown, setToggleDropdown] = useState(false);
 
   const isMounted = useIsMounted();
   const dispatch = useDispatch();
@@ -349,7 +340,7 @@ const Change = ({
         error={cityError ? true : false}
         helperText={cityError}
       />
-      <FormControl
+      {/* <FormControl
         className="form-select"
         variant="outlined"
         style={{ marginTop: 9, width: "100%" }}
@@ -372,7 +363,44 @@ const Change = ({
             );
           })}
         </Select>
-      </FormControl>
+      </FormControl> */}
+      {console.log(state)}
+      <div className="dropdown-state">
+        <div className="label-state">State</div>
+        <span
+          className={
+            toggleDropdown ? "dropdown-selected open" : "dropdown-selected"
+          }
+          onClick={() => {
+            setToggleDropdown(!toggleDropdown);
+          }}
+        >
+          {state ? state : "Select State"}
+          <ExpandMoreIcon className={toggleDropdown ? "caret open" : "caret"} />
+        </span>
+        <ul
+          className="list-item"
+          style={toggleDropdown ? { display: "block" } : { display: "none" }}
+        >
+          {stateList.length
+            ? stateList.map((e, i) => {
+                return (
+                  <li
+                    key={i}
+                    value={e}
+                    onClick={() => {
+                      handleSetState(e.name);
+                      setToggleDropdown(!toggleDropdown);
+                    }}
+                  >
+                    {e.name}
+                  </li>
+                );
+              })
+            : null}
+        </ul>
+      </div>
+
       <CustomTextField
         variant="outlined"
         margin="normal"

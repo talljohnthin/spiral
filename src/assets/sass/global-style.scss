@@ -413,8 +413,8 @@ body {
   input,
   select {
     font-family: $poppins;
-    font-size: 1rem !important;
-    font-weight: 400;
+    font-size: 14px !important;
+    font-weight: 500;
   }
 
   .MuiOutlinedInput-input {
@@ -434,7 +434,7 @@ body {
 
   .MuiInputLabel-outlined {
     font-family: $poppins;
-    color: rgba($dark, 0.5);
+    color: $dark;
   }
 
   .MuiOutlinedInput-notchedOutline {
@@ -750,24 +750,25 @@ body {
 //autocomplete
 .suggestions-container {
   // border: 1px solid #e6e6e6;
-  border: 2px solid $primary-color;
+  border: 1px solid $dark;
   border-radius: 8px;
   padding: 10px;
 }
 
 .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-  border-color: $primary-color !important;
+  border-color: $blue !important;
 }
 
 .suggestion {
   cursor: pointer;
   color: #a6a6a6;
-  font-size: 15px;
+  font-size: 14px;
   display: flex;
   align-items: flex-start;
   margin-bottom: 4px;
+  font-family: $poppins;
   &:hover {
-    color: $primary-color;
+    color: $blue;
   }
 }
 
@@ -1188,6 +1189,154 @@ body {
     svg.mobile-icon {
       fill: #6a6a6a;
     }
+  }
+}
+
+//address
+.section-address {
+  &:before {
+    width: 50%;
+    background: url("./../images/final/slide-6/Lowerright.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    right: 0;
+    left: auto;
+    @media (max-width: 767px) {
+      width: 60%;
+    }
+  }
+
+  &:after {
+    display: none;
+  }
+
+  .primary-sub-heading {
+    color: $dark;
+  }
+
+  .address,
+  .edit {
+    font-family: $poppins;
+    font-weight: 500;
+  }
+
+  .edit {
+    color: $green !important;
+  }
+
+  .dropdown-state {
+    margin-bottom: 6px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 6px;
+    position: relative;
+
+    &.isCurrent {
+      span {
+        border-color: #1b8ec1;
+      }
+    }
+
+    .label-state {
+      background: #fff;
+      display: inline;
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      padding: 0 8px;
+      z-index: 999;
+      font-size: 12.5px;
+      font-family: $poppins;
+    }
+
+    span {
+      font-family: $poppins;
+      padding: 0 20px;
+      line-height: 56px;
+      height: 56px;
+      background: #fafcfc;
+      display: block;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      color: $dark;
+      border: 1px solid $dark;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      &.open {
+        border-bottom: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .caret {
+        position: absolute;
+        right: 15px;
+        top: 17px;
+        font-size: 22px;
+        transform: rotate(0deg);
+        transition: 0.3s;
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    .list-item {
+      height: 200px;
+      width: 100%;
+      overflow: auto;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      left: 0;
+      top: 56px;
+      border: 1px solid $dark;
+      border-top: 0;
+      z-index: 999999;
+      background: #fff;
+      border-bottom-left-radius: 16px;
+      li {
+        list-style-type: none;
+        font-family: $poppins;
+        display: block;
+        padding: 0 20px;
+        line-height: 40px;
+        font-weight: 500;
+        cursor: pointer;
+        color: $dark;
+        &:nth-child(even) {
+          background: #fafcfc;
+        }
+      }
+    }
+  }
+}
+
+//personal
+.section-personal {
+  &:before {
+    width: 40%;
+    background: url("./../images/final/slide-7/Lowerright.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    @media (max-width: 767px) {
+      width: 60%;
+    }
+  }
+
+  &:after {
+    width: 50%;
+    background: url("./../images/final/slide-7/Lowerleft.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    top: auto;
+    bottom: 0;
+    right: 60px;
   }
 }
 

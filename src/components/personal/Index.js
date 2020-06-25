@@ -145,7 +145,7 @@ const Index = () => {
 
   return (
     <Fragment>
-      <div className="section-flow">
+      <div className="section-flow section-personal">
         <input
           id="leadid_token"
           name="universal_leadid"
@@ -154,12 +154,12 @@ const Index = () => {
         />
         <CssBaseline />
         <div className={classes.paper}>
-          <div className="primary-heading">What's your name?</div>
-          <div className="primary-sub-heading">
+          <h2 className="primary-heading">What's your name?</h2>
+          <div className="primary-sub-text">
             Personal Information Is Safe & Secure
           </div>
 
-          <form style={{ paddingTop: 10 }} className={classes.form} noValidate>
+          <form className={classes.form} noValidate>
             <CustomTextField
               variant="outlined"
               margin="normal"
