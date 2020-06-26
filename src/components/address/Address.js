@@ -71,6 +71,24 @@ const Address = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: editMode ? 30 : -110,
@@ -494,7 +512,7 @@ const Address = () => {
               label="Street Address"
               name="address"
               autoComplete="address"
-              autoFocus
+              autoFocus={dimensions.width <= 1024 ? false : true}
               className="text-input"
               inputProps={inputProps}
               {...props}
@@ -542,7 +560,7 @@ const Address = () => {
           setStreet(e.target.value);
           setStreetError("");
         }}
-        autoFocus
+        autoFocus={dimensions.width <= 1024 ? false : true}
         className="text-input"
         InputLabelProps={{
           shrink: true,

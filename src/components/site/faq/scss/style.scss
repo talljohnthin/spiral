@@ -25,11 +25,16 @@
       padding-left: 6px;
       -webkit-font-smoothing: antialiased;
       color: #333;
+      font-family: $poppins;
       margin: 0 0 20px;
       @media (max-width: 767px) {
         font-size: 1.2rem;
         line-height: 1.1;
       }
+    }
+
+    p {
+      font-family: $poppins;
     }
 
     .MuiExpansionPanelSummary-root {

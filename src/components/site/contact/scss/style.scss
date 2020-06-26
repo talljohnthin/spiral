@@ -30,6 +30,7 @@
       -webkit-font-smoothing: antialiased;
       color: #333;
       margin: 0 0 20px;
+      font-family: $poppins;
       @media (max-width: 767px) {
         font-size: 1.3rem;
       }
@@ -46,6 +47,7 @@
     font-weight: 300;
     text-align: center;
     margin-top: 60px;
+    font-family: $poppins;
     @media (max-width: 767px) {
       font-size: 1.8rem;
     }
@@ -68,18 +70,29 @@
     -webkit-font-smoothing: antialiased;
     color: #6a6a6a;
     margin: 0 0 10px;
+    font-family: $poppins;
     @media (max-width: 767px) {
       font-size: 0.8rem;
     }
   }
 
+  .box {
+    form {
+      input,
+      label,
+      textarea {
+        font-family: $poppins;
+      }
+    }
+  }
+
   .primary-btn {
-    background: $primary-color;
+    background: $green;
     box-shadow: none;
     padding: 10px 30px;
     max-width: 100%;
     display: block;
-    font-family: $primary-font;
+    font-family: $poppins;
     color: #fff;
     text-transform: capitalize;
     font-size: 1rem;
@@ -87,7 +100,7 @@
 
     &:hover {
       box-shadow: none;
-      background: $secondary-color;
+      background: rgba($green, 0.8);
     }
   }
 
@@ -124,15 +137,21 @@
         line-height: 1.5;
         letter-spacing: 0.00938em;
         margin: 0 0 10px;
+        font-family: $poppins;
         @media (max-width: 767px) {
           font-size: 0.8rem;
         }
       }
 
       &--text {
+        font-family: $poppins;
         color: #6a6a6a;
         font-size: 15px;
       }
     }
+  }
+
+  input {
+    font-family: $poppins;
   }
 }

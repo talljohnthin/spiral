@@ -44,7 +44,9 @@ const Index = () => {
             </h3>
             <div className="boxes">
               <div className="box">
-                <img src={require("./../../../assets/images/sites/zip.png")} />
+                <img
+                  src={require("./../../../assets/images/sites/Site_V2_Icon1.png")}
+                />
                 <span className="box--title">1. Enter your zip code</span>
                 <p className="box--descriptions">
                   We will find you the biggest rebates and incentives currently
@@ -53,7 +55,7 @@ const Index = () => {
               </div>
               <div className="box">
                 <img
-                  src={require("./../../../assets/images/sites/check.png")}
+                  src={require("./../../../assets/images/sites/Site_V2_Icon2.png")}
                 />
                 <span className="box--title">2. Check eligibility</span>
                 <p className="box--descriptions">
@@ -62,7 +64,9 @@ const Index = () => {
                 </p>
               </div>
               <div className="box">
-                <img src={require("./../../../assets/images/sites/save.png")} />
+                <img
+                  src={require("./../../../assets/images/sites/Site_V2_Icon3.png")}
+                />
                 <span className="box--title">3. See your savings</span>
                 <p className="box--descriptions">
                   Once your home is approved, you can compare the best savings

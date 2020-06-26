@@ -27,7 +27,7 @@ function Index() {
       <ContactUsModal isOpen={contactModal} pleaseClose={pleaseClose} />
 
       <footer className={isLanding ? "footer landing" : "footer"}>
-        <li>Company Name</li>
+        <li>Dream Big Media Inc</li>
         <li className="hasLink" onClick={() => setTermsModal(true)}>
           Terms and Disclosures
         </li>

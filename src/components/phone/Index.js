@@ -75,11 +75,31 @@ const Index = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   const pleaseClose = () => {
     setModelsModal(false);
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     if (!zipcode) {
       setRedirect(true);
     }
@@ -103,6 +123,8 @@ const Index = () => {
   };
 
   const handleSetPhone = (e) => {
+    window.scrollTo(0, 0);
+
     e.preventDefault();
 
     if (validPhone(phone)) {
@@ -167,7 +189,7 @@ const Index = () => {
                 setPhone(e.target.value);
                 isError && onErrorValidate(e.target.value);
               }}
-              autoFocus
+              autoFocus={dimensions.width <= 1024 ? false : true}
               type="Number"
               className="text-input"
               error={errorMessage ? true : false}

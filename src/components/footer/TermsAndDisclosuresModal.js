@@ -22,7 +22,7 @@ export default function TermsAndDisclosuresModal({ isOpen, pleaseClose }) {
         <DialogContent>
           <DialogContentText id="scroll-dialog-description" tabIndex={-1}>
             <p>
-              Welcome to EnergyBillCruncher.com (hereinafter referred to as
+              Welcome to realsolarquotes.com (hereinafter referred to as
               "Company" "we," "us," or "our"). Before you begin to use the
               Website, please take a moment to review these terms and conditions
               ("Agreement") which is a legal agreement. By submitting any
@@ -187,7 +187,7 @@ export default function TermsAndDisclosuresModal({ isOpen, pleaseClose }) {
               and does not create an employment relationship, an independent
               contractor relationship, an agency relationship, or any other
               relationship. You may cancel your request at anytime by sending an
-              e-mail to info@Energybillcruncher.com.
+              e-mail to info@realsolarquotes.com.
             </p>
             <p>5. PROHIBITED USER CONDUCT.</p>
             <p>

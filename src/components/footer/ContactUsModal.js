@@ -54,11 +54,14 @@ export default function ContactUsModal({ isOpen, pleaseClose }) {
         <DialogContent>
           <DialogContentText id="scroll-dialog-description" tabIndex={-1}>
             <div style={{ textAlign: "right" }}>
-              8383 Wilshire Blvd,
+              Dream Big Media Inc
               <br />
-              Suite 540 Los Angeles, CA 90211
+              2505 Foothill Blvd Suite B
               <br />
-              sales@energybillcruncher.com
+              La Crescenta,CA 91214
+              <br />
+              sales@realsolarquotes.com
+              <br />
             </div>
             <form
               onSubmit={handleSubmit(onSubmit)}

@@ -112,7 +112,7 @@ export default function PrivacyPolicyModal({ isOpen, pleaseClose }) {
                 provide and have such information acquired by Company. If you
                 did not give express permission, or you would like to remove
                 your permission, you may suppress all of your information by
-                sending notification to us at sales@energybillcruncher.com.
+                sending notification to us at sales@realsolarquotes.com.
               </p>
               <p>
                 1.4. Other Methods of Collecting Personal Information. Other
@@ -259,7 +259,7 @@ export default function PrivacyPolicyModal({ isOpen, pleaseClose }) {
                 instructions at the end of each email message to unsubscribe
                 from the particular list. To unsubscribe from all Company's
                 email lists, a person must send an email to
-                sales@Energybillcruncher.com
+                sales@realsolarquotes.com
               </p>
               <p>
                 2.4. Content of Email Messages. You may receive certain
@@ -369,8 +369,8 @@ export default function PrivacyPolicyModal({ isOpen, pleaseClose }) {
                 disclosed to third parties, or used by Company or third parties
                 to send promotional correspondence to you. You may remove your
                 information by sending your request in writing via email to
-                sales@energybillcruncher.com or by sending "STOP", "END", "QUIT"
-                to the SMS text message you have received.
+                sales@realsolarquotes.com or by sending "STOP", "END", "QUIT" to
+                the SMS text message you have received.
               </p>
               <p>
                 2.10. Use of Technology Information. Company may use Technology
@@ -595,7 +595,7 @@ export default function PrivacyPolicyModal({ isOpen, pleaseClose }) {
                 more than once per calendar year. We reserve our right not to
                 respond to requests submitted other than to the address
                 specified in this section. If you have questions about this
-                policy, please contact us at sales@energybillcruncher.com
+                policy, please contact us at sales@realsolarquotes.com
               </p>
               <p id="doNotSellMyInfo">9.0. YOUR CALIFORNIA PRIVACY RIGHTS</p>
               <p>
@@ -629,14 +629,14 @@ export default function PrivacyPolicyModal({ isOpen, pleaseClose }) {
                   information to third parties. This means that, if you opt out,
                   going forward, we will not share your information with such
                   third parties to use for their own commercial purposes unless
-                  you later direct us send an email to
-                  sales@energybillcruncher.com and verify your identity
-                  according to the steps outlined in the next paragraph.
+                  you later direct us send an email to sales@realsolarquotes.com
+                  and verify your identity according to the steps outlined in
+                  the next paragraph.
                 </li>
               </ul>
               <p>
                 For verification purposes, please send an email to
-                sales@energybillcruncher with the subject of the email titled:
+                sales@realsolarquotes.com with the subject of the email titled:
                 "CCPA Opt Out". In that email please provide your name, address,
                 telephone number and email address. Further information may be
                 required for verification. Additionally, please let us know

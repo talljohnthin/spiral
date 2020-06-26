@@ -315,6 +315,24 @@ const Index = () => {
     },
   ];
 
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -443,11 +461,11 @@ const Index = () => {
               name="zip"
               autoComplete="off"
               value={zip}
+              autoFocus={dimensions.width <= 1024 ? false : true}
               onChange={(e) => {
                 setZip(e.target.value);
                 setErrorMessage("");
               }}
-              autoFocus
               error={errorMessage ? true : false}
               helperText={errorMessage}
               InputLabelProps={{

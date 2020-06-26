@@ -118,10 +118,10 @@ const Index = () => {
               As solar panel systems slowly step into the mainstream, it's
               natural for confusion to be abound. People have questions about
               solar, and it isn't always so easy to find answers. This is where
-              EnergyBillCruncher comes in.
+              Real Solar Quotes comes in.
             </p>
             <p>
-              EnergyBillCruncher flips the script on the entire going solar
+              Real Solar Quotes flips the script on the entire going solar
               process. With us, the homeowner is in the driver's seat. Our
               platform allows you to get all the info you need - comparison
               shop, check incentives and rebates, calculate savings - and get

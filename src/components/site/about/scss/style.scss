@@ -45,18 +45,18 @@
       margin-bottom: 10px;
     }
     .primary-heading {
-      color: $primary-color;
+      color: $blue;
       margin: 0 0 10px;
       text-align: center;
       font-size: 4rem;
       line-height: 1.167;
       letter-spacing: 0em;
-      font-weight: 300;
+      font-weight: 600;
       text-align: center;
       position: relative;
       max-width: 800px;
       z-index: 1;
-      font-family: $secondary-font;
+      font-family: $roboto;
       @media (max-width: 767px) {
         font-size: 1.8rem;
       }
@@ -81,6 +81,7 @@
       margin: 0 0 10px;
       position: relative;
       z-index: 1;
+      font-family: $poppins;
       @media (max-width: 767px) {
         font-size: 1rem;
       }
@@ -111,6 +112,7 @@
       position: relative;
       max-width: 600px;
       z-index: 1;
+      font-family: $poppins;
       @media (max-width: 767px) {
         font-size: 1.2rem;
       }
@@ -122,6 +124,7 @@
       text-align-last: center;
       font-size: 1rem;
       letter-spacing: 0.00938em;
+      font-family: $poppins;
     }
   }
 
@@ -154,6 +157,7 @@
 
         &--title {
           margin: 0 0 10px;
+          font-family: $poppins;
         }
 
         p {
@@ -162,6 +166,7 @@
           text-align: left;
           margin-bottom: 0;
           font-size: 1rem;
+          font-family: $poppins;
           letter-spacing: 0.00938em;
         }
       }
@@ -178,6 +183,7 @@
       position: relative;
       max-width: 600px;
       z-index: 1;
+      font-family: $poppins;
       @media (max-width: 767px) {
         font-size: 1.2rem;
       }
@@ -188,6 +194,7 @@
       margin-bottom: 20px;
       font-size: 1rem;
       letter-spacing: 0.00938em;
+      font-family: $poppins;
     }
     img {
       width: 100%;

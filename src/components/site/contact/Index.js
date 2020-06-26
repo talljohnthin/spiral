@@ -34,14 +34,12 @@ const Index = () => {
                 <div className="block">
                   <span className="block--title">Address</span>
                   <span className="block--text">
-                    8383 Wilshire Blvd, Suite 540 Los Angeles, CA 90211
+                    2505 Foothill Blvd Suite B La Crescenta,CA 91214
                   </span>
                 </div>
                 <div className="block">
                   <span className="block--title">Email Us</span>
-                  <span className="block--text">
-                    sales@energybillcruncher.com
-                  </span>
+                  <span className="block--text">sales@realsolarquotes.com</span>
                 </div>
               </div>
               <div className="box">

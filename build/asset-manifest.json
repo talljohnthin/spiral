@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.c2bb35aa.chunk.css",
-    "main.js": "/static/js/main.cb5b1646.chunk.js",
-    "main.js.map": "/static/js/main.cb5b1646.chunk.js.map",
+    "main.css": "/static/css/main.cebc600c.chunk.css",
+    "main.js": "/static/js/main.5e585952.chunk.js",
+    "main.js.map": "/static/js/main.5e585952.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.7d82166a.js",
     "runtime-main.js.map": "/static/js/runtime-main.7d82166a.js.map",
     "static/css/2.47271137.chunk.css": "/static/css/2.47271137.chunk.css",
     "static/js/2.b34cdfd8.chunk.js": "/static/js/2.b34cdfd8.chunk.js",
     "static/js/2.b34cdfd8.chunk.js.map": "/static/js/2.b34cdfd8.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.6c975145d574094c947e3527e8ff58ff.js": "/precache-manifest.6c975145d574094c947e3527e8ff58ff.js",
+    "precache-manifest.595b79d96472c3eff23a3c3be262a68f.js": "/precache-manifest.595b79d96472c3eff23a3c3be262a68f.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.47271137.chunk.css.map": "/static/css/2.47271137.chunk.css.map",
-    "static/css/main.c2bb35aa.chunk.css.map": "/static/css/main.c2bb35aa.chunk.css.map",
+    "static/css/main.cebc600c.chunk.css.map": "/static/css/main.cebc600c.chunk.css.map",
     "static/js/2.b34cdfd8.chunk.js.LICENSE.txt": "/static/js/2.b34cdfd8.chunk.js.LICENSE.txt",
     "static/media/AMMIcon.png": "/static/media/AMMIcon.ce8f602f.png",
     "static/media/Innovation.jpg": "/static/media/Innovation.3e6d4ac4.jpg",
@@ -20,20 +20,17 @@
     "static/media/SimplifiedIcon.png": "/static/media/SimplifiedIcon.fefb79f6.png",
     "static/media/about-hero.jpg": "/static/media/about-hero.db91ee38.jpg",
     "static/media/batteries.jpg": "/static/media/batteries.9802df7e.jpg",
-    "static/media/check.png": "/static/media/check.48cee129.png",
     "static/media/inverter.jpg": "/static/media/inverter.96146984.jpg",
     "static/media/pv-modules.jpg": "/static/media/pv-modules.9f30e65e.jpg",
     "static/media/regulator-controller.jpg": "/static/media/regulator-controller.18014a7e.jpg",
     "static/media/index.css": "/static/media/roboto-latin-900italic.ebf6d164.woff2",
-    "static/media/save.png": "/static/media/save.ae1b188b.png",
-    "static/media/states.jpg": "/static/media/states.2229a9c5.jpg",
-    "static/media/zip.png": "/static/media/zip.d2db5363.png"
+    "static/media/states.jpg": "/static/media/states.2229a9c5.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7d82166a.js",
     "static/css/2.47271137.chunk.css",
     "static/js/2.b34cdfd8.chunk.js",
-    "static/css/main.c2bb35aa.chunk.css",
-    "static/js/main.cb5b1646.chunk.js"
+    "static/css/main.cebc600c.chunk.css",
+    "static/js/main.5e585952.chunk.js"
   ]
 }

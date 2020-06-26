@@ -1,6 +1,7 @@
 @import "./../../../../assets/sass/variables.scss";
 
 .incentives--wrapper {
+  background: #fff;
   .section {
     &--container {
       max-width: 1024px;
@@ -16,22 +17,54 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    background: #fff !important;
+
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      top: auto;
+      left: 0;
+      width: 900px;
+      height: 500px;
+      background: url("../../../../assets/images/final/slide1L.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom left;
+      z-index: 0;
+      @media (max-width: 1100px) {
+        width: 700px;
+      }
+      @media (max-width: 900px) {
+        width: 500px;
+      }
+      @media (max-width: 767px) {
+        width: 280px;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 300px;
+      background: url("../../../../assets/images/final/slide1U.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+
     @media (max-width: 767px) {
       min-height: auto;
       padding: 100px 0;
       margin-top: 55px;
     }
 
-    &:before {
-      content: "";
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.7);
-      z-index: 0;
-    }
     .section--container {
       display: flex;
       flex-direction: column;
@@ -45,17 +78,17 @@
       margin-bottom: 30px;
     }
     .primary-heading {
-      color: $primary-color;
+      color: $blue;
       margin: 0 0 10px;
       text-align: center;
       font-size: 4rem;
       line-height: 1.167;
       letter-spacing: 0em;
-      font-weight: 300;
+      font-weight: 600;
       text-align: center;
       position: relative;
       max-width: 800px;
-      font-family: $secondary-font;
+      font-family: $roboto;
       z-index: 1;
       @media (max-width: 767px) {
         font-size: 1.8rem;
@@ -64,6 +97,8 @@
       &.small-primary {
         font-size: 1.8rem;
         margin: 30px 0 20px;
+        font-family: $roboto;
+
         @media (max-width: 767px) {
           font-size: 1.2rem;
         }
@@ -76,35 +111,44 @@
       letter-spacing: 0.00938em;
       text-align: center;
       -webkit-font-smoothing: antialiased;
-      color: #efefef;
-      opacity: 0.6;
+      color: $dark;
       margin: 0 auto 10px;
       position: relative;
       max-width: 500px;
       z-index: 1;
-      font-family: $primary-font-light;
+      font-family: $poppins;
       @media (max-width: 767px) {
         font-size: 1rem;
       }
     }
     .dropdown--wrapper {
-      background: #fff;
       position: relative;
       z-index: 2;
       display: flex;
       padding: 10px 20px;
       align-items: center;
       border-radius: 6px;
+      font-family: $poppins;
       margin-top: 20px;
       @media (max-width: 767px) {
         flex-direction: column;
       }
+
       .MuiSelect-select:focus {
         background-color: transparent;
+      }
+
+      .box {
+        select,
+        option,
+        label {
+          font-family: $poppins;
+        }
       }
       @media (max-width: 767px) {
         .box {
           width: 100%;
+          font-family: $poppins;
         }
       }
       @media (max-width: 374px) {
@@ -114,14 +158,14 @@
       }
     }
     .primary-btn {
-      background: $primary-color;
+      background: $green;
       box-shadow: none;
       padding: 12px 20px;
       max-width: 100%;
       margin: 10px auto 0;
       display: block;
       float: none;
-      font-family: $primary-font;
+      font-family: $poppins;
       color: #fff;
       text-transform: capitalize;
       font-size: 1rem;
@@ -132,7 +176,7 @@
 
       &:hover {
         box-shadow: none;
-        background: $secondary-color;
+        background: rgba($green, 0.8);
       }
     }
   }
@@ -147,7 +191,7 @@
       margin-bottom: 20px;
       position: relative;
       z-index: 1;
-      font-family: $secondary-font;
+      font-family: $poppins;
       @media (max-width: 767px) {
         font-size: 1rem;
       }
@@ -165,7 +209,7 @@
         transition: 0.3s;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.02),
           0 10px 10px rgba(0, 0, 0, 0.02);
-        border: 1px solid $primary-color;
+        border: 1px solid $blue;
         @media (max-width: 1080px) {
           width: 18%;
         }
@@ -181,7 +225,7 @@
           width: 100%;
         }
         &:hover {
-          background: $primary-color;
+          background: $blue;
           a {
             color: #fff;
           }
@@ -192,8 +236,9 @@
           justify-content: center;
           padding: 12px 15px;
           text-decoration: none;
-          color: $primary-color;
+          color: $blue;
           transition: 0.3s;
+          font-family: $poppins;
         }
       }
     }
@@ -243,6 +288,7 @@
         text-decoration: none;
         color: #333;
         font-size: 15px;
+        font-family: $poppins;
       }
     }
 
@@ -262,18 +308,18 @@
     }
 
     .primary-heading {
-      color: $primary-color;
+      color: $blue;
       margin: 0 0 10px;
       text-align: center;
       font-size: 3rem;
       line-height: 1.167;
       letter-spacing: 0em;
-      font-weight: 300;
+      font-weight: 600;
       text-align: center;
       position: relative;
       max-width: 600px;
       z-index: 1;
-      font-family: $secondary-font;
+      font-family: $roboto;
       @media (max-width: 767px) {
         font-size: 1.8rem;
       }
@@ -298,6 +344,7 @@
           -webkit-font-smoothing: antialiased;
           color: #333;
           margin: 0 auto 10px;
+          font-family: $poppins;
           @media (max-width: 767px) {
             font-size: 1rem;
           }
@@ -307,6 +354,7 @@
           line-height: 1.5;
           text-align: justify;
           font-size: 1rem;
+          font-family: $poppins;
           letter-spacing: 0.00938em;
         }
       }
@@ -324,8 +372,16 @@
       @media (max-width: 767px) {
         flex-direction: column;
       }
+
       .MuiSelect-select:focus {
         background-color: transparent;
+      }
+      .box {
+        select,
+        option,
+        label {
+          font-family: $poppins;
+        }
       }
       @media (max-width: 767px) {
         .box {
@@ -340,14 +396,14 @@
     }
 
     .primary-btn {
-      background: $primary-color;
+      background: rgba($green, 1);
       box-shadow: none;
       padding: 12px 20px;
       max-width: 100%;
       margin: 10px auto 0;
       display: block;
       float: none;
-      font-family: $primary-font;
+      font-family: $poppins;
       color: #fff;
       text-transform: capitalize;
       font-size: 1rem;
@@ -357,7 +413,7 @@
 
       &:hover {
         box-shadow: none;
-        background: $secondary-color;
+        background: rgba($green, 0.8);
       }
     }
   }
